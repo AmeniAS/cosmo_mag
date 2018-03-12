@@ -45,6 +45,12 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        // Définir le nouveau "guard"
+        'blogger' => [
+            'driver' => 'session',
+            'provider' => 'bloggers',
+        ],
     ],
 
     /*
@@ -68,6 +74,12 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        // Ajouter un nouveau provider
+        'bloggers' => [
+            'driver' => 'eloquent',
+            'model' => App\Blogger::class,
         ],
 
         // 'users' => [
@@ -94,6 +106,14 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        // Pour le "reset" du mot de passe
+        // Attention au provider
+        'bloggers' => [
+            'provider' => 'bloggers',
             'table' => 'password_resets',
             'expire' => 60,
         ],
