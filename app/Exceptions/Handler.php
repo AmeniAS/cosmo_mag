@@ -77,8 +77,14 @@ class Handler extends ExceptionHandler
                 $route_name = 'bloggers.login';
                 break;
 
+        switch ($guard) {
+            case 'admin':
+                $route_name = 'admins.login';
+                break;
+
             default:
                 $route_name = 'login';
+            }
         }
 
         return redirect()->route($route_name);

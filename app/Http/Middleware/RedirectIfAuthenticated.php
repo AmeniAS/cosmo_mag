@@ -23,6 +23,12 @@ class RedirectIfAuthenticated
                 if (Auth::guard($guard)->check()) {
                     return redirect()->route('bloggers.home');
                 }
+                break; 
+
+            case 'admin':
+                if (Auth::guard($guard)->check()) {
+                    return redirect()->route('admins.home');
+                }
                 break;
 
             default:
