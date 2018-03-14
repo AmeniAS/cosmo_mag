@@ -28,6 +28,17 @@ Route::prefix('bloggers')->group(function (){
 
     Route::get('/register', 'AuthBlogger\RegisterController@showRegistrationForm')->name('bloggers.register');
     Route::post('/register', 'AuthBlogger\RegisterController@register')->name('bloggers.register.submit');
+});
+
+
+Route::prefix('admins')->group(function (){
+
+    Route::get('/', 'AdminController@index')->name('admins.home');
+    Route::get('/login', 'AuthAdmin\LoginController@showLoginForm')->name('admins.login');
+    Route::post('/login', 'AuthAdmin\LoginController@login')->name('admins.login.submit');
+    Route::get('/register', 'AuthAdmin\RegisterController@showRegistrationForm')->name('admins.register');
+    Route::post('/register', 'AuthAdmin\RegisterController@register')->name('admins.register.submit');
+
 
 });
 

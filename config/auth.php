@@ -51,6 +51,11 @@ return [
             'driver' => 'session',
             'provider' => 'bloggers',
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -80,6 +85,11 @@ return [
         'bloggers' => [
             'driver' => 'eloquent',
             'model' => App\Blogger::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
         ],
 
         // 'users' => [
@@ -114,6 +124,12 @@ return [
         // Attention au provider
         'bloggers' => [
             'provider' => 'bloggers',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'admin' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
         ],
