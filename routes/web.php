@@ -30,3 +30,12 @@ Route::prefix('bloggers')->group(function (){
     Route::post('/register', 'AuthBlogger\RegisterController@register')->name('bloggers.register.submit');
 
 });
+
+Route::prefix('articles')->group(function (){
+
+    Route::get('/', 'BloggersController@index')->name('articles.index');
+    Route::get('/create', 'BloggersController@create')->name('articles.create');
+    Route::post('/store', 'BloggersController@store')->name('articles.store');
+    Route::get('/{id}/show', 'BloggersController@show')->name('articles.show');
+
+});

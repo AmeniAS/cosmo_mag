@@ -2,10 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class BloggersController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        // Spécifier le "gaurd" pour la restriction
+        $this->middleware('auth:blogger');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +26,9 @@ class BloggersController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::all();
+
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -23,7 +38,7 @@ class BloggersController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -34,7 +49,25 @@ class BloggersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'article_content' => 'required',
+            'image' => 'required'
+        ]);
+
+        $user = $request->user();
+
+        Article::create([
+            'title' => $request->title,
+            'image' => $request->image,
+            'article_content' => $request->article_content,
+            'views_count' => 0,
+            'blogger_id' => $user->id,
+        ]);
+
+        Session::flash('message', 'Article ajouté');
+
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -45,7 +78,12 @@ class BloggersController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::findOrFail($id);
+
+        $article->views_count = $article->views_count + 1;
+        $article->save();
+
+        return view('articles.show', compact('article'));
     }
 
     /**
@@ -56,7 +94,15 @@ class BloggersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = \request()->user();
+
+        $article = Article::findOrFail($id);
+
+        if ($article->blogger->id == $user-id) {
+            //edit whatever
+        }
+
+        abort(403);
     }
 
     /**

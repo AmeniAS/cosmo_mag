@@ -15,6 +15,19 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->string('title');
+            $table->string('image');
+            $table->text('article_content');
+            $table->integer('views_count');
+
+            $table->integer('blogger_id')->unsigned()->index();
+
+            $table->foreign('blogger_id')
+                ->references('id')
+                ->on('bloggers')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

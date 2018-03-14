@@ -29,4 +29,9 @@ class Blogger extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 }
