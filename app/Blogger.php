@@ -34,4 +34,9 @@ class Blogger extends Authenticatable
     {
         return $this->hasMany(Article::class);
     }
+
+    public function media_images()
+    {
+        return $this->hasMany(MediaImage::class);
+    }
 }
