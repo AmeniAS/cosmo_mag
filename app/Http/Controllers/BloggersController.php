@@ -29,6 +29,8 @@ class BloggersController extends Controller
         $articles = Article::all();
 
         return view('articles.index', compact('articles'));
+
+        
     }
 
     /**

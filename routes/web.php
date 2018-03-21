@@ -50,3 +50,13 @@ Route::prefix('articles')->group(function (){
     Route::get('/{id}/show', 'BloggersController@show')->name('articles.show');
 
 });
+
+Route::prefix('media_videos')->group(function (){
+
+    Route::get('/', 'MediaVideoController@index')->name('media_videos.index');
+    Route::get('/create', 'MediaVideoController@create')->name('media_videos.create');
+    Route::post('/store', 'MediaVideoController@store')->name('media_videos.store');
+    Route::get('/{id}/show', 'MediaVideoController@show')->name('media_videos.show');
+
+});
+
