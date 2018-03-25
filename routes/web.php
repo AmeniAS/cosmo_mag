@@ -68,3 +68,33 @@ Route::prefix('media_images')->group(function (){
     Route::get('/{id}/show', 'MediaImageController@show')->name('media_images.show');
 
 });
+
+Route::prefix('administrator')->group(function (){
+
+    Route::get('/', 'AdminDashboardController@index');
+
+    Route::prefix('/vente')->group(function (){
+
+        Route::get('/commandes', 'AdminDashboardController@commandes')->name('admin.vente.commades');
+
+    });
+
+    Route::prefix('/users')->group(function (){
+
+        Route::get('/', 'Admin\MemberController@index')->name('admin.members.index');
+        Route::get('/{id}/show', 'Admin\MemberController@show')->name('admin.members.show');
+        Route::post('/{id}/update', 'Admin\MemberController@update')->name('admin.members.update');
+        Route::get('/{id}/delete', 'Admin\MemberController@destroy')->name('admin.members.delete');
+
+    });
+
+    Route::prefix('/bloggers')->group(function (){
+
+        Route::get('/', 'Admin\BloggerController@index')->name('admin.bloggers.index');
+        Route::get('/{id}/show', 'Admin\BloggerController@show')->name('admin.bloggers.show');
+        Route::post('/{id}/update', 'Admin\BloggerController@update')->name('admin.bloggers.update');
+        Route::get('/{id}/delete', 'Admin\BloggerController@destroy')->name('admin.bloggers.delete');
+
+    });
+
+});

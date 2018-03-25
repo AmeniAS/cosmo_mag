@@ -22,6 +22,12 @@
                                 <a href="#">{{ $article->blogger->name }}</a>
                                 <span>Compteur de vues : {{ $article->views_count }}</span>
 
+                                {{--<button class="btn btn-primary">Modifier</button>--}}
+
+                                @can('update', $article)
+                                    <button class="btn btn-primary">Modifier</button>
+                                @endcan
+
                             </div>
                             
                         </div>

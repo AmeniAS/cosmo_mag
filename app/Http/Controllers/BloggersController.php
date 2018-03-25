@@ -100,9 +100,13 @@ class BloggersController extends Controller
 
         $article = Article::findOrFail($id);
 
-        if ($article->blogger->id == $user-id) {
+        if ($user->can('update', $article)) {
             //edit whatever
         }
+
+        /*if ($article->blogger->id == $user-id) {
+            //edit whatever
+        }*/
 
         abort(403);
     }
