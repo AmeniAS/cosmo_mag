@@ -117,6 +117,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('referer_code') ? ' has-error' : '' }}">
+                            <label for="referer_code" class="col-md-4 control-label">Code affiliation</label>
+
+                            <div class="col-md-6">
+                                <input id="referer_code" type="text" class="form-control" name="referer_code" value="{{ old('referer_code') }}">
+
+                                @if ($errors->has('referer_code'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('referer_code') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

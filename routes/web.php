@@ -42,6 +42,18 @@ Route::prefix('admins')->group(function (){
 
 });
 
+Route::prefix('partenaires')->group(function (){
+
+    Route::get('/', 'PartenaireController@index')->name('partenaires.home');
+    Route::get('/login', 'AuthPartenaire\LoginController@showLoginForm')->name('partenaires.login');
+    Route::post('/login', 'AuthPartenaire\LoginController@login')->name('partenaires.login.submit');
+    Route::get('/register', 'AuthPartenaire\RegisterController@showRegistrationForm')->name('partenaires.register');
+    Route::post('/register', 'AuthPartenaire\RegisterController@register')->name('partenaires.register.submit');
+
+
+});
+
+
 Route::prefix('articles')->group(function (){
 
     Route::get('/', 'BloggersController@index')->name('articles.index');
@@ -94,6 +106,15 @@ Route::prefix('administrator')->group(function (){
         Route::get('/{id}/show', 'Admin\BloggerController@show')->name('admin.bloggers.show');
         Route::post('/{id}/update', 'Admin\BloggerController@update')->name('admin.bloggers.update');
         Route::get('/{id}/delete', 'Admin\BloggerController@destroy')->name('admin.bloggers.delete');
+
+    });
+    Route::prefix('/partenaires')->group(function (){
+
+        Route::get('/', 'Admin\PartenaireController@index')->name('admin.partenaires.index');
+        Route::get('/{id}/show', 'Admin\PartenaireController@show')->name('admin.partenaires.show');
+        Route::post('/{id}/update', 'Admin\PartenaireController@update')->name('admin.partenaires.update');
+        Route::get('/{id}/delete', 'Admin\PartenaireController@destroy')->name('admin.partenaires.delete');
+        Route::get('/{id}/create', 'Admin\PartenaireController@create')->name('admin.partenaires.create');
 
     });
 

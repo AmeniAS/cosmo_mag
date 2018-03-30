@@ -51,26 +51,9 @@ class BloggersController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'article_content' => 'required',
-            'image' => 'required'
-        ]);
 
-        $user = $request->user();
-
-        Article::create([
-            'title' => $request->title,
-            'image' => $request->image,
-            'article_content' => $request->article_content,
-            'views_count' => 0,
-            'blogger_id' => $user->id,
-        ]);
-
-        Session::flash('message', 'Article ajouté');
-
-        return redirect()->route('articles.index');
     }
+
 
     /**
      * Display the specified resource.

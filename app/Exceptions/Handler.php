@@ -81,6 +81,11 @@ class Handler extends ExceptionHandler
                 $route_name = 'admins.login';
                 break;
 
+            case 'partenaire':
+                $route_name = 'partenaires.login';
+                break;
+
+
             default:
                 $route_name = 'login';
         }

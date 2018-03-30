@@ -4,6 +4,8 @@ namespace App\Http\Controllers\AuthBlogger;
 
 use App\Blogger;
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\StaticHelpers;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,6 +34,11 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
+        $referer = StaticHelpers::findRefereeByCode($request->toArray());
+
+        $code = $referer ? $referer->code : null;
+        $type = ($referer instanceof User) ? 'user' : 'blogger';
+
         $blogger = Blogger::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -40,7 +47,13 @@ class RegisterController extends Controller
             'phone' => $request->phone,
             'address' => $request->address,
             'image' => $request->image,
+
+            'code' => str_random(10),
             'points' => 0,
+
+            'referer_code' => $code,
+            'referer_type' => $type,
+
             'facebook' => 'facebook',
             'youtube' => 'youtube',
             'instagram' => 'instagram',

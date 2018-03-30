@@ -24,7 +24,12 @@ class CreateBloggersTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('image');
+
+            $table->string('code');
             $table->string('points');
+
+            $table->string('referer_code')->nullable();
+            $table->string('referer_type')->nullable();
 
             $table->string('facebook');
             $table->string('youtube');

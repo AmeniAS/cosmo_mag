@@ -18,7 +18,7 @@ class Blogger extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'birthdate', 'phone', 'address', 'image', 'points', 'facebook', 'youtube', 'instagram'
+        'name', 'email', 'password', 'birthdate', 'phone', 'address', 'image', 'points', 'facebook', 'youtube', 'instagram', 'code', 'referer_code', 'referer_type'
     ];
 
     /**

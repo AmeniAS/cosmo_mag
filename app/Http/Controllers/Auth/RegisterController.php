@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Repositories\StaticHelpers;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -62,6 +63,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $referer = StaticHelpers::findRefereeByCode($data);
+
+        $code = $referer ? $referer->code : null;
+        if ($code) {
+            $type = ($referer instanceof User) ? 'user' : 'blogger';
+        } else {
+            $type = null;
+        }
+
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -70,6 +81,12 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'address' => $data['address'],
             'image' => $data['image'],
+
+            'code' => str_random(10),
+
+            'referer_code' => $code,
+            'referer_type' => $type,
+
             'points' => 0,
         ]);
     }

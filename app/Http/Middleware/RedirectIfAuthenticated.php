@@ -31,6 +31,13 @@ class RedirectIfAuthenticated
                 }
                 break;
 
+            case 'partenaire':
+                if (Auth::guard($guard)->check()) {
+                    return redirect()->route('partenaires.home');
+                }
+                break;
+
+
             default:
                 if (Auth::guard($guard)->check()) {
                     return redirect()->route('users.home');

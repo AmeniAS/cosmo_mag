@@ -7,9 +7,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Créer un video </div>
-
+/
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('media_video.store') }}">
+                        <form class="form-horizontal" method="POST" action="{{ route('media_videos.store') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -30,7 +30,7 @@
                                 <label for="url" class="col-md-4 control-label">video</label>
 
                                 <div class="col-md-6">
-                                    <input id="url" type="text" class="form-control" name="url" value="{{ old('url') }}" required>
+                                    <input id="url" type="file" class="form-control" name="url" value="{{ old('url') }}" required>
 
                                     @if ($errors->has('url'))
                                         <span class="help-block">
