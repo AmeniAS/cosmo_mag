@@ -39,4 +39,9 @@ class Blogger extends Authenticatable
     {
         return $this->hasMany(MediaImage::class);
     }
+
+    public function feedbacks()
+    {
+        return $this->morphMany(Feedback::class, 'feedbackable');
+    }
 }

@@ -108,6 +108,7 @@ Route::prefix('administrator')->group(function (){
         Route::get('/{id}/delete', 'Admin\BloggerController@destroy')->name('admin.bloggers.delete');
 
     });
+
     Route::prefix('/partenaires')->group(function (){
 
         Route::get('/', 'Admin\PartenaireController@index')->name('admin.partenaires.index');
@@ -117,5 +118,16 @@ Route::prefix('administrator')->group(function (){
         Route::get('/{id}/create', 'Admin\PartenaireController@create')->name('admin.partenaires.create');
 
     });
+
+});
+
+Route::prefix('/feedbacks')->group(function (){
+
+    Route::get('/', 'FeedbackController@index')->name('feedbacks.index');
+    Route::get('/{id}/show', 'FeedbackController@show')->name('feedbacks.show');
+    Route::post('/store', 'FeedbackController@store')->name('feedbacks.store');
+    Route::post('/{id}/edit', 'FeedbackController@edit')->name('feedbacks.edit');
+    Route::post('/{id}/update', 'FeedbackController@update')->name('feedbacks.update');
+    Route::get('/{id}/delete', 'FeedbackController@destroy')->name('feedbacks.delete');
 
 });

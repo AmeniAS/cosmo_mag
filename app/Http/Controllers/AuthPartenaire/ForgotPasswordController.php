@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\AuthAdmin;
+namespace App\Http\Controllers\AuthPartenaire;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
