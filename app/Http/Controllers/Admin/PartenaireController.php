@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Brand;
 use App\Partner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,8 +29,9 @@ class PartenaireController extends Controller
      */
     public function create()
     {
-        return view('admin.partenaires.create');
+        $brands = Brand::all();
 
+        return view('admin.partenaires.create', compact('brands'));
     }
 
     /**
@@ -48,15 +50,17 @@ class PartenaireController extends Controller
         // récupérer une instance de l'user connecté
         //$user = $request->user();
 
-        Partner::create([
+        $partner = Partner::create([
             'email' => $request->email,
-            'name' => $request->name,
             'password' => bcrypt($request->password),
+            'website' => $request->website
         ]);
+
+        $partner->brands()->sync([$request->brand_id]);
 
         Session::flash('message', 'Partenaire ajouté');
 
-        return redirect()->route('partenaires.index');
+        return redirect()->route('admin.partenaires.index');
     }
 
     /**
@@ -67,9 +71,11 @@ class PartenaireController extends Controller
      */
     public function show($id)
     {
+        $brands = Brand::all();
         $partenaire = Partner::findOrFail($id);
+        $partner_brands = $partenaire->brands->pluck('id')->all();
 
-        return view('admin.partenaires.show', compact('partenaire'));
+        return view('admin.partenaires.show', compact('partenaire', 'brands', 'partner_brands'));
     }
 
     /**
@@ -97,8 +103,10 @@ class PartenaireController extends Controller
         ]);
         $partenaire = Partner::findOrFail($id);
 
-        $partenaire->name = $request->name;
         $partenaire->email = $request->email;
+        $partenaire->website = $request->website;
+
+        $partenaire->brands()->sync([$request->brand_id]);
 
         $partenaire->save();
 

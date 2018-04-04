@@ -110,7 +110,7 @@
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('admin.partenaires.index') }}">
                             <i class="pe-7s-graph"></i>
                             <span class="sidebar-normal">Partenaires</span>
                         </a>

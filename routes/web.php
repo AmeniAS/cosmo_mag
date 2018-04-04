@@ -112,10 +112,19 @@ Route::prefix('administrator')->group(function (){
     Route::prefix('/partenaires')->group(function (){
 
         Route::get('/', 'Admin\PartenaireController@index')->name('admin.partenaires.index');
+        Route::get('/create', 'Admin\PartenaireController@create')->name('admin.partenaires.create');
+        Route::post('/store', 'Admin\PartenaireController@store')->name('admin.partenaires.store');
         Route::get('/{id}/show', 'Admin\PartenaireController@show')->name('admin.partenaires.show');
         Route::post('/{id}/update', 'Admin\PartenaireController@update')->name('admin.partenaires.update');
         Route::get('/{id}/delete', 'Admin\PartenaireController@destroy')->name('admin.partenaires.delete');
-        Route::get('/{id}/create', 'Admin\PartenaireController@create')->name('admin.partenaires.create');
+
+    });
+
+    Route::prefix('/brands')->group(function (){
+
+        Route::get('/', 'Admin\BrandsController@index')->name('admin.brands.index');
+        Route::get('/create', 'Admin\BrandsController@create')->name('admin.brands.create');
+        Route::post('/store', 'Admin\BrandsController@store')->name('admin.brands.store');
 
     });
 
