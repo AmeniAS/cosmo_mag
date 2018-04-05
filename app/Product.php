@@ -14,4 +14,9 @@ class Product extends Model
         'quantity',
         'brand_id'
     ];
+
+    public function stores()
+    {
+        return $this->belongsToMany(Store::class);
+    }
 }

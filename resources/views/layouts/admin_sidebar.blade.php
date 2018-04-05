@@ -1,6 +1,6 @@
 <div class="sidebar-wrapper">
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text">
+        <a href="{{ url('/administrator') }}" class="simple-text">
             CosmoMag
         </a>
     </div>
@@ -46,26 +46,49 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#categories" aria-expanded="true">
+            <a class="nav-link" data-toggle="collapse" href="#commerce" aria-expanded="true">
                 <i class="pe-7s-graph"></i>
                 <p>
-                    Catégories
+                    Commerce
                     <b class="caret"></b>
                 </p>
             </a>
-            <div class="collapse" id="categories" style="">
+            <div class="collapse" id="commerce" style="">
                 <ul class="nav">
+
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('admin.categories.index') }}">
                             <i class="pe-7s-graph"></i>
                             <span class="sidebar-normal">Liste des catégories</span>
                         </a>
                     </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('admin.brands.index') }}">
+                            <i class="pe-7s-graph"></i>
+                            <span class="sidebar-normal">Liste des marques</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">
+                            <i class="pe-7s-graph"></i>
+                            <span class="sidebar-normal">Liste des magasins</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">
+                            <i class="pe-7s-graph"></i>
+                            <span class="sidebar-normal">Liste des produits</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </li>
 
-        <li class="nav-item">
+        {{--<li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#produits" aria-expanded="true">
                 <i class="pe-7s-graph"></i>
                 <p>
@@ -76,6 +99,13 @@
             <div class="collapse" id="produits" style="">
                 <ul class="nav">
                     <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('admin.brands.index') }}">
+                            <i class="pe-7s-graph"></i>
+                            <span class="sidebar-normal">Liste des marques</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
                         <a class="nav-link" href="#">
                             <i class="pe-7s-graph"></i>
                             <span class="sidebar-normal">Liste des produits</span>
@@ -84,7 +114,7 @@
                 </ul>
             </div>
         </li>
-
+--}}
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#users" aria-expanded="true">
                 <i class="pe-7s-graph"></i>

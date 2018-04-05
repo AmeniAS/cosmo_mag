@@ -128,6 +128,15 @@ Route::prefix('administrator')->group(function (){
 
     });
 
+    Route::prefix('/categories')->group(function (){
+
+        Route::get('/', 'Admin\CategoryController@index')->name('admin.categories.index');
+        Route::get('/create', 'Admin\CategoryController@create')->name('admin.categories.create');
+        Route::post('/store', 'Admin\CategoryController@store')->name('admin.categories.store');
+        Route::get('/{id}/show', 'Admin\CategoryController@show')->name('admin.categories.show');
+
+    });
+
 });
 
 Route::prefix('/feedbacks')->group(function (){
