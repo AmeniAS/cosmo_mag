@@ -28,8 +28,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-
         return view('admin.categories.create', compact('categories'));
     }
     /**
@@ -44,11 +42,14 @@ class CategoryController extends Controller
 
         ]);
 
+        if ($request->file('logo')) {
+            $logo_url = $request->file('logo')->store('uploads/categories', 'public');
+        }
 
         Category::create ([
             'name' => $request->name,
             'description' => $request->description,
-            'image' => $request->image,
+            'image' => $logo_url,
 
         ]);
 
@@ -90,7 +91,32 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        if ($request->file('logo')) {
+            $logo_url = $request->file('logo')->store('uploads/categories', 'public');
+            $category->image = $logo_url;
+        }
+
+        if ($request->name) {
+            $category->name = $request->name;
+        }
+
+        if ($request->description) {
+            $category->description = $request->description;
+        }
+
+        $category->save();
+
+        Session::flash('message', 'Categorie modifiée avec succès');
+        Session::flash('alert_type', 'success');
+
+        return redirect()->route('admin.categories.show', $category->id);
+
     }
 
     /**
@@ -101,6 +127,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $category->delete();
+
+        Session::flash('message', 'Catégorie supprimée avec succès');
+        Session::flash('alert_type', 'success');
+
+        return redirect()->route('admin.categories.index');
     }
 }

@@ -71,14 +71,14 @@
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('admin.stores.index') }}">
                             <i class="pe-7s-graph"></i>
                             <span class="sidebar-normal">Liste des magasins</span>
                         </a>
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('admin.products.index') }}">
                             <i class="pe-7s-graph"></i>
                             <span class="sidebar-normal">Liste des produits</span>
                         </a>

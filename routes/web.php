@@ -125,6 +125,9 @@ Route::prefix('administrator')->group(function (){
         Route::get('/', 'Admin\BrandsController@index')->name('admin.brands.index');
         Route::get('/create', 'Admin\BrandsController@create')->name('admin.brands.create');
         Route::post('/store', 'Admin\BrandsController@store')->name('admin.brands.store');
+        Route::post('/{id}/update', 'Admin\BrandsController@update')->name('admin.brands.update');
+        Route::get('/{id}/show', 'Admin\BrandsController@show')->name('admin.brands.show');
+        Route::get('/{id}/delete', 'Admin\BrandsController@destroy')->name('admin.brands.delete');
 
     });
 
@@ -134,6 +137,30 @@ Route::prefix('administrator')->group(function (){
         Route::get('/create', 'Admin\CategoryController@create')->name('admin.categories.create');
         Route::post('/store', 'Admin\CategoryController@store')->name('admin.categories.store');
         Route::get('/{id}/show', 'Admin\CategoryController@show')->name('admin.categories.show');
+        Route::get('/{id}/update', 'Admin\CategoryController@update')->name('admin.categories.update');
+        Route::get('/{id}/delete', 'Admin\CategoryController@destroy')->name('admin.categories.delete');
+
+    });
+
+    Route::prefix('/stores')->group(function (){
+
+        Route::get('/', 'Admin\StoresController@index')->name('admin.stores.index');
+        Route::get('/create', 'Admin\StoresController@create')->name('admin.stores.create');
+        Route::post('/store', 'Admin\StoresController@store')->name('admin.stores.store');
+        Route::get('/{id}/show', 'Admin\StoresController@show')->name('admin.stores.show');
+        Route::post('/{id}/update', 'Admin\StoresController@update')->name('admin.stores.update');
+        Route::get('/{id}/delete', 'Admin\StoresController@destroy')->name('admin.stores.delete');
+
+    });
+
+    Route::prefix('/products')->group(function (){
+
+        Route::get('/', 'Admin\ProductController@index')->name('admin.products.index');
+        Route::get('/create', 'Admin\ProductController@create')->name('admin.products.create');
+        Route::post('/store', 'Admin\ProductController@store')->name('admin.products.store');
+        Route::get('/{id}/show', 'Admin\ProductController@show')->name('admin.products.show');
+        Route::post('/{id}/update', 'Admin\ProductController@update')->name('admin.products.update');
+        Route::get('/{id}/delete', 'Admin\ProductController@destroy')->name('admin.products.delete');
 
     });
 
@@ -148,4 +175,9 @@ Route::prefix('/feedbacks')->group(function (){
     Route::post('/{id}/update', 'FeedbackController@update')->name('feedbacks.update');
     Route::get('/{id}/delete', 'FeedbackController@destroy')->name('feedbacks.delete');
 
+});
+
+
+Route::get('test', function (){
+    return view('layouts.front');
 });

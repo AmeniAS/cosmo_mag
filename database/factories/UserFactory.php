@@ -46,13 +46,28 @@ $factory->define(App\Brand::class, function (Faker $faker) {
     ];
 });
 
-/*$factory->define(App\Product::class, function (Faker $faker) {
+$factory->define(App\Store::class, function (Faker $faker) {
+    //'name', 'address', 'description', 'website', 'longitude', 'latitude', 'zip_code', 'state', 'city'
+    return [
+        'name' => $faker->name,
+        'address' => $faker->address,
+        'description' => $faker->text,
+        'website' => $faker->url,
+        'longitude' => $faker->longitude,
+        'latitude' => $faker->latitude,
+        'zip_code' => $faker->randomNumber(),
+        'state' => $faker->country,
+        'city' => $faker->city,
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'description' => $faker->text(),
         'image' => $faker->imageUrl(),
         'price' => $faker->randomFloat(),
         'quantity' => $faker->randomDigit,
-        'brand_id' => $faker->randomDigit(1, 100)
+        'brand_id' => $faker->randomElement([2,3,4,5,6,7,8])
     ];
-});*/
+});

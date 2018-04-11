@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
+use App\Brand;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -16,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = User::all();
+        $products = Product::all();
 
         return view('admin.products.index', compact('products'));
     }
@@ -28,7 +29,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $brands = Brand::all();
+
+        return view('admin.products.create', compact('brands'));
     }
 
     /**
@@ -39,7 +42,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+
+        ]);
+
+        $logo_url = '';
+
+        if ($request->file('image_file')) {
+            $logo_url = $request->file('image_file')->store('uploads/products', 'public');
+        }
+
+        $product = Product::create([
+            'name' => $request->name,
+            'image' => $logo_url,
+            'brand_id' => $request->brand_id,
+            'price' => $request->price,
+            'quantity' => $request->quantity,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('admin.products.show', $product->id);
     }
 
     /**
@@ -51,8 +73,9 @@ class ProductController extends Controller
     public function show($id)
     {
         $product= Product::findOrFail($id);
+        $brands = Brand::all();
 
-        return view('admin.products.show', compact('product'));
+        return view('admin.products.show', compact('product', 'brands'));
     }
 
     /**
@@ -80,9 +103,19 @@ class ProductController extends Controller
         ]);
         $product = Product::findOrFail($id);
 
+        $logo_url = '';
+
+        if ($request->file('image_file')) {
+            $logo_url = $request->file('image_file')->store('uploads/products', 'public');
+        }
+
         $product->name = $request->name;
         $product->description = $request->description;
-        $product->image = $request->image;
+
+        if ($logo_url) {
+            $product->image = $logo_url;
+        }
+
         $product->price = $request->price;
         $product->quantity = $request->quantity;
         $product->price = $request->brand_id;

@@ -19,4 +19,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Store::class);
     }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }

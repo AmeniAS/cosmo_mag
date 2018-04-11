@@ -6,26 +6,25 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>name</th>
-            <th>image</th>
-            <th>description</th>
-
+            <th>Nom</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($categories as $category )
+        @foreach($categories as $category)
 
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $category->name }}</td>
-                <td>{{ $category->image }}</td>
-                <td>{{ $category->description }}</td>
-
+                <td>
                     <div>
-                        <span><a href="{{ route('admin.categories.show', $category->id) }}"><i class="fa fa-eye icon_blue"></i></a></span>
-                        {{--<span><a class="#"><i class="fa fa-edit icon_yellow"></i></a></span>--}}
                         <span>
-                            <a href="{{ route('admin.categories.delete', $category->id) }}"><i class="fa fa-close icon_red"></i></a></span>
+                            <a href="{{ route('admin.categories.show', $category->id) }}"><i class="fa fa-eye icon_blue"></i></a>
+                        </span>
+
+                        <span>
+                            <a href="{{ route('admin.categories.delete', $category->id) }}"><i class="fa fa-close icon_red"></i></a>
+                        </span>
                     </div>
                 </td>
             </tr>
@@ -36,9 +35,7 @@
         <tfoot>
         <tr>
             <th>#</th>
-            <th>name</th>
-            <th>image</th>
-            <th>description</th>
+            <th>Nom</th>
             <th>Actions</th>
         </tr>
         </tfoot>

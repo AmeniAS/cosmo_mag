@@ -70,7 +70,11 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
-        //
+        $categories = Category::all();
+
+        $brand = Brand::findOrFail($id);
+
+        return view('admin.brands.show', compact('brand', 'categories'));
     }
 
     /**
@@ -93,7 +97,39 @@ class BrandsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+
+        ]);
+
+        $brand = Brand::findOrFail($id);
+
+        if ($request->file('logo')) {
+            $logo_url = $request->file('logo')->store('uploads/brands', 'public');
+            $brand->logo = $logo_url;
+        }
+
+        if ($request->name) {
+            $brand->name = $request->name;
+        }
+
+        if ($request->website) {
+            $brand->website = $request->website;
+        }
+
+        if ($request->category_id) {
+            $brand->category_id = $request->category_id;
+        }
+
+        if ($request->description) {
+            $brand->description = $request->description;
+        }
+
+        $brand->save();
+
+        Session::flash('message', 'Marque moodifée avec succès');
+        Session::flash('alert_type', 'success');
+
+        return redirect()->route('admin.brands.show', $brand->id);
     }
 
     /**
@@ -104,6 +140,13 @@ class BrandsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+
+        $brand->delete();
+
+        Session::flash('message', 'Marque supprimée avec succès');
+        Session::flash('alert_type', 'success');
+
+        return redirect()->route('admin.brands.index');
     }
 }
