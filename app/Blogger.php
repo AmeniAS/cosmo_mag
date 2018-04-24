@@ -54,4 +54,14 @@ class Blogger extends Authenticatable
     {
         return $this->morphMany(FavoriteBrand::class, 'brand_favoritable');
     }
+
+    public function hasVavoriteProduct($product_id)
+    {
+        return in_array($product_id, $this->product_favorites->pluck('product_id')->toArray()) ? true : false;
+    }
+
+    public function hasVavoriteBrand($brand_id)
+    {
+        return in_array($brand_id, $this->brand_favorites->pluck('brand_id')->toArray()) ? true : false;
+    }
 }

@@ -5,12 +5,25 @@ namespace App\Http\Controllers;
 use App\FavoriteProduct;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
+    protected $guard_name;
+    protected $guard_type;
+
     public function __construct()
     {
-        $this->middleware('auth', ['only' => ['toggleFavorite', 'show']]);
+        $this->middleware('auth:web,blogger', ['only' => ['toggleFavorite', 'show']]);
+
+        if (Auth::guard('blogger')->check()) {
+            $this->guard_name = 'blogger';
+            $this->guard_type = 'App\Blogger';
+        } elseif (Auth::check()) {
+            $this->guard_name = 'web';
+            $this->guard_type = 'App\User';
+        }
+
     }
 
     /**
@@ -52,9 +65,12 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
+        //return view('home');
+        $guard_name = $this->guard_name;
+
         $product = Product::findOrFail($id);
 
-        return view('front_views.products.show', compact('product'));
+        return view('front_views.products.show', compact('product', 'guard_name'));
     }
 
     /**
@@ -96,10 +112,20 @@ class ProductsController extends Controller
         $user = \request()->user();
         $product = Product::findOrFail($product_id);
 
-        $favorite_product = new FavoriteProduct();
+        if ($user->hasVavoriteProduct($product_id)) {
+            $favorite_product = $user->product_favorites
+                ->where('product_id', '=', $product_id)
+                ->first();
 
-        $favorite_product->product_id = $product_id;
-        $user->product_favorites()->save($favorite_product);
+            if (! empty($favorite_product)) {
+                $favorite_product->delete();
+            }
+        } else {
+            $favorite_product = new FavoriteProduct();
+
+            $favorite_product->product_id = $product_id;
+            $user->product_favorites()->save($favorite_product);
+        }
 
         return redirect()->back();
     }
