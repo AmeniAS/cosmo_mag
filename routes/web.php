@@ -11,13 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@homePage');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('users.home');
+
+Route::prefix('products')->group(function (){
+
+    Route::get('/{id}/show', 'ProductsController@show')->name('products.show');
+    Route::get('/{product_id}/to_favorites', 'ProductsController@toggleFavorite')->name('products.toggleFavorite');
+
+});
 
 Route::prefix('bloggers')->group(function (){
 
@@ -179,5 +184,7 @@ Route::prefix('/feedbacks')->group(function (){
 
 
 Route::get('test', function (){
-    return view('layouts.front');
+    return view('layouts.front3');
 });
+
+Route::post('post_newsletter', 'HomeController@subscribeNewsletter')->name('post_newsletter');

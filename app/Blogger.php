@@ -44,4 +44,14 @@ class Blogger extends Authenticatable
     {
         return $this->morphMany(Feedback::class, 'feedbackable');
     }
+
+    public function product_favorites()
+    {
+        return $this->morphMany(FavoriteProduct::class, 'product_favoritable');
+    }
+
+    public function brand_favorites()
+    {
+        return $this->morphMany(FavoriteBrand::class, 'brand_favoritable');
+    }
 }
