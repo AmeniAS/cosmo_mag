@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\FavoriteProduct;
 use App\Product;
 use Illuminate\Http\Request;
@@ -126,6 +127,24 @@ class ProductsController extends Controller
             $favorite_product->product_id = $product_id;
             $user->product_favorites()->save($favorite_product);
         }
+
+        return redirect()->back();
+    }
+
+    public function addToCart(Request $request, $product_id)
+    {
+        $product = Product::findOrFail($product_id);
+        $user = $request->user();
+
+        $cart = Cart::where('user_id', '=', $user->id)->first();
+
+        if (empty($cart)) {
+            $cart = new Cart();
+            $cart->user_id = $user->id;
+            $cart->save();
+        }
+
+        $cart->addToCart($product_id, $request->quantity);
 
         return redirect()->back();
     }

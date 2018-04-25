@@ -154,6 +154,8 @@
 
 <script src="{{ asset('front_asset/js/main.js') }}"></script>
 
+@yield('custom_js')
+
 </body>
 
 </html>

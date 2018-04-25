@@ -21,6 +21,7 @@ Route::prefix('products')->group(function (){
 
     Route::get('/{id}/show', 'ProductsController@show')->name('products.show');
     Route::get('/{product_id}/to_favorites', 'ProductsController@toggleFavorite')->name('products.toggleFavorite');
+    Route::post('/{product_id}/to_cart', 'ProductsController@addToCart')->name('products.add_to_cart');
 
 });
 

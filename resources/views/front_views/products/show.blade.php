@@ -202,17 +202,31 @@
 
                             <ul class="list-inline">
 
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i>Add To Cart</a></li>
-
                                 <li>
 
-                                    <input value="1" />
+                                    <form action="{{ route('products.add_to_cart', $product->id) }}" id="form_cart" method="post">
 
-                                    <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                                        {{ csrf_field() }}
 
-                                    <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                                        <ul class="list-inline">
+
+                                            <li><a id="btn_submit"><i class="fa fa-shopping-cart"></i>Add To Cart</a></li>
+
+                                            <li>
+
+                                                <input value="1" name="quantity" />
+
+                                                <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+
+                                                <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
 
 
+
+                                            </li>
+
+                                        </ul>
+
+                                    </form>
 
                                 </li>
 
@@ -423,5 +437,18 @@
     </section>
 
     <!--Product Description area end here-->
+
+@endsection
+
+@section('custom_js')
+
+    <script>
+
+        $('#btn_submit').click(function ($e) {
+            $e.preventDefault();
+            $('#form_cart').submit();
+        })
+
+    </script>
 
 @endsection
