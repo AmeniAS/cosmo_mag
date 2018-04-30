@@ -24,11 +24,17 @@
 
                         <ul>
 
-                            <li><a href="#"><i class="fa fa-user"></i>Account</a></li>
+                            @if(Auth::guard('blogger')->check() || Auth::guard('web')->check())
+                                <li><a href="#"><i class="fa fa-user"></i>Account</a></li>
+                            @endif
 
-                            <li><a href="#"><i class="fa fa-heart-o"></i>Wishlist</a></li>
+                            {{--<li><a href="#"><i class="fa fa-heart-o"></i>Wishlist</a></li>--}}
 
-                            @include('layouts.front_header_cart')
+                            @if(Auth::guard('web')->check())
+
+                                @include('layouts.front_header_cart')
+
+                            @endif
 
                         </ul>
 
@@ -52,7 +58,7 @@
 
                     <div class="logo-area">
 
-                        <a href="#"><img src="{{ asset('front_asset/images/logo/logo.png') }}" alt=""/></a>
+                        <a href="{{ url('/') }}"><img src="{{ asset('front_asset/images/logo/logo.png') }}" alt=""/></a>
 
                     </div>
 

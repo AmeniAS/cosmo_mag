@@ -2,35 +2,63 @@
 
     <div class="hove">
 
-        <i class="fa fa-shopping-cart"></i><p class="be"><span>02</span></p>
+        <i class="fa fa-shopping-cart"></i><p class="be"><span>0{{ $cart_products->count() }}</span></p>
 
         <div class="cart-list">
 
             <ul class="list">
 
-                <li>
+                @foreach($cart_products as $cart_product)
 
-                    <a href="#" title="" class="cart-product-image floatleft"><img src="{{ asset('front_asset/images/blog/1-sm.jpg') }}" alt="Product"></a>
+                    <li style="width: 280px">
 
-                    <div class="text">
+                        <a href="#" title="" class="cart-product-image floatleft"><img src="{{ asset('front_asset/images/blog/2-sm.jpg') }}" alt="Product"></a>
 
-                        <a class="close" href="#" title="close"><i class="fa fa-times-circle"></i></a>
+                        <div class="text">
 
-                        <h4>Legging Cathedral</h4>
+                            <a class="close" href="#" title="close"><i class="fa fa-times-circle"></i></a>
 
-                        <div class="product-price">
+                            <h4>{{ $cart_product->name }}</h4>
 
-                            <div class="price-old"><del>$700.00</del></div>
+                            <div class="product-price">
 
-                            <div class="price">$350.00</div>
+                                <div class="price-old">{{ $cart_product->pivot->quantity }}</div>
+
+                                <div class="price">{{ $cart_product->price }} Dt</div>
+
+                            </div>
 
                         </div>
 
-                    </div>
+                    </li>
 
-                </li>
+                    {{--<li>
 
-                <li>
+                        <a href="#" title="" class="cart-product-image floatleft"><img src="{{ asset('front_asset/images/blog/1-sm.jpg') }}" alt="Product"></a>
+
+                        <div class="text">
+
+                            <a class="close" href="#" title="close"><i class="fa fa-times-circle"></i></a>
+
+                            <h4>{{ $cart_product->name }}</h4>
+
+                            <div class="product-price">
+
+                                <div class="price-old">{{ $cart_product->pivot->quantity }}</div>
+
+                                <div class="price">{{ $cart_product->price }} Dt</div>
+
+                            </div>
+
+                        </div>
+
+                    </li>--}}
+
+                @endforeach
+
+
+
+                {{--<li>
 
                     <a href="#" title="" class="cart-product-image floatleft"><img src="{{ asset('front_asset/images/blog/2-sm.jpg') }}" alt="Product"></a>
 
@@ -70,7 +98,7 @@
 
                     </div>
 
-                </li>
+                </li>--}}
 
             </ul>
 

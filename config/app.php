@@ -181,6 +181,7 @@ return [
          * Custom Service Providers...
          */
         App\Providers\NewProductsServiceProvider::class,
+        App\Providers\CartHeaderServiceProvider::class,
 
     ],
 

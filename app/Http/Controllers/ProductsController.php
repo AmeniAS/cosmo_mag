@@ -15,7 +15,7 @@ class ProductsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:web,blogger', ['only' => ['toggleFavorite', 'show']]);
+        $this->middleware('auth:web,blogger', ['only' => ['toggleFavorite', 'addToCart']]);
 
         if (Auth::guard('blogger')->check()) {
             $this->guard_name = 'blogger';

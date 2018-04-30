@@ -230,13 +230,20 @@
 
                                 </li>
 
-                                @if(Auth::guard($guard_name)->user()->hasVavoriteProduct($product->id))
-                                    <li><a href="{{ route('products.toggleFavorite', $product->id) }}"><i class="fa fa-heart"></i></a></li>
+                                @if(Auth::guard('blogger')->check() || Auth::guard('web')->check())
+                                    @if(Auth::guard($guard_name)->user()->hasVavoriteProduct($product->id))
+                                        <li><a href="{{ route('products.toggleFavorite', $product->id) }}"><i class="fa fa-heart"></i></a></li>
+                                    @else
+                                        <li><a href="{{ route('products.toggleFavorite', $product->id) }}"><i class="fa fa-heart-o"></i></a></li>
+                                    @endif
+
                                 @else
+
                                     <li><a href="{{ route('products.toggleFavorite', $product->id) }}"><i class="fa fa-heart-o"></i></a></li>
+
                                 @endif
 
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                {{--<li><a href="#"><i class="fa fa-eye"></i></a></li>--}}
 
                             </ul>
 
