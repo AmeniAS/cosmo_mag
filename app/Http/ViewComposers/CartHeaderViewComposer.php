@@ -3,6 +3,7 @@
 namespace App\Http\ViewComposers;
 
 use App\Product;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class CartHeaderViewComposer
@@ -15,7 +16,11 @@ class CartHeaderViewComposer
             ->limit(9)
             ->get();*/
         //dd(Auth::guard('web')->user()->cart->products);
-        $this->cart_products = Auth::guard('web')->user()->cart->products;
+        if (Auth::guard('web')->user()->cart) {
+            $this->cart_products = Auth::guard('web')->user()->cart->products;
+        } else {
+            $this->cart_products = new Collection();
+        }
     }
 
     public function compose($view)

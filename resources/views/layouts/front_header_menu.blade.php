@@ -4,17 +4,17 @@
 
         <ul>
 
-            <li><a href="#">Men</a></li>
+            <li><a href="#">Démarche GOSMOMAG</a></li>
 
-            <li><a href="#">Women</a></li>
+            <li><a href="#">Gatégories</a></li>
 
-            <li><a href="#">Boys</a></li>
+            <li><a href="#">Marques</a></li>
 
-            <li><a href="#">Girls</a></li>
+            <li><a href="#">Blogueurs</a></li>
 
-            <li><a href="#">Kids</a></li>
+            <li><a href="#">Beauté</a></li>
 
-            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Événements</a></li>
 
             <li class="dropdown mega-dropdown">
 
