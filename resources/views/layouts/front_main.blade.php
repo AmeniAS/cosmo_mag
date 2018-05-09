@@ -64,6 +64,8 @@
 
     <script src="{{ asset('front_asset/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 
+    @yield('custom_css')
+
 </head>
 
 <body>

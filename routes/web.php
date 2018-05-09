@@ -185,7 +185,7 @@ Route::prefix('/feedbacks')->group(function (){
 
 
 Route::get('test', function (){
-    return view('layouts.front3');
+    return view('front_views.bloggers.profile');
 });
 
 Route::post('post_newsletter', 'HomeController@subscribeNewsletter')->name('post_newsletter');
