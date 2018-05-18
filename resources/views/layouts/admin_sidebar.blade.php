@@ -13,6 +13,13 @@
             </a>
         </li>
 
+        <li>
+            <a href="{{ route('admin.messages') }}">
+                <i class="pe-7s-graph"></i>
+                <p>Messages</p>
+            </a>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#vente" aria-expanded="true">
                 <i class="pe-7s-graph"></i>

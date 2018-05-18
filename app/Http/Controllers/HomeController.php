@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Spatie\Newsletter\Newsletter;
 use DrewM\MailChimp\MailChimp;
 
@@ -56,5 +58,27 @@ class HomeController extends Controller
     public function homePage()
     {
         return view('front_views.home');
+    }
+
+    public function contact()
+    {
+        $page_title = 'Contact';
+        return view('front_views.contact', compact('page_title'));
+    }
+
+    public function sendMsg(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
+
+        Message::create($request->all());
+
+        Session::flash('alert-success', 'Message envoyé avec succès');
+
+        return redirect()->back();
+
     }
 }

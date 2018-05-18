@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Raleway:400,400i,500,500i,600,700,900|Rubik:300,400,500,700");
+
+a {
+  color: #b48528;
+}
+
 /*-------------------------------------
     Template Name: Allo Fashion & Clothing Shop HTML Template
     Template URI: http://themelocation.com/
@@ -786,6 +791,15 @@ h6 {
 /*....................................
 2. Header area start here
 ....................................*/
+header .main-header-two nav ul li a {
+  color: #919191;
+}
+header .header-top-two {
+  background: white;
+}
+header .main-header-two {
+  background: black;
+}
 header .main-header .logo a {
   padding: 20px 0;
   display: block;
@@ -1728,12 +1742,13 @@ header .main-header-two nav ul li a {
   display: block;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
-  color: #222222;
+  /*color: #222222;*/
   padding: 20px;
   text-transform: uppercase;
 }
 header .main-header-two nav ul li a:hover {
-  color: #2962ff;
+  color: #b48528;
+  /*color: #2962ff;*/
 }
 header .main-header-three .main-menu {
   border-top: 2px solid #cecece;
@@ -2652,7 +2667,8 @@ header .carousel-control i {
   color: #444444;
 }
 .new-product-area-two .product-menu ul li.is-checked {
-  color: #2962ff;
+  /*color: #2962ff;*/
+  color: #b48528;
 }
 .new-product-area-two .ads-banner figure {
   position: relative;
@@ -2749,7 +2765,7 @@ header .carousel-control i {
 }
 .new-product-area-two .single-product figure span.color1 {
   /*background: #2962ff;*/
-  background: #ffdc29;
+  background: #b48528;
 }
 .new-product-area-two .single-product figure span.color2 {
   background: #f44336;
@@ -2776,7 +2792,8 @@ header .carousel-control i {
   padding: 8px 0;
 }
 .new-product-area-two .single-product figure ul li a:hover {
-  background: #2962ff;
+  background: #b48528;
+  /*background: #2962ff;*/
   color: #fff;
 }
 .new-product-area-two .single-product .product-content {
@@ -3662,7 +3679,8 @@ header .carousel-control i {
   top: inherit;
   width: 80px;
   height: 5px;
-  background: #2962ff;
+  background: #b48528;
+  /*background: #2962ff;*/
 }
 .best-product-two .product-list .single-product {
   margin: 0 0 30px;
@@ -5659,7 +5677,7 @@ header .carousel-control i {
 
 /**/
 .footer-link.widget h4 {
-  color: #ffdc29 !important;
+  color: #b48528 !important;
 }
 /**/
 
@@ -5678,7 +5696,8 @@ header .carousel-control i {
   padding: 3px 0;
 }
 .footer-two .footer-top .footer-link .link-list li a:hover {
-  color: #2962ff;
+  color: #b48528;
+  /*color: #2962ff;*/
 }
 .footer-two .footer-top .footer-link form {
   display: block;
@@ -5702,7 +5721,7 @@ header .carousel-control i {
   height: 42px;
   width: 40px;
   font-size: 18px;
-  background: #ffdc29;
+  background: #b48528;
   /*background: #2962ff;*/
   color: #fff;
   transition: all 0.5s;

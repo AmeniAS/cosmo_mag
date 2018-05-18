@@ -8,7 +8,7 @@
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>CosmoMag</title>
+    <title>CosmoMag{{ isset($page_title) ? ' | ' . $page_title : ''}}</title>
 
     <meta name="description" content="">
 
@@ -64,7 +64,32 @@
 
     <script src="{{ asset('front_asset/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 
+    <style>
+        .main-menu nav ul li {
+            font-size: 11px;
+        }
+    </style>
+
     @yield('custom_css')
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {{--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116557441-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116557441-1');
+    </script>--}}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116557441-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116557441-1');
+    </script>
 
 </head>
 

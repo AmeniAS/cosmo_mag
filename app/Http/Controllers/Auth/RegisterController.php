@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Repositories\StaticHelpers;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/members/profile';
 
     /**
      * Create a new controller instance.
@@ -52,6 +54,10 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'birthdate' => 'required',
+            'phone' => 'required|numeric',
+            'address' => 'required',
+            'image' => 'required',
         ]);
     }
 
@@ -61,7 +67,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $data, $img)
     {
         $referer = StaticHelpers::findRefereeByCode($data);
 
@@ -80,7 +86,7 @@ class RegisterController extends Controller
             'birthdate' => $data['birthdate'],
             'phone' => $data['phone'],
             'address' => $data['address'],
-            'image' => $data['image'],
+            'image' => $img,
 
             'code' => str_random(10),
 
@@ -89,5 +95,19 @@ class RegisterController extends Controller
 
             'points' => 0,
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $img = $request->file('image')->store('uploads/users', 'public');
+
+        event(new Registered($user = $this->create($request->all(), $img)));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 }

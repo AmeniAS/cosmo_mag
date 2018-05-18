@@ -13,6 +13,8 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    {{--<link href="https://gurayyarar.github.io/AdminBSBMaterialDesign/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://gurayyarar.github.io/AdminBSBMaterialDesign/plugins/node-waves/waves.css" rel="stylesheet" />--}}
 
     <!-- Animation library for notifications   -->
     <link href="{{ asset('assets/css/animate.min.css') }}" rel="stylesheet"/>
@@ -32,6 +34,9 @@
 
     <link href="{{ asset('assets/datatables/datatables.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/datatables/dataTables.bootstrap.min.css') }}" rel="stylesheet" />
+    {{--<link href="https://gurayyarar.github.io/AdminBSBMaterialDesign/css/style.css" rel="stylesheet" />
+    <link href="https://gurayyarar.github.io/AdminBSBMaterialDesign/css/themes/all-themes.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />--}}
 
     @yield('custom_css')
 

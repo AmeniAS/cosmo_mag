@@ -1,147 +1,155 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CosmoMag | Register - Blogger</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{{ asset('login_tpl/login/images/icons/favicon.ico') }}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/fonts/iconic/css/material-design-iconic-font.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/vendor/animate/animate.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/vendor/css-hamburgers/hamburgers.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/vendor/animsition/css/animsition.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/vendor/select2/select2.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/vendor/daterangepicker/daterangepicker.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_tpl/login/css/main.css') }}">
+    <!--===============================================================================================-->
+</head>
+<body style="background-color: #999999;">
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Blogger Register</div>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="login100-more" style="background-image: url({{ asset('login_tpl/login/images/bg-01.jpg') }});"></div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('bloggers.register.submit') }}">
-                        {{ csrf_field() }}
+        <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+            <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('bloggers.register.submit') }}">
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                {{ csrf_field() }}
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                <span class="login100-form-title p-b-59">
+						Créer un compte "Blogger"
+					</span>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('birthdate') ? ' has-error' : '' }}">
-                            <label for="birthdate" class="col-md-4 control-label">birthdate</label>
-
-                            <div class="col-md-6">
-                                <input id="birthdate" type="date" class="form-control" name="birthdate" value="{{ old('birthdate') }}" required>
-
-                                @if ($errors->has('birthdate'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('birthdate') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone" class="col-md-4 control-label">phone</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required>
-
-                                @if ($errors->has('phone'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label for="address" class="col-md-4 control-label">address</label>
-
-                            <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
-
-                                @if ($errors->has('address'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('address') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                            <label for="image" class="col-md-4 control-label">image</label>
-
-                            <div class="col-md-6">
-                                <input id="image" type="text" class="form-control" name="image" value="{{ old('image') }}" required>
-
-                                @if ($errors->has('image'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('image') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('referer_code') ? ' has-error' : '' }}">
-                            <label for="referer_code" class="col-md-4 control-label">Code affiliation</label>
-
-                            <div class="col-md-6">
-                                <input id="referer_code" type="text" class="form-control" name="referer_code" value="{{ old('referer_code') }}">
-
-                                @if ($errors->has('referer_code'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('referer_code') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('name') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('name') ? $errors->first('name') : 'Name is required' }}">
+                    <span class="label-input100">Nom et prénom</span>
+                    <input class="input100" type="text" name="name" value="{{ old('name') }}" placeholder="Nom et prénom...">
+                    <span class="focus-input100"></span>
                 </div>
-            </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('email') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('email') ? $errors->first('email') : 'Valid email is required: ex@abc.xyz' }}">
+                    <span class="label-input100">E-mail</span>
+                    <input class="input100" type="text" name="email" value="{{ old('email') }}" placeholder="E-mail...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('password') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('password') ? $errors->first('password') : 'Password is required' }}">
+                    <span class="label-input100">Mot de passe</span>
+                    <input class="input100" type="password" name="password" placeholder="Mot de passe...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('password_confirmation') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('password_confirmation') ? $errors->first('password_confirmation') : 'Password confirmation is required' }}">
+                    <span class="label-input100">Confirmer mot de passe</span>
+                    <input class="input100" type="password" name="password_confirmation" placeholder="Mot de passe...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('birthdate') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('birthdate') ? $errors->first('birthdate') : 'Birth date is required' }}">
+                    <span class="label-input100">Date de naissance</span>
+                    <input class="input100" type="date" name="birthdate" value="{{ old('birthdate') }}" placeholder="Date de naissance...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('phone') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('phone') ? $errors->first('phone') : 'Phone is required' }}">
+                    <span class="label-input100">Numéro de téléphone</span>
+                    <input class="input100" type="number" name="phone" value="{{ old('phone') }}" placeholder="Numéro de téléphone...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('address') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('address') ? $errors->first('address') : 'Address is required' }}">
+                    <span class="label-input100">Adresse</span>
+                    <input class="input100" type="text" name="address" value="{{ old('address') }}" placeholder="Adresse...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('image') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('image') ? $errors->first('image') : 'Image is required' }}">
+                    <span class="label-input100">Image</span>
+                    <input class="input100" type="file" name="image" placeholder="Image...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('referer_code') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('referer_code') ? $errors->first('referer_code') : 'Referer code is required' }}">
+                    <span class="label-input100">Code d'affiliation</span>
+                    <input class="input100" type="text" name="referer_code" value="{{ old('referer_code') }}" placeholder="Code d'affiliation...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('facebook') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('facebook') ? $errors->first('facebook') : '' }}">
+                    <span class="label-input100">Facebook</span>
+                    <input class="input100" type="text" name="facebook" value="{{ old('facebook') }}" placeholder="Facebook...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('instagram') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('instagram') ? $errors->first('instagram') : '' }}">
+                    <span class="label-input100">Instagram</span>
+                    <input class="input100" type="text" name="instagram" value="{{ old('instagram') }}" placeholder="Instagram...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('youtube') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('youtube') ? $errors->first('youtube') : '' }}">
+                    <span class="label-input100">Youtube</span>
+                    <input class="input100" type="text" name="youtube" value="{{ old('youtube') }}" placeholder="Code d'affiliation...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn">
+                            Confirmer
+                        </button>
+                    </div>
+
+                    <a href="{{ route('bloggers.login') }}" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+                        Login
+                        <i class="fa fa-long-arrow-right m-l-5"></i>
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-@endsection
+
+<!--===============================================================================================-->
+<script src="{{ asset('login_tpl/login/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('login_tpl/login/vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('login_tpl/login/vendor/bootstrap/js/popper.js') }}"></script>
+<script src="{{ asset('login_tpl/login/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('login_tpl/login/vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('login_tpl/login/vendor/daterangepicker/moment.min.js') }}"></script>
+<script src="{{ asset('login_tpl/login/vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('login_tpl/login/vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('login_tpl/login/js/main.js') }}"></script>
+
+</body>
+</html>

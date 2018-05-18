@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@homePage');
+Route::get('/', 'ProductsController@homePage');
 
 Auth::routes();
 
@@ -22,6 +22,16 @@ Route::prefix('products')->group(function (){
     Route::get('/{id}/show', 'ProductsController@show')->name('products.show');
     Route::get('/{product_id}/to_favorites', 'ProductsController@toggleFavorite')->name('products.toggleFavorite');
     Route::post('/{product_id}/to_cart', 'ProductsController@addToCart')->name('products.add_to_cart');
+
+});
+
+Route::prefix('members')->group(function (){
+
+    Route::get('/profile', 'MembersController@profile')->name('members.profile');
+    Route::post('/edit_profile', 'MembersController@edit_profile')->name('members.edit_profile');
+    /*Route::get('/{id}/show', 'ProductsController@show')->name('products.show');
+    Route::get('/{product_id}/to_favorites', 'ProductsController@toggleFavorite')->name('products.toggleFavorite');
+    Route::post('/{product_id}/to_cart', 'ProductsController@addToCart')->name('products.add_to_cart');*/
 
 });
 
@@ -89,7 +99,14 @@ Route::prefix('media_images')->group(function (){
 
 Route::prefix('administrator')->group(function (){
 
-    Route::get('/', 'AdminDashboardController@index');
+    Route::get('/', 'Admin\StatisticsController@index');
+    Route::get('/messages', 'Admin\StatisticsController@messages')->name('admin.messages');
+
+    Route::prefix('analytics')->group(function (){
+
+        Route::get('/', 'Admin\StatisticsController@index');
+
+    });
 
     Route::prefix('/vente')->group(function (){
 
@@ -183,9 +200,24 @@ Route::prefix('/feedbacks')->group(function (){
 
 });
 
+Route::prefix('/categories')->group(function (){
+
+    Route::get('/', 'CategoriesController@index')->name('categories.index');
+
+});
+
+Route::prefix('/brands')->group(function (){
+
+    Route::get('/', 'BrandsController@index')->name('brands.index');
+    Route::get('/{id}/show', 'BrandsController@show')->name('brands.show');
+
+});
+
 
 Route::get('test', function (){
     return view('front_views.bloggers.profile');
 });
 
 Route::post('post_newsletter', 'HomeController@subscribeNewsletter')->name('post_newsletter');
+Route::get('contact', 'HomeController@contact')->name('contact');
+Route::post('contact', 'HomeController@sendMsg')->name('send_msg');

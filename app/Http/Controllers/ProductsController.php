@@ -27,6 +27,12 @@ class ProductsController extends Controller
 
     }
 
+    public function homePage()
+    {
+        $guard_name = $this->guard_name;
+        return view('front_views.home', compact('guard_name'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -70,8 +76,9 @@ class ProductsController extends Controller
         $guard_name = $this->guard_name;
 
         $product = Product::findOrFail($id);
+        $page_title = $product->name;
 
-        return view('front_views.products.show', compact('product', 'guard_name'));
+        return view('front_views.products.show', compact('product', 'guard_name', 'page_title'));
     }
 
     /**

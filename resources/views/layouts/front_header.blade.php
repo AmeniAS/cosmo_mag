@@ -58,7 +58,7 @@
 
                     <div class="logo-area">
 
-                        <a href="{{ url('/') }}"><img src="{{ asset('front_asset/images/logo/logo.png') }}" alt=""/></a>
+                        <a href="{{ url('/') }}"><img src="{{ asset('images/logo3.png') }}" alt=""/></a>
 
                     </div>
 
@@ -74,23 +74,23 @@
 
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 
-                                    <span id="search_concept">All</span> <span class="caret"></span>
+                                    <span id="search_concept">Produit</span> <span class="caret"></span>
 
                                 </button>
 
                                 <ul class="dropdown-menu" role="menu">
 
-                                    <li><a href="#contains">Men</a></li>
+                                    <li><a href="#contains">Produit</a></li>
 
-                                    <li><a href="#its_equal">Women</a></li>
+                                    <li><a href="#its_equal">Marque</a></li>
 
-                                    <li><a href="#greather_than">Boys</a></li>
+                                    <li><a href="#greather_than">Article</a></li>
 
-                                    <li><a href="#less_than">Girls </a></li>
+                                    {{--<li><a href="#less_than">Girls </a></li>
 
                                     <li class="divider"></li>
 
-                                    <li><a href="#all">Kids</a></li>
+                                    <li><a href="#all">Kids</a></li>--}}
 
                                 </ul>
 
@@ -146,31 +146,31 @@
 
                             <ul>
 
-                                <li><a href="#">Men</a></li>
+                                <li><a href="#">Démarche GOSMOMAG</a></li>
 
-                                <li><a href="#">Women</a></li>
+                                <li><a href="{{ route('categories.index') }}">Gatégories</a></li>
 
-                                <li><a href="#">Boys</a></li>
+                                <li><a href="{{ route('categories.index') }}">Marques</a></li>
 
-                                <li><a href="#">Girls</a></li>
+                                <li><a href="#">Blogueurs</a></li>
 
-                                <li><a href="#">Kids</a></li>
+                                <li><a href="#">Beauté</a></li>
 
-                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">Événements</a></li>
 
                                 <li>
 
                                     <a href="#">page</a>
 
-                                    <ul>
+                                    {{--<ul>
 
                                         <li><a href="#">Home 1</a></li>
 
-                                    </ul>
+                                    </ul>--}}
 
                                 </li>
 
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
 
                         </nav>

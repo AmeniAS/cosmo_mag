@@ -18,7 +18,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest:blogger');
     }
 
     public function showRegistrationForm()
@@ -39,6 +39,8 @@ class RegisterController extends Controller
         $code = $referer ? $referer->code : null;
         $type = ($referer instanceof User) ? 'user' : 'blogger';
 
+        $img = $request->file('image')->store('uploads/bloggers', 'public');
+
         $blogger = Blogger::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -46,7 +48,7 @@ class RegisterController extends Controller
             'birthdate' => $request->birthdate,
             'phone' => $request->phone,
             'address' => $request->address,
-            'image' => $request->image,
+            'image' => $img,
 
             'code' => str_random(10),
             'points' => 0,
@@ -54,9 +56,9 @@ class RegisterController extends Controller
             'referer_code' => $code,
             'referer_type' => $type,
 
-            'facebook' => 'facebook',
-            'youtube' => 'youtube',
-            'instagram' => 'instagram',
+            'facebook' => $request->facebook,
+            'youtube' => $request->youtube,
+            'instagram' => $request->instagram,
         ]);
 
         Auth::guard('blogger')->login($blogger);
