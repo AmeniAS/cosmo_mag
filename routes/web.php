@@ -38,6 +38,7 @@ Route::prefix('members')->group(function (){
 Route::prefix('bloggers')->group(function (){
 
     Route::get('/', 'BloggerController@index')->name('bloggers.home');
+    Route::get('/', 'BloggerController@profile')->name('bloggers.profile');
 
     Route::get('/login', 'AuthBlogger\LoginController@showLoginForm')->name('bloggers.login');
     Route::post('/login', 'AuthBlogger\LoginController@login')->name('bloggers.login.submit');
@@ -99,7 +100,7 @@ Route::prefix('media_images')->group(function (){
 
 Route::prefix('administrator')->group(function (){
 
-    Route::get('/', 'Admin\StatisticsController@index');
+    Route::get('/', 'Admin\StatisticsController@index')->name('admin.dashboard');
     Route::get('/messages', 'Admin\StatisticsController@messages')->name('admin.messages');
 
     Route::prefix('analytics')->group(function (){
@@ -210,6 +211,7 @@ Route::prefix('/brands')->group(function (){
 
     Route::get('/', 'BrandsController@index')->name('brands.index');
     Route::get('/{id}/show', 'BrandsController@show')->name('brands.show');
+    Route::get('/{brand_id}/to_favorites', 'BrandsController@toggleFavorite')->name('brands.toggleFavorite');
 
 });
 
@@ -220,4 +222,5 @@ Route::get('test', function (){
 
 Route::post('post_newsletter', 'HomeController@subscribeNewsletter')->name('post_newsletter');
 Route::get('contact', 'HomeController@contact')->name('contact');
+Route::get('your-account', 'HomeController@yourAccount')->name('your-account');
 Route::post('contact', 'HomeController@sendMsg')->name('send_msg');

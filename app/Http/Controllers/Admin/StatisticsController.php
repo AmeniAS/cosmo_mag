@@ -14,6 +14,7 @@ class StatisticsController extends Controller
 
     public function __construct(Analytics $analytics)
     {
+        $this->middleware('auth:admin');
         $this->analytics = $analytics;
     }
 

@@ -24,8 +24,21 @@
 
                         <ul>
 
+                            @if(!(Auth::guard('blogger')->check() || Auth::guard('web')->check() || Auth::guard('admin')->check() ))
+                                <li><a href="{{ route('your-account') }}"><i class="fa fa-user"></i>Votre espace</a></li>
+                            @endif
+
+                            @if(Auth::guard('admin')->check())
+                                <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-user"></i>Dashboard</a></li>
+                            @endif
+
                             @if(Auth::guard('blogger')->check() || Auth::guard('web')->check())
-                                <li><a href="#"><i class="fa fa-user"></i>Account</a></li>
+
+                                @if(Auth::guard('blogger')->check())
+                                    <li><a href="{{ route('bloggers.profile') }}"><i class="fa fa-user"></i>Account</a></li>
+                                @else
+                                    <li><a href="{{ route('members.profile') }}"><i class="fa fa-user"></i>Account</a></li>
+                                @endif
                             @endif
 
                             {{--<li><a href="#"><i class="fa fa-heart-o"></i>Wishlist</a></li>--}}

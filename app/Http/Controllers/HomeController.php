@@ -81,4 +81,9 @@ class HomeController extends Controller
         return redirect()->back();
 
     }
+
+    public function yourAccount()
+    {
+        return view('front_views.your_account');
+    }
 }

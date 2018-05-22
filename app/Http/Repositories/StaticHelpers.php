@@ -4,6 +4,7 @@ namespace App\Http\Repositories;
 
 use App\Blogger;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class StaticHelpers
 {
@@ -36,5 +37,19 @@ class StaticHelpers
             }
 
         }
+    }
+
+    public static function checkGuard()
+    {
+        $guard_name = '';
+        if (Auth::guard('blogger')->check()) {
+            $guard_name = 'blogger';
+            //$this->guard_type = 'App\Blogger';
+        } elseif (Auth::check()) {
+            $guard_name = 'web';
+            //$this->guard_type = 'App\User';
+        }
+
+        return $guard_name;
     }
 }

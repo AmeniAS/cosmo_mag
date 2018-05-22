@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CosmoMag | Login - Member</title>
+    <title>CosmoMag | Login - Bloggueuse</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -39,7 +39,7 @@
             <form class="form-horizontal" method="POST" action="{{ route('bloggers.login.submit') }}">
                 {{ csrf_field() }}
                 <span class="login100-form-title p-b-59">
-                    Login "Membre"
+                    Login "Bloggueuse"
                 </span>
 
                 <div class="wrap-input100 validate-form validate-input {{ $errors->has('email') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('email') ? $errors->first('email') : 'Valid email is required: ex@abc.xyz' }}">

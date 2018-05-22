@@ -8,7 +8,45 @@
 
             <div class="blog-two-slider">
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
+                @foreach($latest_articles as $article)
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
+
+                        {{--{{ dd($latest_articles) }}--}}
+
+                        <div class="single-blog text-center">
+
+                            <figure>
+
+                                <img src="{{ asset($article->image) }}" alt=""/>
+
+                                <div class="blog-con">
+
+                                    <div class="bg-pos">
+
+                                        <a href="#"><h3>{{ $article->title }}</h3></a>
+
+                                        <ul class="list-inline">
+
+                                            <li><a href="#">{{ $article->created_at }}</a></li>
+
+                                            <li><a href="#"><i class="fa fa-comment-o"></i><span>03</span></a></li>
+
+                                            <li><a href="#"><i class="fa fa-heart-o"></i><span>33</span></a></li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                            </figure>
+
+                        </div>
+
+                    </div>
+                @endforeach
+
+                {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
 
                     <div class="single-blog text-center">
 
@@ -40,9 +78,9 @@
 
                     </div>
 
-                </div>
+                </div>--}}
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
+                {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
 
                     <div class="single-blog text-center">
 
@@ -74,9 +112,9 @@
 
                     </div>
 
-                </div>
+                </div>--}}
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
+                {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
 
                     <div class="single-blog text-center">
 
@@ -108,9 +146,9 @@
 
                     </div>
 
-                </div>
+                </div>--}}
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
+                {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
 
                     <div class="single-blog text-center">
 
@@ -142,9 +180,9 @@
 
                     </div>
 
-                </div>
+                </div>--}}
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
+                {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
 
                     <div class="single-blog text-center">
 
@@ -176,9 +214,9 @@
 
                     </div>
 
-                </div>
+                </div>--}}
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
+                {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 accurate">
 
                     <div class="single-blog text-center">
 
@@ -210,7 +248,7 @@
 
                     </div>
 
-                </div>
+                </div>--}}
 
             </div>
 

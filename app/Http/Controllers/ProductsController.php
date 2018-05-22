@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\FavoriteProduct;
+use App\Http\Repositories\StaticHelpers;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,19 +18,11 @@ class ProductsController extends Controller
     {
         $this->middleware('auth:web,blogger', ['only' => ['toggleFavorite', 'addToCart']]);
 
-        if (Auth::guard('blogger')->check()) {
-            $this->guard_name = 'blogger';
-            $this->guard_type = 'App\Blogger';
-        } elseif (Auth::check()) {
-            $this->guard_name = 'web';
-            $this->guard_type = 'App\User';
-        }
-
     }
 
     public function homePage()
     {
-        $guard_name = $this->guard_name;
+        $guard_name = StaticHelpers::checkGuard();
         return view('front_views.home', compact('guard_name'));
     }
 
@@ -73,7 +66,7 @@ class ProductsController extends Controller
     public function show($id)
     {
         //return view('home');
-        $guard_name = $this->guard_name;
+        $guard_name = StaticHelpers::checkGuard();
 
         $product = Product::findOrFail($id);
         $page_title = $product->name;
@@ -155,4 +148,17 @@ class ProductsController extends Controller
 
         return redirect()->back();
     }
+
+    /*protected function checkGuard()
+    {
+        if (Auth::guard('blogger')->check()) {
+            $this->guard_name = 'blogger';
+            $this->guard_type = 'App\Blogger';
+        } elseif (Auth::check()) {
+            $this->guard_name = 'web';
+            $this->guard_type = 'App\User';
+        }
+
+        return $this->guard_name;
+    }*/
 }

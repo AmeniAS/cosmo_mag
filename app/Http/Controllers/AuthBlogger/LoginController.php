@@ -51,7 +51,7 @@ class LoginController extends Controller
         if (Auth::guard('blogger')->attempt($credentitals, $remember)) {
 
             // If successful, redirect to their intended location
-            return redirect()->intended(route('bloggers.home'));
+            return redirect()->intended(route('bloggers.profile'));
             // Redirect where they were trying to visit
             // If null, redirect to route('bloggers.home')
 

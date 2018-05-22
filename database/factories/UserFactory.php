@@ -71,3 +71,13 @@ $factory->define(App\Product::class, function (Faker $faker) {
         'brand_id' => $faker->randomElement([2,3,4,5,6,7,8])
     ];
 });
+
+$factory->define(App\Article::class, function (Faker $faker) {
+    return [
+        'title' => $faker->sentence,
+        'image' => $faker->imageUrl(),
+        'article_content' => $faker->paragraph,
+        'views_count' => $faker->randomNumber(),
+        'blogger_id' => 1,
+    ];
+});

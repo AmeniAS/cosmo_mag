@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FavoriteBrand extends Model
 {
-    public function product_favoritable()
+    public function brand_favoritable()
     {
         return $this->morphTo();
     }

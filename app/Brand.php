@@ -33,4 +33,9 @@ class Brand extends Model
     {
         return $this->belongsToMany(Store::class);
     }
+
+    public function favorite_brands()
+    {
+        return $this->hasMany(FavoriteBrand::class);
+    }
 }

@@ -60,6 +60,22 @@
                                 <div class="col-md-12">
 
                                     <h3>{{ $brand->name }}</h3>
+
+                                    <h1>
+                                    @if(Auth::guard('blogger')->check() || Auth::guard('web')->check())
+                                        @if(Auth::guard($guard_name)->user()->hasVavoriteBrand($brand->id))
+                                            <a href="{{ route('brands.toggleFavorite', $brand->id) }}"><i class="fa fa-heart"></i></a>
+                                        @else
+                                            <a href="{{ route('brands.toggleFavorite', $brand->id) }}"><i class="fa fa-heart-o"></i></a>
+                                        @endif
+
+                                    @else
+
+                                        <a href="{{ route('brands.toggleFavorite', $brand->id) }}"><i class="fa fa-heart-o"></i></a>
+
+                                    @endif
+                                    </h1>
+
                                     <p>
                                         {{ $brand->description }}
                                     </p>

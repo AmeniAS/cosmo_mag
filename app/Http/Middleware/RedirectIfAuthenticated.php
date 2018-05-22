@@ -21,13 +21,13 @@ class RedirectIfAuthenticated
 
             case 'blogger':
                 if (Auth::guard($guard)->check()) {
-                    return redirect()->route('bloggers.home');
+                    return redirect()->route('bloggers.profile');
                 }
                 break; 
 
             case 'admin':
                 if (Auth::guard($guard)->check()) {
-                    return redirect()->route('admins.home');
+                    return redirect()->route('admin.dashboard');
                 }
                 break;
 
@@ -40,7 +40,7 @@ class RedirectIfAuthenticated
 
             default:
                 if (Auth::guard($guard)->check()) {
-                    return redirect()->route('users.home');
+                    return redirect()->route('members.profile');
                 }
                 break;
 

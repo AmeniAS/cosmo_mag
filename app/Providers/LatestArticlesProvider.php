@@ -2,23 +2,22 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class LatestArticlesProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any application services.
+     * Bootstrap the application services.
      *
      * @return void
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        view()->composer('layouts/front_blog', 'App\Http\ViewComposers\LatestArticlesViewComposer@compose');
     }
 
     /**
-     * Register any application services.
+     * Register the application services.
      *
      * @return void
      */
