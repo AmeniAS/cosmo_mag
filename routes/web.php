@@ -224,3 +224,10 @@ Route::post('post_newsletter', 'HomeController@subscribeNewsletter')->name('post
 Route::get('contact', 'HomeController@contact')->name('contact');
 Route::get('your-account', 'HomeController@yourAccount')->name('your-account');
 Route::post('contact', 'HomeController@sendMsg')->name('send_msg');
+
+Route::get('logout', function (){
+    Auth::guard('admin')->logout();
+    Auth::guard('blogger')->logout();
+    Auth::logout();
+    return redirect(url('/'));
+})->name('all.logout');
