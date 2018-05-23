@@ -7,10 +7,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">{{ $product->name }}</h4>
+                        <h4 class="title">Créer un produit</h4>
                     </div>
                     <div class="content">
-                        <form method="post" action="{{ route('admin.products.store') }}">
+                        <form method="post" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
 
                             {{ csrf_field() }}
 

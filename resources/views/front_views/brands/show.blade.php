@@ -80,7 +80,7 @@
 
                 <div class="grid accurate row">
 
-                    @foreach($brand->products as $new_product)
+                    @foreach($products as $new_product)
 
                         <div class="grid-item new-collection col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
@@ -89,11 +89,11 @@
                                 <figure>
 
                                     <a href="{{ route('products.show', $new_product->id) }}">
-                                        <img class="img-responsive normal" src="{{ asset($new_product->image) }}" style="height: 212px;" height="270px" alt=""/>
+                                        <img class="img-responsive normal" src="{{ asset('storage/' . $new_product->image) }}" style="height: 212px;" height="270px" alt=""/>
                                     </a>
 
                                     <a href="{{ route('products.show', $new_product->id) }}">
-                                        <img class="img-responsive hover" src="{{ asset($new_product->image) }}" style="height: 212px;" height="270px" alt=""/>
+                                        <img class="img-responsive hover" src="{{ asset('storage/' . $new_product->image) }}" style="height: 212px;" height="270px" alt=""/>
                                     </a>
 
                                     <span class="product-position color1">New</span>
@@ -103,10 +103,23 @@
                                         {{--<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--}}
 
                                         @if(Auth::guard('blogger')->check() || Auth::guard('web')->check())
-                                            @if(Auth::guard($guard_name)->user()->hasVavoriteProduct($new_product->id))
-                                                <li><a href="{{ route('products.toggleFavorite', $new_product->id) }}"><i class="fa fa-heart"></i></a></li>
+
+                                            @if(Auth::guard('blogger')->check())
+
+                                                @if(Auth::guard('blogger')->user()->hasVavoriteProduct($new_product->id))
+                                                    <li><a href="{{ route('products.toggleFavorite', $new_product->id) }}"><i class="fa fa-heart"></i></a></li>
+                                                @else
+                                                    <li><a href="{{ route('products.toggleFavorite', $new_product->id) }}"><i class="fa fa-heart-o"></i></a></li>
+                                                @endif
+
                                             @else
-                                                <li><a href="{{ route('products.toggleFavorite', $new_product->id) }}"><i class="fa fa-heart-o"></i></a></li>
+
+                                                @if(Auth::user()->hasVavoriteProduct($new_product->id))
+                                                    <li><a href="{{ route('products.toggleFavorite', $new_product->id) }}"><i class="fa fa-heart"></i></a></li>
+                                                @else
+                                                    <li><a href="{{ route('products.toggleFavorite', $new_product->id) }}"><i class="fa fa-heart-o"></i></a></li>
+                                                @endif
+
                                             @endif
 
                                         @else
@@ -333,6 +346,10 @@
 
                 </div>
 
+            </div>
+
+            <div style="width: 300px; margin: 0 auto">
+                {{ $products->links('layouts.pagination_tpl') }}
             </div>
 
         </div>

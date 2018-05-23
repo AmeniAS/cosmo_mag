@@ -37,9 +37,11 @@
                                 @if(Auth::guard('blogger')->check())
                                     <li><a href="{{ route('bloggers.profile') }}"><i class="fa fa-user"></i>Account</a></li>
                                     <li><a href="{{ route('all.logout') }}"><i class="fa fa-lock"></i>Logout</a></li>
+                                    @include('layouts.front_header_notifications_blogger')
                                 @else
                                     <li><a href="{{ route('members.profile') }}"><i class="fa fa-user"></i>Account</a></li>
                                     <li><a href="{{ route('all.logout') }}"><i class="fa fa-lock"></i>Logout</a></li>
+                                    @include('layouts.front_header_notifications')
                                 @endif
                             @endif
 

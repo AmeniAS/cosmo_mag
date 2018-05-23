@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Product;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -10,15 +11,19 @@ use Illuminate\Notifications\Messages\MailMessage;
 class NewProductAdded extends Notification
 {
     use Queueable;
+    /**
+     * @var Product
+     */
+    private $product;
 
     /**
      * Create a new notification instance.
      *
-     * @return void
+     * @param Product $product
      */
-    public function __construct()
+    public function __construct($product)
     {
-        //
+        $this->product = $product;
     }
 
     /**
@@ -29,7 +34,7 @@ class NewProductAdded extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['database'];
     }
 
     /**
@@ -38,12 +43,27 @@ class NewProductAdded extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
+    /*public function toMail($notifiable)
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
+    }*/
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toDatabase($notifiable)
+    {
+        return [
+            'user' => $notifiable,
+            'product' => $this->product,
+            'brand' => $this->product->brand
+        ];
     }
 
     /**

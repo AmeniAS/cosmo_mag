@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Brand;
+use App\Notifications\NewProductAdded;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -60,6 +61,12 @@ class ProductController extends Controller
             'quantity' => $request->quantity,
             'description' => $request->description,
         ]);
+
+        $subscribers = $product->brand->favorite_brands;
+
+        foreach ($subscribers as $subscriber) {
+            $subscriber->brand_favoritable->notify(new NewProductAdded($product));
+        }
 
         return redirect()->route('admin.products.show', $product->id);
     }

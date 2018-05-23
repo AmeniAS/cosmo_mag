@@ -103,7 +103,9 @@
 
                             <div class="tab-pane" id="pic-3"><img src="images/product/single/1.jpg" alt=""/></div>--}}
 
-                            <div class="tab-pane" id="pic-4"><img src="{{ $product->image }}" alt=""/></div>
+                            <div class="tab-pane" id="pic-1" style="display: block">
+                                <img src="{{ asset('storage/' . $product->image) }}" alt=""/>
+                            </div>
 
                         </div>
 

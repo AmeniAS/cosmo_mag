@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\FavoriteBrand;
 use App\Http\Repositories\StaticHelpers;
+use App\Product;
 use Illuminate\Http\Request;
 
 class BrandsController extends Controller
@@ -26,7 +27,9 @@ class BrandsController extends Controller
     {
         $brand = Brand::findOrFail($id);
 
-        return view('front_views.brands.show', compact('brand'));
+        $products = Product::latest()->paginate(25);
+
+        return view('front_views.brands.show', compact('brand', 'products'));
     }
 
     public function toggleFavorite($brand_id)
