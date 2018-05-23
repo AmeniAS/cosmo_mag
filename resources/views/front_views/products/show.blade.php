@@ -1,5 +1,10 @@
 @extends('layouts.front_main')
 
+@section('custom_css')
+    {!! $data['map']['js'] !!}
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3&key=AIzaSyDtMZOcKcRbHdPs9JqUOnH25J-VrOqOVFA"></script>
+@endsection
+
 @section('content')
 
     <!--Breadcumb area start here-->
@@ -444,6 +449,12 @@
     </section>
 
     <!--Product Description area end here-->
+
+    <section>
+
+        {!! $data['map']['html'] !!}
+
+    </section>
 
 @endsection
 

@@ -6,6 +6,7 @@ use App\Cart;
 use App\FavoriteProduct;
 use App\Http\Repositories\StaticHelpers;
 use App\Product;
+use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,11 +14,15 @@ class ProductsController extends Controller
 {
     protected $guard_name;
     protected $guard_type;
+    /**
+     * @var GMaps
+     */
+    private $maps;
 
-    public function __construct()
+    public function __construct(GMaps $maps)
     {
         $this->middleware('auth:web,blogger', ['only' => ['toggleFavorite', 'addToCart']]);
-
+        $this->maps = $maps;
     }
 
     public function homePage()
@@ -69,9 +74,33 @@ class ProductsController extends Controller
         $guard_name = StaticHelpers::checkGuard();
 
         $product = Product::findOrFail($id);
+
+        $stores = $product->stores;
+
+        /***************************************************/
+
+        $config['center'] = '36.8454266, 10.2250155';
+        $config['zoom'] = '11';
+        $config['map_height'] = '700px';
+        $config['geocodeCaching'] = true;
+        $this->maps->initialize($config);
+
+        foreach ($stores as $store) {
+            $marker = array();
+            $marker['position'] = $store->latitude . ', ' . $store->longitude;
+            $marker['infoWindow'] = $store->name . '<br>' . $store->address;
+            $marker['onclick'] = 'alert("You just clicked me!!")';
+
+            $this->maps->add_marker($marker);
+        }
+
+        $data['map'] = $this->maps->create_map();
+
+        /***************************************************/
+
         $page_title = $product->name;
 
-        return view('front_views.products.show', compact('product', 'guard_name', 'page_title'));
+        return view('front_views.products.show', compact('product', 'guard_name', 'page_title', 'data'));
     }
 
     /**
