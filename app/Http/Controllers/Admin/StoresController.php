@@ -98,6 +98,8 @@ class StoresController extends Controller
 
         $store->fill($request->all());
 
+        $store->save();
+
         $store->brands()->sync($request->brand_ids);
         $store->products()->sync($request->product_ids);
 

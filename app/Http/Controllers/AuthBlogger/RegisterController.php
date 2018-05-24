@@ -32,6 +32,15 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+
+            'birthdate' => 'required|date',
+            'phone' => 'required|numeric',
+            'address' => 'required|string|max:255',
+            'image' => 'required',
+
+            'facebook' => 'required|string|max:255',
+            'youtube' => 'required|string|max:255',
+            'instagram' => 'required|string|max:255',
         ]);
 
         $referer = StaticHelpers::findRefereeByCode($request->toArray());
@@ -63,6 +72,6 @@ class RegisterController extends Controller
 
         Auth::guard('blogger')->login($blogger);
 
-        return redirect()->route('bloggers.home');
+        return redirect()->route('bloggers.profile');
     }
 }

@@ -88,8 +88,8 @@ class ProductsController extends Controller
         foreach ($stores as $store) {
             $marker = array();
             $marker['position'] = $store->latitude . ', ' . $store->longitude;
-            $marker['infoWindow'] = $store->name . '<br>' . $store->address;
-            $marker['onclick'] = 'alert("You just clicked me!!")';
+            $marker['infowindow_content'] = '<strong>' . $store->name . '</strong>' . '<br>' . $store->address;
+            //$marker['onclick'] = 'alert("You just clicked me!!")';
 
             $this->maps->add_marker($marker);
         }

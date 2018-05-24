@@ -20,6 +20,13 @@
             </a>
         </li>
 
+        <li>
+            <a href="https://us18.admin.mailchimp.com/lists/members/?id=10907#p:1-s:10-so:null" target="_blank">
+                <i class="pe-7s-graph"></i>
+                <p>Newsletter</p>
+            </a>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#vente" aria-expanded="true">
                 <i class="pe-7s-graph"></i>

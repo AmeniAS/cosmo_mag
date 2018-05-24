@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailToAdmin;
 use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Spatie\Newsletter\Newsletter;
 use DrewM\MailChimp\MailChimp;
@@ -77,6 +79,10 @@ class HomeController extends Controller
         Message::create($request->all());
 
         Session::flash('alert-success', 'Message envoyé avec succès');
+
+        Mail::to('khemissi.islem@gmail.com')
+            ->cc($request->email)
+            ->send(new MailToAdmin($request->all()));
 
         return redirect()->back();
 
