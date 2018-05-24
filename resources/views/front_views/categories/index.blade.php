@@ -24,7 +24,7 @@
 
                                     <h2>{{ $category->name }}</h2>
 
-                                    {{--<p>Check Our New Collection</p>--}}
+                                    <p>{{ \Illuminate\Support\Str::words($category->description, 25) }}</p>
 
                                 </div>
 

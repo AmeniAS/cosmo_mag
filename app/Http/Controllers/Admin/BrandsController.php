@@ -43,10 +43,14 @@ class BrandsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-
+            'name' => 'required',
+            'website' => 'required',
+            'category_id' => 'required',
+            'logo' => 'required',
+            'description' => 'required',
         ]);
 
-        $logo_url = $request->file('logo')->store('uploads/brands', 'public');
+        $logo_url = 'storage/' . $request->file('logo')->store('uploads/brands', 'public');
 
         Brand::create([
             'name' => $request->name,

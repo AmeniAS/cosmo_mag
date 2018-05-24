@@ -19,7 +19,7 @@ class CreateMediaImagesTable extends Migration
             $table->string('title');
             $table->string('path');
 
-            $table->string('description');
+            $table->text('description');
 
             $table->integer('blogger_id')->unsigned()->index();
             $table->foreign('blogger_id')

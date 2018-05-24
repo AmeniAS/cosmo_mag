@@ -39,11 +39,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-
+            'name' => 'required',
+            'image' => 'required',
+            'description' => 'required',
         ]);
 
-        if ($request->file('logo')) {
-            $logo_url = $request->file('logo')->store('uploads/categories', 'public');
+        if ($request->file('image')) {
+            $logo_url = 'storage/' . $request->file('image')->store('uploads/categories', 'public');
         }
 
         Category::create ([

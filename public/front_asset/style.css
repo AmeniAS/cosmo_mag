@@ -1940,7 +1940,7 @@ header .carousel-control i {
   left: -20%;
   transform: rotate(30deg);
   /*background: rgba(41, 95, 255, 0.7);*/
-  background: rgba(177, 174, 28, 0.7);
+  background: rgba(180, 133, 40, 0.5);
   top: -500px;
   bottom: -500px;
 }
@@ -1948,20 +1948,22 @@ header .carousel-control i {
   width: 71%;
   left: -20%;
   transform: rotate(30deg);
-  background: rgba(255, 250, 41, 0.3);
+  background: rgba(180, 133, 40, 0.44);
   /*background: rgba(41, 95, 255, 0.3);*/
   top: -500px;
   bottom: -500px;
 }
 .slider-area-two .slider-two .slider-list.slider-list-1 {
-  background: url(images/slider/3.jpg) no-repeat;
+  background: url(images/cosmomag/1.jpg) no-repeat;
 }
 .slider-area-two .slider-two .slider-list.slider-list-2 {
-  background: url(images/slider/1.jpg) no-repeat;
+  background: url(images/cosmomag/2.jpg) no-repeat;
 }
 .slider-area-two .slider-two .slider-list.slider-list-3 {
-  background: url(images/slider/2.jpg) no-repeat;
+  background: url(images/cosmomag/3.jpg) no-repeat;
 }
+
+
 .slider-area-two .slider-two .slider-list .single-slider .slider-content {
   position: relative;
   z-index: 999;

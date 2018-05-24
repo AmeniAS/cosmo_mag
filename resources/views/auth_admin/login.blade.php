@@ -33,13 +33,13 @@
 
 <div class="limiter">
     <div class="container-login100">
-        <div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
+        <div class="login100-more" style="background-image: url({{ asset('login_tpl/login/images/bg-01.jpg') }});"></div>
 
         <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
             <form class="form-horizontal" method="POST" action="{{ route('admins.login.submit') }}">
                 {{ csrf_field() }}
                 <span class="login100-form-title p-b-59">
-                    Login "Membre"
+                    Login "Admin"
                 </span>
 
                 <div class="wrap-input100 validate-form validate-input {{ $errors->has('email') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('email') ? $errors->first('email') : 'Valid email is required: ex@abc.xyz' }}">

@@ -18,7 +18,7 @@ class CreateStoresTable extends Migration
 
             $table->string('name');
             $table->string('address');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('website')->nullable();
 
             $table->string('longitude');

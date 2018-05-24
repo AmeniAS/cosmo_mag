@@ -12,7 +12,7 @@
 
                     <figure>
 
-                        <img src="{{ asset('front_asset/images/services/1.jpg') }}" alt=""/>
+                        <img src="{{ asset('images/categories/bio.jpg') }}" alt=""/>
 
                         <div class="services-content">
 
