@@ -5764,7 +5764,8 @@ header .carousel-control i {
   z-index: 99;
 }
 .breadcumb-area:after {
-  background: rgba(0, 0, 0, 0.7);
+  /*background: rgba(0, 0, 0, 0.7);*/
+  background: rgb(180, 133, 40);
 }
 .breadcumb-area.error {
   background: #404040;

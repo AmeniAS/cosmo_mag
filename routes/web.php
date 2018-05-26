@@ -44,8 +44,9 @@ Route::prefix('members')->group(function (){
 
 Route::prefix('bloggers')->group(function (){
 
-    Route::get('/', 'BloggerController@index')->name('bloggers.home');
+    //Route::get('/', 'BloggerController@index')->name('bloggers.home');
     Route::get('/', 'BloggerController@profile')->name('bloggers.profile');
+    Route::get('/favorite_products', 'BloggerController@favoriteProducts')->name('bloggers.favorite_products');
 
     Route::get('/login', 'AuthBlogger\LoginController@showLoginForm')->name('bloggers.login');
     Route::post('/login', 'AuthBlogger\LoginController@login')->name('bloggers.login.submit');

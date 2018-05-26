@@ -212,9 +212,9 @@
 
                         <div class="content-support">
 
-                            <h4><a href="#">Images</a></h4>
+                            <h4><a href="{{ route('media_images.create') }}">Images</a></h4>
 
-                            <p>Blogger Images</p>
+                            <p>Ajouter une image</p>
 
                         </div>
 
@@ -234,31 +234,9 @@
 
                         <div class="content-support">
 
-                            <h4><a href="#">Videos</a></h4>
+                            <h4><a href="{{ route('media_videos.create') }}">Videos</a></h4>
 
-                            <p>Blogger videos</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 accurate support-list">
-
-                    <div class="single-support pd-50">
-
-                        <div class="suport-icon mr-r20 mr-t5">
-
-                            {{--<img src="images/icon/7.png" alt=""/>--}}
-
-                        </div>
-
-                        <div class="content-support">
-
-                            <h4><a href="#">Produits</a></h4>
-
-                            <p>Produits Favoris</p>
+                            <p>Créer une video</p>
 
                         </div>
 
@@ -278,9 +256,31 @@
 
                         <div class="content-support">
 
-                            <h4><a href="#">Articles</a></h4>
+                            <h4><a href="{{ route('bloggers.favorite_products') }}">Produits Favoris</a></h4>
 
-                            <p>Blogger Articles</p>
+                            <p>Liste des Produits</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 accurate support-list">
+
+                    <div class="single-support pd-50">
+
+                        <div class="suport-icon mr-r20 mr-t5">
+
+                            {{--<img src="images/icon/7.png" alt=""/>--}}
+
+                        </div>
+
+                        <div class="content-support">
+
+                            <h4><a href="{{ route('articles.create') }}">Articles</a></h4>
+
+                            <p>Créer un article</p>
 
                         </div>
 
@@ -316,7 +316,7 @@
 
                 <div class="gallery">
 
-                    @foreach(auth()->guard('blogger')->user()->media_images->slice(0, 10) as $image)
+                    @foreach($blogger_images as $image)
 
                         <div class="img-w">
                             <img src="{{ $image->path }}" alt="" />
@@ -324,33 +324,6 @@
 
                     @endforeach
 
-                    {{--<div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1485766410122-1b403edb53db?dpr=1&auto=format&fit=crop&w=1500&h=846&q=80&cs=tinysrgb&crop=" alt="" />
-                    </div>
-                    <div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1485793997698-baba81bf21ab?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="" />
-                    </div>
-                    <div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1485871800663-71856dc09ec4?dpr=1&auto=format&fit=crop&w=1500&h=2250&q=80&cs=tinysrgb&crop=" alt="" />
-                    </div>
-                    <div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1485871882310-4ecdab8a6f94?dpr=1&auto=format&fit=crop&w=1500&h=2250&q=80&cs=tinysrgb&crop=" alt="" />
-                    </div>
-                    <div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1485872304698-0537e003288d?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="" />
-                    </div>
-                    <div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1485872325464-50f17b82075a?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="" />
-                    </div>
-                    <div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1470171119584-533105644520?dpr=1&auto=format&fit=crop&w=1500&h=886&q=80&cs=tinysrgb&crop=" alt="" />
-                    </div>
-                    <div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1485881787686-9314a2bc8f9b?dpr=1&auto=format&fit=crop&w=1500&h=969&q=80&cs=tinysrgb&crop=" alt="" />
-                    </div>
-                    <div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1485889397316-8393dd065127?dpr=1&auto=format&fit=crop&w=1500&h=843&q=80&cs=tinysrgb&crop=" alt="" />
-                    </div>--}}
                 </div>
 
             </div>
@@ -374,6 +347,22 @@
                     </div>
 
                 </div>
+
+            </div>
+
+            <div class="row">
+
+                @foreach($blogger_videos as $video)
+
+                    <div class="col-md-4">
+                        <video width="320" height="240" controls>
+                            <source src="{{ asset($video->url) }}" type="video/mp4">
+
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                @endforeach
 
             </div>
 
@@ -447,7 +436,41 @@
 
                 <div class="blog-slider-three">
 
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    @foreach($articles as $article)
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                            <div class="single-blog">
+
+                                <figure>
+
+                                    <img src="{{ asset($article->image) }}" alt=""/>
+
+                                    <div class="date">
+
+                                        <span>{{ $article->created_at->format('M') }}</span>
+
+                                        <span>{{ $article->created_at->day }}</span>
+
+                                    </div>
+
+                                </figure>
+
+                                <article>
+
+                                    <h4>{{ $article->title }}</h4>
+
+                                    <p>{{ \Illuminate\Support\Str::words($article->description, 25) }}</p>
+
+                                    <a href="{{ route('articles.show', $article->id) }}" class="btn3">Read More <i class="fa fa-angle-right"></i></a>
+
+                                </article>
+
+                            </div>
+
+                        </div>
+                    @endforeach
+
+                    {{--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                         <div class="single-blog">
 
@@ -637,7 +660,7 @@
 
                         </div>
 
-                    </div>
+                    </div>--}}
 
                 </div>
 

@@ -1,58 +1,70 @@
-@extends('layouts.app')
+{{--{{ dd($errors) }}--}}
+@extends('layouts.front_main')
+
+@section('custom_css')
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ asset('css/custom_forms.css') }}">
+
+@endsection
 
 @section('content')
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Créer un video </div>
-/
-                    <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('media_videos.store') }}" enctype="multipart/form-data">
-                            {{ csrf_field() }}
+    <section class="single-blog-area section">
 
-                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                                <label for="title" class="col-md-4 control-label">Titre</label>
+        <div class="container">
 
-                                <div class="col-md-6">
-                                    <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
+            <div class="row">
 
-                                    @if ($errors->has('title'))
-                                        <span class="help-block">
+                <div class="col-md-8 col-md-offset-2 form-style-8">
+
+                    <h2>Ajouter une Video</h2>
+
+                    <form class="form-horizontal" method="POST" action="{{ route('media_videos.store') }}"
+                          enctype="multipart/form-data">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Titre</label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" name="title" value="{{ old('title') }}" required
+                                       autofocus>
+
+                                @if ($errors->has('title'))
+                                    <span class="help-block">
                                         <strong>{{ $errors->first('title') }}</strong>
                                     </span>
-                                    @endif
-                                </div>
+                                @endif
                             </div>
+                        </div>
 
-                            <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
-                                <label for="url" class="col-md-4 control-label">video</label>
+                        <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
+                            <label for="url" class="col-md-4 control-label">Video</label>
 
-                                <div class="col-md-6">
-                                    <input id="url" type="file" class="form-control" name="url" value="{{ old('url') }}" required>
+                            <div class="col-md-6">
+                                <input id="url" type="file" name="url" required>
 
-                                    @if ($errors->has('url'))
-                                        <span class="help-block">
+                                @if ($errors->has('url'))
+                                    <span class="help-block">
                                         <strong>{{ $errors->first('url') }}</strong>
                                     </span>
-                                    @endif
-                                </div>
+                                @endif
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <div class="col-md-8 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Login
-                                    </button>
-                                </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <input type="submit" value="Créer"/>
                             </div>
+                        </div>
 
-                        </form>
-                    </div>
+                    </form>
+
+
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 @endsection
