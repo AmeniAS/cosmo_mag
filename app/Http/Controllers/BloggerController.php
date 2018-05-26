@@ -29,11 +29,23 @@ class BloggerController extends Controller
 
     public function profile()
     {
-        return view('front_views.bloggers.profile');
+        $articles = auth()->guard('blogger')->user()->articles()->latest()->take(3)->get();
+
+        $blogger_images = auth()->guard('blogger')->user()->media_images()->latest()->take(10)->get();
+        $blogger_videos = auth()->guard('blogger')->user()->media_videos()->latest()->take(3)->get();
+
+        return view('front_views.bloggers.profile', compact('articles', 'blogger_images', 'blogger_videos'));
     }
 
     public function images()
     {
         return view('front_views.bloggers.images');
+    }
+
+    public function favoriteProducts()
+    {
+        $favorite_products = auth()->guard('blogger')->user()->product_favorites()->latest()->get();
+
+        return view('front_views.bloggers.product_favorites', compact('favorite_products'));
     }
 }

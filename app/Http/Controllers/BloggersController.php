@@ -51,7 +51,23 @@ class BloggersController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'image' => 'required',
+            'article_content' => 'required',
+        ]);
 
+        $path = 'storage/' . $request->file('image')->store('uploads/articles', 'public');
+
+        Article::create([
+            'title' => $request->title,
+            'image' => $path,
+            'article_content' => $request->article_content,
+            'blogger_id' => $request->user()->id,
+            'views_count' => 0
+        ]);
+
+        return redirect()->route('bloggers.profile');
     }
 
 

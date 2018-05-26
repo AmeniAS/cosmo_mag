@@ -42,10 +42,12 @@ class MediaImageController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-
+            'title' => 'required',
+            'image_file' => 'required|mimes:jpeg,jpg,png|max:4096',
+            'description' => 'required',
         ]);
 
-        $path = $request->file('image_file')->store('uploads/media_images', 'public');
+        $path = 'storage/' . $request->file('image_file')->store('uploads/media_images', 'public');
 
         MediaImage::create([
             'title' => $request->title,
@@ -54,6 +56,6 @@ class MediaImageController extends Controller
             'blogger_id' => $request->user()->id
         ]);
 
-        return redirect()->route('media_images.index');
+        return redirect()->route('bloggers.profile');
     }
 }

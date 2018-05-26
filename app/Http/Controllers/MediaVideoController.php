@@ -29,11 +29,14 @@ class MediaVideoController extends Controller
     }
     public function store(Request $request)
     {
-        $this->validate($request, [
 
+
+        $this->validate($request, [
+            'title' => 'required',
+            'url' => 'required|mimes:flv,mp4,mov,ogg,3gp,avi | max:20000',
         ]);
 
-        $url = $request->file('url')->store('uploads/media_videos', 'public');
+        $url = 'storage/' . $request->file('url')->store('uploads/media_videos', 'public');
 
         MediaVideo::create([
             'title' => $request->title,
@@ -41,6 +44,6 @@ class MediaVideoController extends Controller
             'blogger_id' => $request->user()->id
         ]);
 
-        return redirect()->route('media_videos.index');
+        return redirect()->route('bloggers.profile');
     }
 }

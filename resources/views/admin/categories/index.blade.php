@@ -2,6 +2,22 @@
 
 @section('content')
 
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <a href="{{ route('admin.categories.create') }}" class="btn btn-primary col-md-2 col-md-offset-10">
+
+                Créer une marque
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <hr>
+
     <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
         <tr>
