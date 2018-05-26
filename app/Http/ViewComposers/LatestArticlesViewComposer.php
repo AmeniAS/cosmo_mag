@@ -7,7 +7,6 @@ use App\Product;
 
 class LatestArticlesViewComposer
 {
-    public $new_products = [];
     public $latest_articles = [];
 
     public function __construct()

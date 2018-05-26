@@ -10,7 +10,7 @@
 
     @include('layouts.front_ads')
 
-    @include('layouts.front_best_products')
+    {{--@include('layouts.front_best_products')--}}
 
     @include('layouts.front_blog')
 
