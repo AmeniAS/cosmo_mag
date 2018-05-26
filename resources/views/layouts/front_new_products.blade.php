@@ -14,10 +14,9 @@
 
                         <div class="heading-product">
 
-                            <h1>What’s New In</h1>
+                            <h1>NOUVEAUTÉS</h1>
 
-                            <p>2017 Collection</p>
-
+                            <p>Makeup Collection 2018 </p>
                         </div>
 
                     </div>
@@ -28,15 +27,15 @@
 
                             <ul>
 
-                                <li class="button is-checked" data-filter="*">All</li>
+                                <li class="button is-checked" data-filter="*">Tous</li>
 
-                                <li class="button" data-filter=".new-collection">New Collection</li>
+                                <li class="button" data-filter=".new-collection">Cosmétique </li>
 
-                                <li class="button" data-filter=".featured">Featured</li>
+                                <li class="button" data-filter=".featured">Esthétique</li>
 
-                                <li class="button" data-filter=".most-popuplar">Most Popuplar</li>
+                                <li class="button" data-filter=".most-popuplar">Bio</li>
 
-                                <li class="button" data-filter=".on-sale">On Sale</li>
+
 
                             </ul>
 
@@ -50,17 +49,17 @@
 
                             <figure>
 
-                                <img src="{{ asset('front_asset/images/ads/1.jpg') }}" alt=""/>
+                                <img src="{{ asset('images/promo/1.jpg') }}" alt=""/>
 
                                 <div class="ads-content af">
 
-                                    <h2>New Bello</h2>
+                                    <h2>Sérum</h2>
 
-                                    <p>Travel Bag</p>
+                                    <p>Resté Hydraté 24/24</p>
 
                                 </div>
 
-                                <div class="price-box"><p>only</p><strong>$69</strong></div>
+                                <div class="price-box"><p>PROMO</p><strong>20D</strong></div>
 
                             </figure>
 
@@ -125,9 +124,8 @@
                                     </a>
                                 </h4>
 
-                                <p>{{ $new_product->id }}</p>
 
-                                <span class="price">$30</span>
+                                <span class="price">{{ $new_product->price }}DT</span>
 
                             </div>
 

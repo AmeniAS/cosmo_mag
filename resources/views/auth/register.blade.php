@@ -33,7 +33,7 @@
 
 <div class="limiter">
     <div class="container-login100">
-        <div class="login100-more" style="background-image: url({{ asset('login_tpl/login/images/bg-01.jpg') }});"></div>
+        <div class="login100-more" style="background-image: url({{ asset('images/loginMbr.jpg') }});"></div>
 
         <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
             <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('register') }}">
@@ -41,7 +41,7 @@
                 {{ csrf_field() }}
 
 					<span class="login100-form-title p-b-59">
-						Créer un compte "Membre"
+						Créer un compte Membre
 					</span>
 
                 {{--<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

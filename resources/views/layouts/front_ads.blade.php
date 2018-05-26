@@ -12,15 +12,16 @@
 
                     <figure>
 
-                        <img src="{{ asset('front_asset/images/ads/2.jpg') }}" alt=""/>
+                        <img src="{{ asset('images/top/2.jpg') }}" alt=""/>
 
                         <div class="abs-content">
 
-                            <h1>New Fashion</h1>
+                            <h1>TOP BIO</h1>
 
-                            <p>Collection</p>
+                            <h2>2018</h2>
 
-                            <h2>2017</h2>
+
+                            <h2></h2>
 
                         </div>
 
@@ -36,15 +37,14 @@
 
                     <figure>
 
-                        <img src="{{ asset('front_asset/images/ads/3.jpg') }}" alt=""/>
+                        <img src="{{ asset('images/top/3.jpg') }}" alt=""/>
 
                         <div class="abs-content">
 
-                            <h1>New Fashion</h1>
+                            <h1>TOP Cosmétique</h1>
 
-                            <p>Collection</p>
 
-                            <h2>2017</h2>
+                            <h2>2018</h2>
 
                         </div>
 

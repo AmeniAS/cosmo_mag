@@ -16,13 +16,13 @@
 
                             <div class="slider-content">
 
-                                <h1>Print Pattern</h1>
+                                <h1>Prête Pour la Saison Estivale? </h1>
 
-                                <h3>Collection 2017</h3>
+                                <h3> Vos Essentiels Beuté De l'été </h3>
 
-                                <p>Smply dummy text of the printing and typesetting industry area loredolalr its’ free dummy standard dummysince.</p>
 
-                                <a class="btn1" href="#">read more</a>
+
+                                <a class="btn1" href="#">Découvrir</a>
 
                             </div>
 
@@ -48,13 +48,13 @@
 
                             <div class="slider-content">
 
-                                <h1>Print Pattern</h1>
+                                <h1>Prête Pour la Saison Estivale?</h1>
 
-                                <h3>Collection 2017</h3>
+                                <h3>Vos Essentiels Beuté De l'été </h3>
 
-                                <p>Smply dummy text of the printing and typesetting industry area loredolalr its’ free dummy standard dummysince.</p>
 
-                                <a class="btn1" href="#">read more</a>
+
+                                <a class="btn1" href="#">Découvrir</a>
 
                             </div>
 
@@ -80,13 +80,13 @@
 
                             <div class="slider-content">
 
-                                <h1>Print Pattern</h1>
+                                <h1>Prête Pour la Saison Estivale?</h1>
 
-                                <h3>Collection 2017</h3>
+                                <h3>Vos Essentiels Beuté De l'été </h3>
 
-                                <p>Smply dummy text of the printing and typesetting industry area loredolalr its’ free dummy standard dummysince.</p>
 
-                                <a class="btn1" href="#">read more</a>
+
+                                <a class="btn1" href="#">Découvrir</a>
 
                             </div>
 

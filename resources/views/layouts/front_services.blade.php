@@ -16,9 +16,9 @@
 
                         <div class="services-content">
 
-                            <h2>men</h2>
+                            <h2>BIO</h2>
 
-                            <p>Check Our New Collection</p>
+                            <p>La Beauté Par La Nature </p>
 
                         </div>
 
@@ -34,13 +34,13 @@
 
                     <figure>
 
-                        <img src="{{ asset('front_asset/images/services/2.jpg') }}" alt=""/>
+                        <img src="{{ asset('images/categories/cosmetique2.jpg') }}" alt=""/>
 
                         <div class="services-content">
 
-                            <h2>Women</h2>
+                            <h2>Cosmétique</h2>
 
-                            <p>Check Our New Collection</p>
+                            <p>Maquillage & Cosméthique </p>
 
                         </div>
 
@@ -56,13 +56,13 @@
 
                     <figure>
 
-                        <img src="{{ asset('front_asset/images/services/3.jpg') }}" alt=""/>
+                        <img src="{{ asset('images/categories/esthetique.jpg') }}" alt=""/>
 
                         <div class="services-content">
 
-                            <h2>Accessories</h2>
+                            <h2>Esthétique</h2>
 
-                            <p>Check Our New Collection</p>
+                            <p>Esthétique & Beauté </p>
 
                         </div>
 
