@@ -173,7 +173,7 @@
 
                                 <li><a href="#">Beauté</a></li>
 
-                                <li><a href="#">Événements</a></li>
+                                <li><a href="{{ url('/forums') }}">Forum</a></li>
 
                                 <li>
 

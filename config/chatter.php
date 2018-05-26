@@ -55,8 +55,8 @@ return [
     */
 
     'yields' => [
-        'head'   => 'css',
-        'footer' => 'js',
+        'head'   => 'custom_css',
+        'footer' => 'custom_js',
     ],
 
     /*
@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'master_file_extend' => 'layouts.app',
+    'master_file_extend' => 'layouts.front_main',
 
     /*
     |--------------------------------------------------------------------------

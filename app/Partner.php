@@ -2,10 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Partner extends Model
+class Partner extends Authenticatable
 {
+    use Notifiable;
+
     protected $fillable = [
         'email',
         'password',

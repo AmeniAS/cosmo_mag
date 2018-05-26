@@ -76,7 +76,13 @@ class BloggerController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'facebook' => 'required',
+            'instagram' => 'required',
+            'youtube' => 'required',
         ]);
         $blogger = Blogger::findOrFail($id);
 
@@ -91,8 +97,7 @@ class BloggerController extends Controller
 
         $blogger->save();
 
-        Session::flash('message', 'Blogueuse moodifée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-info', 'Blogueuse moodifée avec succès');
 
         return redirect()->route('admin.bloggers.show', $blogger->id);
     }

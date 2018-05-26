@@ -44,7 +44,12 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-
+            'name' => 'required',
+            'image_file' => 'required',
+            'brand_id' => 'required',
+            'price' => 'required',
+            'quantity' => 'required',
+            'description' => 'required',
         ]);
 
         $logo_url = '';
@@ -108,7 +113,11 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-
+            'name' => 'required',
+            'brand_id' => 'required',
+            'price' => 'required',
+            'quantity' => 'required',
+            'description' => 'required',
         ]);
         $product = Product::findOrFail($id);
 

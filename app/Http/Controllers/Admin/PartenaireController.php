@@ -44,7 +44,9 @@ class PartenaireController extends Controller
     {
         // validation du formulaire
         $this->validate($request, [
-
+            'website' => 'required',
+            'email' => 'required',
+            'brand_id' => 'required',
         ]);
 
         // récupérer une instance de l'user connecté
@@ -52,7 +54,7 @@ class PartenaireController extends Controller
 
         $partner = Partner::create([
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => bcrypt(123456),
             'website' => $request->website
         ]);
 
@@ -98,7 +100,9 @@ class PartenaireController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-
+            'website' => 'required',
+            'email' => 'required',
+            'brand_id' => 'required',
         ]);
         $partenaire = Partner::findOrFail($id);
 

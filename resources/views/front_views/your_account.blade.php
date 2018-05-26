@@ -34,7 +34,7 @@
                             <img src="{{ asset('front_asset/images/ico/3.png') }}" alt=""/>
                         </div>
                         <div class="content-support">
-                            <h4>PARTENAIRE</h4>
+                            <a href="{{ route('partenaires.login') }}"><h4>PARTENAIRE</h4></a>
                             <p></p>
                         </div>
                     </div>

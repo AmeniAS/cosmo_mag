@@ -76,7 +76,10 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
         ]);
         $member = User::findOrFail($id);
 

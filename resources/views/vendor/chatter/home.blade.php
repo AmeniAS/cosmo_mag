@@ -65,7 +65,7 @@
 	    		<div class="chatter_sidebar">
 					<button class="btn btn-primary" id="new_discussion_btn"><i class="chatter-new"></i> @lang('chatter::messages.discussion.new')</button>
 					<a href="{{ url('/') . '/' . Config::get('chatter.routes.home') }}"><i class="chatter-bubble"></i> @lang('chatter::messages.discussion.all')</a>
-          {!! $categoriesMenu !!}
+          			{!! $categoriesMenu !!}
 				</div>
 				<!-- END SIDEBAR -->
 	    	</div>
@@ -97,8 +97,19 @@
 					        		</div>
 
 					        		<div class="chatter_middle">
-					        			<h3 class="chatter_middle_title">{{ $discussion->title }} <div class="chatter_cat" style="background-color:{{ $discussion->category->color }}">{{ $discussion->category->name }}</div></h3>
-					        			<span class="chatter_middle_details">@lang('chatter::messages.discussion.posted_by') <span data-href="{{ url('/') . '/' }}user">{{ ucfirst($discussion->user->{Config::get('chatter.user.database_field_with_user_name')}) }}</span> {{ \Carbon\Carbon::createFromTimeStamp(strtotime($discussion->created_at))->diffForHumans() }}</span>
+					        			<h3 class="chatter_middle_title">
+											{{ $discussion->title }}
+											<div class="chatter_cat" style="background-color:{{ $discussion->category->color }}">
+												{{ $discussion->category->name }}
+											</div>
+										</h3>
+					        			<span class="chatter_middle_details">
+											@lang('chatter::messages.discussion.posted_by')
+											<span data-href="{{ url('/') . '/' }}user">
+												{{ ucfirst($discussion->user->{Config::get('chatter.user.database_field_with_user_name')}) }}
+											</span>
+											{{--{{ \Carbon\Carbon::createFromTimeStamp(strtotime($discussion->created_at))->diffForHumans() }}--}}
+										</span>
 					        			@if($discussion->post[0]->markdown)
 					        				<?php $discussion_body = GrahamCampbell\Markdown\Facades\Markdown::convertToHtml( $discussion->post[0]->body ); ?>
 					        			@else
