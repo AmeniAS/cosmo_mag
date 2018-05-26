@@ -92,4 +92,9 @@ class HomeController extends Controller
     {
         return view('front_views.your_account');
     }
+
+    public function demarche()
+    {
+        return view('front_views.demarche');
+    }
 }

@@ -109,8 +109,7 @@ class BloggerController extends Controller
 
         $blogger->delete();
 
-        Session::flash('message', 'Blogueuse supprimée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-danger', 'Blogueuse supprimée avec succès');
 
         return redirect()->route('admin.bloggers.index');
     }

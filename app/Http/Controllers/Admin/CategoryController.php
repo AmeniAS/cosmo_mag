@@ -55,8 +55,7 @@ class CategoryController extends Controller
 
         ]);
 
-        Session::flash('message', 'Categorie ajoutée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-success', 'Categorie ajoutée avec succès');
 
         return redirect()->route('admin.categories.index');
     }
@@ -94,13 +93,14 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-
+            'name' => 'required',
+            'description' => 'required',
         ]);
 
         $category = Category::findOrFail($id);
 
         if ($request->file('logo')) {
-            $logo_url = $request->file('logo')->store('uploads/categories', 'public');
+            $logo_url = 'storage/' .  $request->file('logo')->store('uploads/categories', 'public');
             $category->image = $logo_url;
         }
 
@@ -114,8 +114,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        Session::flash('message', 'Categorie modifiée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-info', 'Categorie modifiée!');
 
         return redirect()->route('admin.categories.show', $category->id);
 
@@ -133,8 +132,7 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        Session::flash('message', 'Catégorie supprimée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-danger', 'Categorie supprimée avec succès');
 
         return redirect()->route('admin.categories.index');
     }

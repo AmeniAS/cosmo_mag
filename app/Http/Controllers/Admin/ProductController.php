@@ -68,6 +68,8 @@ class ProductController extends Controller
             $subscriber->brand_favoritable->notify(new NewProductAdded($product));
         }
 
+        Session::flash('alert-success', 'Produit ajouté avec succès');
+
         return redirect()->route('admin.products.show', $product->id);
     }
 
@@ -129,8 +131,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        Session::flash('message', 'product moodifé avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-info', 'Produit modifié avec succès');
 
         return redirect()->route('admin.products.show', $product->id);
     }
@@ -147,8 +148,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        Session::flash('message', 'Product supprimé avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-danger', 'Produit supprimé avec succès');
 
         return redirect()->route('admin.products.index');
     }

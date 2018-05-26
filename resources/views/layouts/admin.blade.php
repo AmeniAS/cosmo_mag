@@ -59,6 +59,10 @@
 
     <div class="main-panel">
 
+        @include('layouts.admin_form_errors')
+
+        @include('layouts.admin_flash_messages')
+
         @include('layouts.admin_header')
 
         <div class="content">

@@ -87,8 +87,7 @@ class MemberController extends Controller
 
         $member->save();
 
-        Session::flash('message', 'Membre moodifé avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-info', 'Membre moodifé avec succès');
 
         return redirect()->route('admin.members.show', $member->id);
     }
@@ -105,8 +104,7 @@ class MemberController extends Controller
 
         $member->delete();
 
-        Session::flash('message', 'Membre supprimé avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-danger', 'Membre supprimé avec succès');
 
         return redirect()->route('admin.members.index');
     }

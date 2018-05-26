@@ -49,8 +49,7 @@ class StoresController extends Controller
 
         Store::create($request->all());
 
-        Session::flash('message', 'Boutique ajoutée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-success', 'Boutique ajoutée avec succès');
 
         return redirect()->route('admin.stores.index');
     }
@@ -103,8 +102,7 @@ class StoresController extends Controller
         $store->brands()->sync($request->brand_ids);
         $store->products()->sync($request->product_ids);
 
-        Session::flash('message', 'Boutique modifiée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-info', 'Boutique modifiée avec succès');
 
         return redirect()->route('admin.stores.index');
     }
@@ -121,8 +119,7 @@ class StoresController extends Controller
 
         $store->delete();
 
-        Session::flash('message', 'Boutique supprimée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-danger', 'Boutique supprimée avec succès');
 
         return redirect()->route('admin.stores.index');
     }

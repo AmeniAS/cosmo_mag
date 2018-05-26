@@ -60,8 +60,7 @@ class BrandsController extends Controller
             'category_id' => $request->category_id,
         ]);
 
-        Session::flash('message', 'Marque ajoutée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-success', 'Marque ajoutée avec succès');
 
         return redirect()->route('admin.brands.index');
     }
@@ -102,7 +101,10 @@ class BrandsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-
+            'name' => 'required',
+            'website' => 'required',
+            'category_id' => 'required',
+            'description' => 'required',
         ]);
 
         $brand = Brand::findOrFail($id);
@@ -130,8 +132,7 @@ class BrandsController extends Controller
 
         $brand->save();
 
-        Session::flash('message', 'Marque moodifée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-info', 'Marque moodifée avec succès');
 
         return redirect()->route('admin.brands.show', $brand->id);
     }
@@ -148,8 +149,7 @@ class BrandsController extends Controller
 
         $brand->delete();
 
-        Session::flash('message', 'Marque supprimée avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-danger', 'Marque supprimée avec succès');
 
         return redirect()->route('admin.brands.index');
     }

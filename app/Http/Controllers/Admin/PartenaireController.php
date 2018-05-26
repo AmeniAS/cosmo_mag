@@ -57,8 +57,7 @@ class PartenaireController extends Controller
         ]);
 
         $partner->brands()->sync([$request->brand_id]);
-
-        Session::flash('message', 'Partenaire ajouté');
+        Session::flash('alert-success', 'Partenaire ajouté avec succès');
 
         return redirect()->route('admin.partenaires.index');
     }
@@ -110,8 +109,7 @@ class PartenaireController extends Controller
 
         $partenaire->save();
 
-        Session::flash('message', 'Partenaire moodifé avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-info', 'Partenaire moodifé avec succès');
 
         return redirect()->route('admin.partenaires.show', $partenaire->id);
     }
@@ -128,8 +126,7 @@ class PartenaireController extends Controller
 
         $partenaire->delete();
 
-        Session::flash('message', 'Partenaire supprimé avec succès');
-        Session::flash('alert_type', 'success');
+        Session::flash('alert-danger', 'Partenaire supprimé avec succès');
 
         return redirect()->route('admin.partenaires.index');
     }

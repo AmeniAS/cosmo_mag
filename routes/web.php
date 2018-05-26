@@ -169,7 +169,7 @@ Route::prefix('administrator')->group(function (){
         Route::get('/create', 'Admin\CategoryController@create')->name('admin.categories.create');
         Route::post('/store', 'Admin\CategoryController@store')->name('admin.categories.store');
         Route::get('/{id}/show', 'Admin\CategoryController@show')->name('admin.categories.show');
-        Route::get('/{id}/update', 'Admin\CategoryController@update')->name('admin.categories.update');
+        Route::post('/{id}/update', 'Admin\CategoryController@update')->name('admin.categories.update');
         Route::get('/{id}/delete', 'Admin\CategoryController@destroy')->name('admin.categories.delete');
 
     });
@@ -232,6 +232,7 @@ Route::post('post_newsletter', 'HomeController@subscribeNewsletter')->name('post
 Route::get('contact', 'HomeController@contact')->name('contact');
 Route::get('your-account', 'HomeController@yourAccount')->name('your-account');
 Route::post('contact', 'HomeController@sendMsg')->name('send_msg');
+Route::get('demarche', 'HomeController@demarche')->name('demarche');
 
 Route::get('logout', function (){
     Auth::guard('admin')->logout();
