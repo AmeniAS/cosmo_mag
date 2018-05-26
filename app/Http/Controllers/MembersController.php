@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\FavoriteProduct;
 use App\Product;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -173,5 +174,15 @@ class MembersController extends Controller
         $cart->addToCart($product_id, $request->quantity);
 
         return redirect()->back();
+    }
+
+    public function shipping()
+    {
+        if (Auth::guard('web')->user()->cart) {
+            $shipping_products = Auth::guard('web')->user()->cart->products;
+        } else {
+            $shipping_products = new Collection();
+        }
+        return view('front_views.shipping', compact('shipping_products'));
     }
 }

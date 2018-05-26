@@ -14,13 +14,15 @@
 
                     <li style="width: 280px">
 
-                        <a href="#" title="" class="cart-product-image floatleft">
+                        <a href="{{ route('products.show', $notification['data']['product']['id']) }}" title="" class="cart-product-image floatleft">
                             <img src="{{ asset('storage/' . $notification['data']['product']['image']) }}" alt="Product">
                         </a>
 
                         <div class="text">
 
-                            <a class="close" href="#" title="close"><i class="fa fa-times-circle"></i></a>
+                            <a class="close" href="{{ route('notifs.mark_as_read', $notification->id) }}" title="close">
+                                <i class="fa fa-times-circle"></i>
+                            </a>
 
                             <h4>{{ $notification['data']['brand']['name'] }}</h4>
 

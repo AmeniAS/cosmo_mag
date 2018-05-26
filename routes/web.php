@@ -25,10 +25,17 @@ Route::prefix('products')->group(function (){
 
 });
 
+Route::prefix('notifs')->group(function (){
+
+    Route::get('/{notification}/mark_as_read', 'NotificationsController@mark_as_read')->name('notifs.mark_as_read');
+
+});
+
 Route::prefix('members')->group(function (){
 
     Route::get('/profile', 'MembersController@profile')->name('members.profile');
     Route::post('/edit_profile', 'MembersController@edit_profile')->name('members.edit_profile');
+    Route::get('/shipping', 'MembersController@shipping')->name('members.shipping');
     /*Route::get('/{id}/show', 'ProductsController@show')->name('products.show');
     Route::get('/{product_id}/to_favorites', 'ProductsController@toggleFavorite')->name('products.toggleFavorite');
     Route::post('/{product_id}/to_cart', 'ProductsController@addToCart')->name('products.add_to_cart');*/

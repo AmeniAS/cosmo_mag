@@ -21,6 +21,13 @@
         </li>
 
         <li>
+            <a href="https://analytics.google.com/analytics/web/#/report-home/a116557441w173096509p172512211" target="_blank">
+                <i class="pe-7s-graph"></i>
+                <p>Analytics</p>
+            </a>
+        </li>
+
+        <li>
             <a href="https://us18.admin.mailchimp.com/lists/members/?id=10907#p:1-s:10-so:null" target="_blank">
                 <i class="pe-7s-graph"></i>
                 <p>Newsletter</p>

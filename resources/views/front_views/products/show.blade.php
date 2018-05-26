@@ -118,8 +118,8 @@
                     <div class="product-con">
 
                         <h2>{{ $product->name }}</h2>
-
-                        <p>Men Shoes</p>
+{{--
+                        <p>Men Shoes</p>--}}
 
                         <div class="pro-review">
 
@@ -127,7 +127,7 @@
 
                                 <li><strong>{{ $product->price }} Dt</strong></li>
 
-                                <li class="floatright">
+                                {{--<li class="floatright">
 
                                     <ul class="list-inline">
 
@@ -145,7 +145,7 @@
 
                                     </ul>
 
-                                </li>
+                                </li>--}}
 
                             </ul>
 
@@ -217,8 +217,11 @@
 
                                         <ul class="list-inline">
 
-                                            <li><a id="btn_submit"><i class="fa fa-shopping-cart"></i>Add To Cart</a></li>
-
+                                            @if(auth()->guard('blogger')->check())
+                                                <li><a id="disbaled" style="cursor: pointer"><i class="fa fa-shopping-cart"></i>Add To Cart</a></li>
+                                            @else
+                                                <li><a id="btn_submit" style="cursor: pointer"><i class="fa fa-shopping-cart"></i>Add To Cart</a></li>
+                                            @endif
                                             <li>
 
                                                 <input value="1" name="quantity" />
@@ -282,7 +285,7 @@
 
                         <li class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
 
-                        <li><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Reviews (04)</a></li>
+                        {{--<li><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Reviews (04)</a></li>--}}
 
                     </ul>
 
@@ -296,11 +299,13 @@
 
                             <div class="description-con">
 
-                                <h4>Specification:</h4>
+                                <h4>{{ $product->name }}:</h4>
 
-                                <p>Baby Boys’ Two Piece Set with Blue Tank Top and Microfiber Short the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment.</p>
+                                <p>
+                                    {{ $product->description }}
+                                </p>
 
-                                <h4>Features:</h4>
+                                {{--<h4>Features:</h4>
 
                                 <ul>
 
@@ -312,7 +317,7 @@
 
                                     <li>Men who are so beguiled </li>
 
-                                </ul>
+                                </ul>--}}
 
                             </div>
 
@@ -467,6 +472,12 @@
         $('#btn_submit').click(function ($e) {
             $e.preventDefault();
             $('#form_cart').submit();
+        });
+
+        $('#disbaled').click(function ($e) {
+            $e.preventDefault();
+
+            alert('Un bloggeur ne peut pas effectuer d\'achat')
         })
 
     </script>

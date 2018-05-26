@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container-fluid">
         <nav class="pull-left">
-            <ul>
+            {{--<ul>
                 <li>
                     <a href="#">
                         Home
@@ -22,7 +22,7 @@
                         Blog
                     </a>
                 </li>
-            </ul>
+            </ul>--}}
         </nav>
         <p class="copyright pull-right">
             &copy; {{ date('Y') }} <a href="{{ url('/') }}">CosmoMag</a> | AmenyAS

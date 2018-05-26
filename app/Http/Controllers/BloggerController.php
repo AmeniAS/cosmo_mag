@@ -31,4 +31,9 @@ class BloggerController extends Controller
     {
         return view('front_views.bloggers.profile');
     }
+
+    public function images()
+    {
+        return view('front_views.bloggers.images');
+    }
 }

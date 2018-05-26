@@ -65,7 +65,7 @@
 
     </style>
 
-    <style>
+    {{--<style>
 
         .profile-img{
             width:160px;
@@ -150,7 +150,7 @@
             }
         }
 
-    </style>
+    </style>--}}
 
 @endsection
 
@@ -180,10 +180,6 @@
 
                                 <li><a href="index.html">{{ auth()->guard('blogger')->user()->email }}</a></li>
 
-                                {{--<li>-</li>
-
-                                <li><a href="#">Blog</a></li>--}}
-
                             </ul>
 
                         </div>
@@ -204,13 +200,13 @@
 
             <div class="row">
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 accurate support-list">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 accurate support-list">
 
                     <div class="single-support pd-50">
 
                         <div class="suport-icon mr-r20 mr-t5">
 
-                            <img src="images/icon/5.png" alt=""/>
+                            {{--<img src="images/icon/5.png" alt=""/>--}}
 
                         </div>
 
@@ -226,13 +222,13 @@
 
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 accurate support-list">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 accurate support-list">
 
                     <div class="single-support pd-50">
 
                         <div class="suport-icon mr-r20 mr-t5">
 
-                            <img src="images/icon/6.png" alt=""/>
+                            {{--<img src="images/icon/6.png" alt=""/>--}}
 
                         </div>
 
@@ -248,13 +244,35 @@
 
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 accurate support-list">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 accurate support-list">
 
                     <div class="single-support pd-50">
 
                         <div class="suport-icon mr-r20 mr-t5">
 
-                            <img src="images/icon/7.png" alt=""/>
+                            {{--<img src="images/icon/7.png" alt=""/>--}}
+
+                        </div>
+
+                        <div class="content-support">
+
+                            <h4><a href="#">Produits</a></h4>
+
+                            <p>Produits Favoris</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 accurate support-list">
+
+                    <div class="single-support pd-50">
+
+                        <div class="suport-icon mr-r20 mr-t5">
+
+                            {{--<img src="images/icon/7.png" alt=""/>--}}
 
                         </div>
 
@@ -297,16 +315,42 @@
             <div class="row">
 
                 <div class="gallery">
+
+                    @foreach(auth()->guard('blogger')->user()->media_images->slice(0, 10) as $image)
+
+                        <div class="img-w">
+                            <img src="{{ $image->path }}" alt="" />
+                        </div>
+
+                    @endforeach
+
+                    {{--<div class="img-w">
+                        <img src="https://images.unsplash.com/photo-1485766410122-1b403edb53db?dpr=1&auto=format&fit=crop&w=1500&h=846&q=80&cs=tinysrgb&crop=" alt="" />
+                    </div>
                     <div class="img-w">
-                        <img src="https://images.unsplash.com/photo-1485766410122-1b403edb53db?dpr=1&auto=format&fit=crop&w=1500&h=846&q=80&cs=tinysrgb&crop=" alt="" /></div>
-                    <div class="img-w"><img src="https://images.unsplash.com/photo-1485793997698-baba81bf21ab?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="" /></div>
-                    <div class="img-w"><img src="https://images.unsplash.com/photo-1485871800663-71856dc09ec4?dpr=1&auto=format&fit=crop&w=1500&h=2250&q=80&cs=tinysrgb&crop=" alt="" /></div>
-                    <div class="img-w"><img src="https://images.unsplash.com/photo-1485871882310-4ecdab8a6f94?dpr=1&auto=format&fit=crop&w=1500&h=2250&q=80&cs=tinysrgb&crop=" alt="" /></div>
-                    <div class="img-w"><img src="https://images.unsplash.com/photo-1485872304698-0537e003288d?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="" /></div>
-                    <div class="img-w"><img src="https://images.unsplash.com/photo-1485872325464-50f17b82075a?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="" /></div>
-                    <div class="img-w"><img src="https://images.unsplash.com/photo-1470171119584-533105644520?dpr=1&auto=format&fit=crop&w=1500&h=886&q=80&cs=tinysrgb&crop=" alt="" /></div>
-                    <div class="img-w"><img src="https://images.unsplash.com/photo-1485881787686-9314a2bc8f9b?dpr=1&auto=format&fit=crop&w=1500&h=969&q=80&cs=tinysrgb&crop=" alt="" /></div>
-                    <div class="img-w"><img src="https://images.unsplash.com/photo-1485889397316-8393dd065127?dpr=1&auto=format&fit=crop&w=1500&h=843&q=80&cs=tinysrgb&crop=" alt="" /></div>
+                        <img src="https://images.unsplash.com/photo-1485793997698-baba81bf21ab?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="" />
+                    </div>
+                    <div class="img-w">
+                        <img src="https://images.unsplash.com/photo-1485871800663-71856dc09ec4?dpr=1&auto=format&fit=crop&w=1500&h=2250&q=80&cs=tinysrgb&crop=" alt="" />
+                    </div>
+                    <div class="img-w">
+                        <img src="https://images.unsplash.com/photo-1485871882310-4ecdab8a6f94?dpr=1&auto=format&fit=crop&w=1500&h=2250&q=80&cs=tinysrgb&crop=" alt="" />
+                    </div>
+                    <div class="img-w">
+                        <img src="https://images.unsplash.com/photo-1485872304698-0537e003288d?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="" />
+                    </div>
+                    <div class="img-w">
+                        <img src="https://images.unsplash.com/photo-1485872325464-50f17b82075a?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt="" />
+                    </div>
+                    <div class="img-w">
+                        <img src="https://images.unsplash.com/photo-1470171119584-533105644520?dpr=1&auto=format&fit=crop&w=1500&h=886&q=80&cs=tinysrgb&crop=" alt="" />
+                    </div>
+                    <div class="img-w">
+                        <img src="https://images.unsplash.com/photo-1485881787686-9314a2bc8f9b?dpr=1&auto=format&fit=crop&w=1500&h=969&q=80&cs=tinysrgb&crop=" alt="" />
+                    </div>
+                    <div class="img-w">
+                        <img src="https://images.unsplash.com/photo-1485889397316-8393dd065127?dpr=1&auto=format&fit=crop&w=1500&h=843&q=80&cs=tinysrgb&crop=" alt="" />
+                    </div>--}}
                 </div>
 
             </div>
@@ -338,6 +382,50 @@
     </section>
 
     <section class="best-product section">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <div class="blog-heading">
+
+                        <h1>Produits favoris</h1>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                @foreach(auth()->guard('blogger')->user()->product_favorites->slice(0, 3) as $favorite)
+
+                    <div class="col-md-4">
+
+                        <a href="{{ route('products.show', $favorite->product->id) }}">
+                            <img class="img-responsive normal" src="{{ asset('storage/' . $favorite->product->image) }}" style="height: 212px;" height="270px" alt=""/>
+                        </a>
+
+                        <a href="{{ route('products.show', $favorite->product->id) }}">
+                            <h3>{{ $favorite->product->name }}</h3>
+                        </a>
+
+                    </div>
+
+                @endforeach
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+    <section class="new-product-area section-two">
 
         <div class="container">
 
