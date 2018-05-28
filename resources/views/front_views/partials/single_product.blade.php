@@ -1,6 +1,6 @@
 <figure>
-    <img class="normal" src="{{ $single_product->image }}" alt=""/>
-    <img class="hover" src="{{ $single_product->image }}" alt=""/>
+    <img class="normal" src="{{ asset($single_product->image) }}" alt=""/>
+    <img class="hover" src="{{ asset($single_product->image) }}" alt=""/>
     <span class="product-position color1">New</span>
     <span class="price">{{ $single_product->price }} Dt</span>
     <ul>

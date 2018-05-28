@@ -35,61 +35,85 @@
                                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 accurate">
                                     <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 accurate">
                                         <div class="product-single">
-                                            @include('front_views.partials.single_product', ['single_product' => $products[0]])
+                                            @if(isset($products[0]))
+                                                @include('front_views.partials.single_product', ['single_product' => $products[0]])
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 accurate">
                                         <div class="product-single">
-                                            @include('front_views.partials.single_product', ['single_product' => $products[1]])
+                                            @if(isset($products[1]))
+                                                @include('front_views.partials.single_product', ['single_product' => $products[1]])
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 accurate">
                                     <div class="product-banner-slider">
-                                        <div class="single-banner">
-                                            <div class="product-img">
-                                                <img src="{{ $products[2]->image }}" alt=""/>
-                                            </div>
-                                            <div class="product-banner-con">
-                                                <h1>{{ $products[2]->name }}</h1>
-                                                <p>{{ $products[2]->brand->name }}</p>
-                                                <a class="btn1" href="#">Read MOre</a>
+                                        @if(isset($products[2]))
+
+                                            <div class="single-banner">
+                                                <div class="product-img">
+                                                    <img src="{{ asset($products[2]->image) }}" alt=""/>
+                                                </div>
+                                                <div class="product-banner-con">
+                                                    <h1>{{ $products[2]->name }}</h1>
+                                                    <p>{{ $products[2]->brand->name }}</p>
+                                                    <a class="btn1" href="#">Read MOre</a>
+                                                </div>
+
                                             </div>
 
-                                        </div>
-                                        <div class="single-banner">
-                                            <div class="product-img">
-                                                <img src="{{ $products[3]->image }}" alt=""/>
-                                            </div>
-                                            <div class="product-banner-con">
-                                                <h1>{{ $products[3]->name }}</h1>
-                                                <p>{{ $products[3]->brand->name }}</p>
-                                                <a class="btn1" href="#">Read MOre</a>
+                                        @endif
+
+                                        @if(isset($products[3]))
+
+                                            <div class="single-banner">
+                                                <div class="product-img">
+                                                    <img src="{{ asset($products[3]->image) }}" alt=""/>
+                                                </div>
+                                                <div class="product-banner-con">
+                                                    <h1>{{ $products[3]->name }}</h1>
+                                                    <p>{{ $products[3]->brand->name }}</p>
+                                                    <a class="btn1" href="#">Read MOre</a>
+                                                </div>
+
                                             </div>
 
-                                        </div>
-                                        <div class="single-banner">
-                                            <div class="product-img">
-                                                <img src="{{ $products[4]->image }}" alt=""/>
-                                            </div>
-                                            <div class="product-banner-con">
-                                                <h1>{{ $products[4]->name }}</h1>
-                                                <p>{{ $products[4]->brand->name }}</p>
-                                                <a class="btn1" href="#">Read MOre</a>
+                                        @endif
+
+                                        @if(isset($products[4]))
+
+                                            <div class="single-banner">
+                                                <div class="product-img">
+                                                    <img src="{{ asset($products[4]->image) }}" alt=""/>
+                                                </div>
+                                                <div class="product-banner-con">
+                                                    <h1>{{ $products[4]->name }}</h1>
+                                                    <p>{{ $products[4]->brand->name }}</p>
+                                                    <a class="btn1" href="#">Read MOre</a>
+                                                </div>
+
                                             </div>
 
-                                        </div>
+                                        @endif
+
+
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 accurate">
                                     <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 accurate">
                                         <div class="product-single">
-                                            @include('front_views.partials.single_product', ['single_product' => $products[5]])
+                                            @if(isset($products[5]))
+                                                @include('front_views.partials.single_product', ['single_product' => $products[5]])
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 accurate">
                                         <div class="product-single">
-                                            @include('front_views.partials.single_product', ['single_product' => $products[6]])
+                                            @if(isset($products[6]))
+                                                @include('front_views.partials.single_product', ['single_product' => $products[6]])
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -97,22 +121,30 @@
                             <div class="row accurate">
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                     <div class="product-single">
-                                        @include('front_views.partials.single_product', ['single_product' => $products[7]])
+                                        @if(isset($products[7]))
+                                            @include('front_views.partials.single_product', ['single_product' => $products[7]])
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                     <div class="product-single">
-                                        @include('front_views.partials.single_product', ['single_product' => $products[8]])
+                                        @if(isset($products[8]))
+                                            @include('front_views.partials.single_product', ['single_product' => $products[8]])
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                     <div class="product-single">
-                                        @include('front_views.partials.single_product', ['single_product' => $products[9]])
+                                        @if(isset($products[9]))
+                                            @include('front_views.partials.single_product', ['single_product' => $products[9]])
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                     <div class="product-single">
-                                        @include('front_views.partials.single_product', ['single_product' => $products[10]])
+                                        @if(isset($products[10]))
+                                            @include('front_views.partials.single_product', ['single_product' => $products[10]])
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -120,38 +152,50 @@
                         <div role="tabpanel" class="tab-pane" id="men">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                 <div class="product-single">
-                                    @include('front_views.partials.single_product', ['single_product' => $products[11]])
+                                    @if(isset($products[11]))
+                                        @include('front_views.partials.single_product', ['single_product' => $products[11]])
+                                    @endif
                                 </div>
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="women">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                 <div class="product-single">
-                                    @include('front_views.partials.single_product', ['single_product' => $products[12]])
+                                    @if(isset($products[12]))
+                                        @include('front_views.partials.single_product', ['single_product' => $products[12]])
+                                    @endif
                                 </div>
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="electronics">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                 <div class="product-single">
-                                    @include('front_views.partials.single_product', ['single_product' => $products[13]])
+                                    @if(isset($products[13]))
+                                        @include('front_views.partials.single_product', ['single_product' => $products[13]])
+                                    @endif
                                 </div>
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="accessories">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                 <div class="product-single">
-                                    @include('front_views.partials.single_product', ['single_product' => $products[14]])
+                                    @if(isset($products[14]))
+                                        @include('front_views.partials.single_product', ['single_product' => $products[14]])
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                 <div class="product-single">
-                                    @include('front_views.partials.single_product', ['single_product' => $products[15]])
+                                    @if(isset($products[15]))
+                                        @include('front_views.partials.single_product', ['single_product' => $products[15]])
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 accurate">
                                 <div class="product-single">
-                                    @include('front_views.partials.single_product', ['single_product' => $products[16]])
+                                    @if(isset($products[16]))
+                                        @include('front_views.partials.single_product', ['single_product' => $products[16]])
+                                    @endif
                                 </div>
                             </div>
                         </div>

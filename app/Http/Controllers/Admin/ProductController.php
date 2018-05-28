@@ -55,7 +55,7 @@ class ProductController extends Controller
         $logo_url = '';
 
         if ($request->file('image_file')) {
-            $logo_url = $request->file('image_file')->store('uploads/products', 'public');
+            $logo_url = 'storage/' . $request->file('image_file')->store('uploads/products', 'public');
         }
 
         $product = Product::create([
@@ -124,7 +124,7 @@ class ProductController extends Controller
         $logo_url = '';
 
         if ($request->file('image_file')) {
-            $logo_url = $request->file('image_file')->store('uploads/products', 'public');
+            $logo_url = 'storage/' .  $request->file('image_file')->store('uploads/products', 'public');
         }
 
         $product->name = $request->name;
