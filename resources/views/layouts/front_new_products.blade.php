@@ -29,11 +29,11 @@
 
                                 <li class="button is-checked" data-filter="*">Tous</li>
 
-                                <li class="button" data-filter=".new-collection">Cosmétique </li>
+                                <li class="button" data-filter=".{{ str_slug('Cosmétique', '_') }}">Cosmétique </li>
 
-                                <li class="button" data-filter=".featured">Esthétique</li>
+                                <li class="button" data-filter=".{{ str_slug('Esthétique', '_') }}">Esthétique</li>
 
-                                <li class="button" data-filter=".most-popuplar">Bio</li>
+                                <li class="button" data-filter=".{{ str_slug('Bio', '_') }}">Bio</li>
 
 
 
