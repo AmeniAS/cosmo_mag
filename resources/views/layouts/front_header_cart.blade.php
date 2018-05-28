@@ -102,13 +102,13 @@
 
             </ul>
 
-            <div class="total"><span class="left">Total:</span> <span class="right"></span></div>
+            <div class="total"><span class="left">Total:</span> <span class="right">{{ $total_price }} Dt</span></div>
 
             <div class="bottom">
 
-                <a class="btn4" href="#" title="viewcart">Voir panier</a>
+                <a class="btn4" href="{{ route('members.shipping') }}" title="viewcart">Voir panier</a>
 
-                <a class="btn4" href="#" title="checkout">Commander </a>
+                {{--<a class="btn4" href="#" title="checkout">Commander </a>--}}
 
             </div>
 

@@ -63,14 +63,11 @@
                                         {{ $blogger->name }}
                                     </h1>
 
-                                    {{--<h3>{{ $blogger->name }}</h3>--}}
                                     <h4>
                                         {{ $blogger->media_images->count() }} images /
                                         {{ $blogger->media_videos->count() }} videos /
                                         {{ $blogger->articles->count() }} articles
                                     </h4>
-                                    {{--<h4>{{ $blogger->media_videos->count() }} videos</h4>
-                                    <h4>{{ $blogger->articles->count() }} articles</h4>--}}
 
                                 </div>
 

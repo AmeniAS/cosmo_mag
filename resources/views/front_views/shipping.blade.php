@@ -110,15 +110,15 @@
 
                                             <td>
 
-                                                <div class="order-pro order1">
+                                                <div class="order-pro order{{ $loop->iteration }}">
 
                                                     <input value="{{ $product->pivot->quantity }}" />
 
-                                                    <div class="btn-plus plus1"><span class="glyphicon glyphicon-plus"></span>
+                                                    <div class="btn-plus plus{{ $loop->iteration }}"><span class="glyphicon glyphicon-plus"></span>
 
                                                     </div>
 
-                                                    <div class="btn-minus minus1"><span class="glyphicon glyphicon-minus"></span>
+                                                    <div class="btn-minus minus{{ $loop->iteration }}"><span class="glyphicon glyphicon-minus"></span>
 
                                                     </div>
 
@@ -126,132 +126,13 @@
 
                                             </td>
 
-                                            <td><span class="prize">$99.00</span></td>
+                                            <td><span class="prize">{{ $product->price }}</span></td>
 
                                             <td><i class="fa fa-times"></i></td>
 
                                         </tr>
+
                                     @endforeach
-
-                                    <tr>
-
-                                        <td><img src="images/product/1-sm.png" alt=""/></td>
-
-                                        <td>
-
-                                            <div class="des-pro">
-
-                                                <h4>Nikki Winter jacket</h4><p>LifeStyle</p>
-
-                                            </div>
-
-                                        </td>
-
-                                        <td><strong>$99</strong></td>
-
-                                        <td>
-
-                                            <div class="order-pro order1">
-
-                                                <input value="01" />
-
-                                                <div class="btn-plus plus1"><span class="glyphicon glyphicon-plus"></span>
-
-                                                </div>
-
-                                                <div class="btn-minus minus1"><span class="glyphicon glyphicon-minus"></span>
-
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-
-                                        <td><span class="prize">$99.00</span></td>
-
-                                        <td><i class="fa fa-times"></i></td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td><img src="images/product/2-sm.png" alt=""/></td>
-
-                                        <td>
-
-                                            <div class="des-pro">
-
-                                                <h4>Nikki Winter jacket</h4><p>LifeStyle</p>
-
-                                            </div>
-
-                                        </td>
-
-                                        <td><strong>$99</strong></td>
-
-                                        <td>
-
-                                            <div class="order-pro order2">
-
-                                                <input value="01" />
-
-                                                <div class="btn-plus plus2"><span class="glyphicon glyphicon-plus"></span>
-
-                                                </div>
-
-                                                <div class="btn-minus minus2"><span class="glyphicon glyphicon-minus"></span>
-
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-
-                                        <td><span class="prize">$99.00</span></td>
-
-                                        <td><i class="fa fa-times"></i></td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td><img src="images/product/3-sm.png" alt=""/></td>
-
-                                        <td>
-
-                                            <div class="des-pro">
-
-                                                <h4>Nikki Winter jacket</h4><p>LifeStyle</p>
-
-                                            </div>
-
-                                        </td>
-
-                                        <td><strong>$99</strong></td>
-
-                                        <td>
-
-                                            <div class="order-pro order3">
-
-                                                <input value="01" />
-
-                                                <div class="btn-plus plus3"><span class="glyphicon glyphicon-plus"></span>
-
-                                                </div>
-
-                                                <div class="btn-minus minus3"><span class="glyphicon glyphicon-minus"></span>
-
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-
-                                        <td><span class="prize">$99.00</span></td>
-
-                                        <td><i class="fa fa-times"></i></td>
-
-                                    </tr>
 
                                 </table>
 

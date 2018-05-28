@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class CartHeaderViewComposer
 {
     public $cart_products = [];
+    public $total_price = 0;
 
     public function __construct()
     {
@@ -25,6 +26,12 @@ class CartHeaderViewComposer
 
     public function compose($view)
     {
-        $view->with('cart_products', $this->cart_products);
+        foreach ($this->cart_products as $cart_product) {
+            $this->total_price = (int) $this->total_price + (int) ($cart_product->price * $cart_product->pivot->quantity);
+        }
+        $view->with([
+            'cart_products' => $this->cart_products,
+            'total_price' => $this->total_price
+        ]);
     }
 }
