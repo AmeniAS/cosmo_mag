@@ -169,12 +169,6 @@
 
                                 <li><a href="{{ url('/forums') }}">Forum</a></li>
 
-                                <li>
-
-                                    <a href="#">page</a>
-
-                                </li>
-
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
 

@@ -27,7 +27,8 @@ class BrandsController extends Controller
     {
         $brand = Brand::findOrFail($id);
 
-        $products = Product::latest()->paginate(25);
+        //$products = Product::paginate(25);
+        $products = $brand->products()->paginate(17);
 
         return view('front_views.brands.show', compact('brand', 'products'));
     }
