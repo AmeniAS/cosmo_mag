@@ -136,7 +136,7 @@ class ProductController extends Controller
 
         $product->price = $request->price;
         $product->quantity = $request->quantity;
-        $product->price = $request->brand_id;
+        $product->brand_id = $request->brand_id;
 
         $product->save();
 
