@@ -12,21 +12,21 @@
 
                     <div class="footer-link widget">
 
-                        <h4>Information</h4>
+                        <h4>Footer Menu</h4>
 
                         <ul class="link-list">
 
-                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Demarche</a></li>
 
-                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Catégories</a></li>
 
-                            <li><a href="#">Manufacturers</a></li>
+                            <li><a href="#">Marques</a></li>
 
-                            <li><a href="#">Privacy policy</a></li>
+                            <li><a href="#">Bloguers </a></li>
 
-                            <li><a href="#">Terms & condition</a></li>
+                            <li><a href="#">beauté</a></li>
 
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Froum</a></li>
 
                         </ul>
 
@@ -34,7 +34,7 @@
 
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                {{--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 
                     <div class="footer-link widget">
 
@@ -58,25 +58,25 @@
 
                     </div>
 
-                </div>
+                </div>--}}
 
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 
                     <div class="footer-link widget">
 
-                        <h4>Shopping guide</h4>
+                        <h4>Contact</h4>
 
                         <ul class="link-list">
 
-                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">A propos COSMOMAG</a></li>
 
-                            <li><a href="#">Payment</a></li>
+                            <li><a href="#">Email: CosmoMag@gmail.com</a></li>
 
-                            <li><a href="#">Track your order</a></li>
+                            <li><a href="#">Société</a></li>
 
-                            <li><a href="#">Return policy</a></li>
+                            <li><a href="#">2058 Riadh Landalous Ariana - Tunis</a></li>
 
-                            <li><a href="#">Warranty</a></li>
+
 
                         </ul>
 
@@ -88,7 +88,7 @@
 
                     <div class="footer-link widget">
 
-                        <h4>NewsLetter Sign Up!</h4>
+                        <h4>S'inscrire Au NewsLetter!</h4>
 
                         <form action="{{ route('post_newsletter') }}" method="post">
 
@@ -104,7 +104,7 @@
 
                         </form>
 
-                        <p class="social-head">Follow Us On:</p>
+                        <p class="social-head">Nous suivre sur:</p>
 
                         <ul class="socila-link">
 

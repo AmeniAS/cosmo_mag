@@ -43,7 +43,7 @@ class MediaImageController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'image_file' => 'required|mimes:jpeg,jpg,png|max:4096',
+            'image_file' => 'required|mimes:jpeg,jpg,png|max:1024000',
             'description' => 'required',
         ]);
 

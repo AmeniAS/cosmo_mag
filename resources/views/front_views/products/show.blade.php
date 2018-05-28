@@ -218,9 +218,9 @@
                                         <ul class="list-inline">
 
                                             @if(auth()->guard('blogger')->check())
-                                                <li><a id="disbaled" style="cursor: pointer"><i class="fa fa-shopping-cart"></i>Add To Cart</a></li>
+                                                <li><a id="disbaled" style="cursor: pointer"><i class="fa fa-shopping-cart"></i>Ajouter panier</a></li>
                                             @else
-                                                <li><a id="btn_submit" style="cursor: pointer"><i class="fa fa-shopping-cart"></i>Add To Cart</a></li>
+                                                <li><a id="btn_submit" style="cursor: pointer"><i class="fa fa-shopping-cart"></i>Ajouter panier </a></li>
                                             @endif
                                             <li>
 

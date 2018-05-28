@@ -102,13 +102,13 @@
 
             </ul>
 
-            <div class="total"><span class="left">Total:</span> <span class="right">$1121.98</span></div>
+            <div class="total"><span class="left">Total:</span> <span class="right"></span></div>
 
             <div class="bottom">
 
-                <a class="btn4" href="#" title="viewcart">View Cart</a>
+                <a class="btn4" href="#" title="viewcart">Voir panier</a>
 
-                <a class="btn4" href="#" title="checkout">Check out</a>
+                <a class="btn4" href="#" title="checkout">Commander </a>
 
             </div>
 

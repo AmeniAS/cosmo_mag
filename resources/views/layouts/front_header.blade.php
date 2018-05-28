@@ -12,7 +12,7 @@
 
                     <div class="top-contact">
 
-                        <p><i class="fa fa-map-marker"></i> 69 house, Tunis Tunisia</p>
+                        <p><i class="fa fa-map-marker"></i> 2058 Riadh Landalous Ariana - Tunis </p>
 
                     </div>
 
@@ -35,12 +35,12 @@
                             @if(Auth::guard('blogger')->check() || Auth::guard('web')->check())
 
                                 @if(Auth::guard('blogger')->check())
-                                    <li><a href="{{ route('bloggers.profile') }}"><i class="fa fa-user"></i>Account</a></li>
-                                    <li><a href="{{ route('all.logout') }}"><i class="fa fa-lock"></i>Logout</a></li>
+                                    <li><a href="{{ route('bloggers.profile') }}"><i class="fa fa-user"></i>Votre Compte </a></li>
+                                    <li><a href="{{ route('all.logout') }}"><i class="fa fa-lock"></i>Déconnexion </a></li>
                                     @include('layouts.front_header_notifications_blogger')
                                 @else
-                                    <li><a href="{{ route('members.profile') }}"><i class="fa fa-user"></i>Account</a></li>
-                                    <li><a href="{{ route('all.logout') }}"><i class="fa fa-lock"></i>Logout</a></li>
+                                    <li><a href="{{ route('members.profile') }}"><i class="fa fa-user"></i>Votre Compte</a></li>
+                                    <li><a href="{{ route('all.logout') }}"><i class="fa fa-lock"></i>Déconnexion </a></li>
                                     @include('layouts.front_header_notifications')
                                 @endif
                             @endif
@@ -137,7 +137,7 @@
 
                         <i class="fa fa-phone"></i>
 
-                        <p>Hot Line: + 0568 099 99</p>
+                        <p>Telephone: 71 589 265 </p>
 
                     </div>
 

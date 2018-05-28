@@ -139,6 +139,7 @@ class ProductsController extends Controller
 
     public function toggleFavorite($product_id)
     {
+        /*dd(\request()->user());*/
         $user = \request()->user();
         $product = Product::findOrFail($product_id);
 
