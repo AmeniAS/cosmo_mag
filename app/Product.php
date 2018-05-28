@@ -3,9 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Product extends Model
 {
+    use SearchableTrait;
+
+    var $searchable = [
+        'columns' => [
+            'products.name' => 3,
+            'products.description' => 2,
+            'brands.name' => 1,
+        ],
+        'joins' => [
+            'brands' => ['products.brand_id', 'brands.id']
+        ]
+    ];
+
     protected $fillable = [
         'name',
         'description',

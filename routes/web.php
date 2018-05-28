@@ -224,15 +224,20 @@ Route::prefix('/brands')->group(function (){
 });
 
 
-Route::get('test', function (){
+/*Route::get('test', function (){
     return view('front_views.bloggers.profile');
-});
+});*/
+
+Route::get('beaute', function (){
+    return view('front_views.beaute');
+})->name('beaute');
 
 Route::post('post_newsletter', 'HomeController@subscribeNewsletter')->name('post_newsletter');
 Route::get('contact', 'HomeController@contact')->name('contact');
 Route::get('your-account', 'HomeController@yourAccount')->name('your-account');
 Route::post('contact', 'HomeController@sendMsg')->name('send_msg');
 Route::get('demarche', 'HomeController@demarche')->name('demarche');
+Route::post('search', 'HomeController@search')->name('search');
 
 Route::get('logout', function (){
     Auth::guard('admin')->logout();
