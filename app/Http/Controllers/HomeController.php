@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Mail\MailToAdmin;
 use App\Message;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -96,5 +98,28 @@ class HomeController extends Controller
     public function demarche()
     {
         return view('front_views.demarche');
+    }
+
+    public function search(Request $request)
+    {
+        switch ($request->search_type) {
+            case 'produit':
+                $products = Product::search($request->keyword)->paginate(20);
+
+                return view('front_views.search.products', compact('products'));
+
+                break;
+
+            case 'marque':
+                $brands = Brand::search($request->keyword)->paginate(20);
+
+                return view('front_views.search.brands', compact('brands'));
+
+                break;
+
+            default:
+                break;
+        }
+
     }
 }

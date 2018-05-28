@@ -77,7 +77,7 @@
 
                     @foreach($new_products as $new_product)
 
-                    <div class="grid-item new-collection col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="grid-item {{ $new_product->brand->category->name }} col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
                         <div class="single-product">
 

@@ -97,17 +97,11 @@
 
                                 <ul class="dropdown-menu" role="menu">
 
-                                    <li><a href="#contains">Produit</a></li>
+                                    <li><a class="x_search_type" href="#Produit" id="x_produit">Produit</a></li>
 
-                                    <li><a href="#its_equal">Marque</a></li>
+                                    <li><a class="x_search_type" href="#Marque" id="x_marque">Marque</a></li>
 
-                                    <li><a href="#greather_than">Article</a></li>
-
-                                    {{--<li><a href="#less_than">Girls </a></li>
-
-                                    <li class="divider"></li>
-
-                                    <li><a href="#all">Kids</a></li>--}}
+                                    <li><a class="x_search_type" href="#Article" id="x_article">Article</a></li>
 
                                 </ul>
 
@@ -115,11 +109,11 @@
 
                             <input type="hidden" name="search_param" value="all" id="search_param">
 
-                            <input type="text" class="form-control" name="x" placeholder="Search Here ...">
+                            <input type="text" class="form-control" name="search_key" id="search_key" placeholder="Search Here ...">
 
                             <span class="input-group-btn">
 
-                                <button class="btn btn-default search-btn" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                <button class="btn btn-default search-btn" type="button" name="btn_search" id="btn_search"><span class="glyphicon glyphicon-search"></span></button>
 
                             </span>
 
@@ -163,7 +157,7 @@
 
                             <ul>
 
-                                <li><a href="#">Démarche GOSMOMAG</a></li>
+                                <li><a href="{{ route('demarche') }}">Démarche GOSMOMAG</a></li>
 
                                 <li><a href="{{ route('categories.index') }}">Gatégories</a></li>
 
@@ -171,19 +165,13 @@
 
                                 <li><a href="#">Blogueurs</a></li>
 
-                                <li><a href="#">Beauté</a></li>
+                                <li><a href="{{ route('beaute') }}">Beauté</a></li>
 
                                 <li><a href="{{ url('/forums') }}">Forum</a></li>
 
                                 <li>
 
                                     <a href="#">page</a>
-
-                                    {{--<ul>
-
-                                        <li><a href="#">Home 1</a></li>
-
-                                    </ul>--}}
 
                                 </li>
 

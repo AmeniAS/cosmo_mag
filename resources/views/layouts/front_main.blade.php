@@ -123,6 +123,29 @@
 
 @include('layouts.front_footer')
 
+<form id="search_form" method="post" action="{{ route('search') }}" style="display: none">
+
+    <div style="display: none">
+
+        {{ csrf_field() }}
+        <input type="text" value="produit" name="search_type" id="search_type"/>
+        <input type="text" value="" name="keyword" id="keyword"/>
+
+        {{--<input type="radio" id="contactChoice1"
+               name="contact" value="email">
+        <label for="contactChoice1">Email</label>
+
+        <input type="radio" id="contactChoice2"
+               name="contact" value="telephone">
+        <label for="contactChoice2">Téléphone</label>
+
+        <input type="radio" id="contactChoice3"
+               name="contact" value="courrier">
+        <label for="contactChoice3">Courrier</label>--}}
+    </div>
+
+</form>
+
 <!-- all js here -->
 
 <!-- jquery latest version -->
@@ -180,6 +203,22 @@
 <!-- main js -->
 
 <script src="{{ asset('front_asset/js/main.js') }}"></script>
+
+<script>
+
+    $('#search_key').keypress(function(e) {
+        if(e.which == 13) {
+            $('#keyword').val($('#search_key').val());
+            $('#search_form').submit();
+        }
+    });
+
+    $('.x_search_type').click(function (e) {
+        $('#search_type').val(e.target.id.substring(2));
+        console.log($('#search_type').val());
+    });
+
+</script>
 
 @yield('custom_js')
 

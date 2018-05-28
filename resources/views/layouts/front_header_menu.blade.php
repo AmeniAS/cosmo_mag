@@ -4,7 +4,7 @@
 
         <ul>
 
-            <li><a href="#">Démarche GOSMOMAG</a></li>
+            <li><a href="{{ route('demarche') }}">Démarche GOSMOMAG</a></li>
 
             <li><a href="{{ route('categories.index') }}">Gatégories</a></li>
 
@@ -12,7 +12,7 @@
 
             <li><a href="#">Blogueurs</a></li>
 
-            <li><a href="#">Beauté</a></li>
+            <li><a href="{{ route('beaute') }}">Beauté</a></li>
 
             <li><a href="{{ url('/forums') }}">Forum</a></li>
 
