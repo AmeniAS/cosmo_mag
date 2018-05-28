@@ -163,7 +163,7 @@
 
                                 <li><a href="{{ route('categories.index') }}">Marques</a></li>
 
-                                <li><a href="#">Blogueurs</a></li>
+                                <li><a href="{{ route('bloggers.listing') }}">Blogueurs</a></li>
 
                                 <li><a href="{{ route('beaute') }}">Beauté</a></li>
 

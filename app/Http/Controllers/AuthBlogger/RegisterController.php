@@ -48,7 +48,7 @@ class RegisterController extends Controller
         $code = $referer ? $referer->code : null;
         $type = ($referer instanceof User) ? 'user' : 'blogger';
 
-        $img = $request->file('image')->store('uploads/bloggers', 'public');
+        $img = 'storage/' . $request->file('image')->store('uploads/bloggers', 'public');
 
         $blogger = Blogger::create([
             'name' => $request->name,

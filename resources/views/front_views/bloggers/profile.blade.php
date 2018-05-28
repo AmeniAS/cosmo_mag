@@ -65,6 +65,43 @@
 
     </style>
 
+    <style>
+        body {
+            font-family: Avenir, sans-serif; margin: 0;
+            /*background-color: #121;*/
+        }
+        div#quad {
+            background-color: #000;
+            font-size: 0; /*width: 75%;*/
+            margin: 0 auto;
+            box-shadow: 0 0 12px rgba(0,0,0,0.8);
+        }
+        div#quad figure {
+            margin: 0; width: 50%;
+            height: auto; transition: 1s;
+            display: inline-block;
+            position: relative; overflow: hidden;
+        }
+        div#quad figure:hover { cursor: pointer; z-index: 4; }
+        div#quad figure img { width: 100%; height: auto; }
+        div#quad figure:nth-child(1) { transform-origin: top left; }
+        div#quad figure:nth-child(2) { transform-origin: top right; }
+        div#quad figure:nth-child(3) { transform-origin: bottom left; }
+        div#quad figure:nth-child(4) { transform-origin: bottom right; }
+        div#quad figure figcaption {
+            margin: 0; opacity: 0;
+            background: rgba(0,0,0,0.3);
+            color: #fff; padding: .3rem;
+            font-size: 1.2rem;
+            position: absolute;
+            bottom: 0; width: 100%;
+            transition: 1s 1s opacity;
+        }
+        .expanded { transform: scale(2); z-index: 5;  }
+        div#quad figure.expanded figcaption { opacity: 1; }
+        div.full figure:not(.expanded) { pointer-events: none; }
+    </style>
+
     {{--<style>
 
         .profile-img{
@@ -166,7 +203,7 @@
 
                     <div class="breadcumb-content">
 
-                        <img class="img-responsive img-circle" src="{{ asset('storage/' . auth()->guard('blogger')->user()->image) }}" width="200" style="margin: 0 auto;">
+                        <img class="img-responsive img-circle" src="{{ asset( auth()->guard('blogger')->user()->image) }}" width="200" style="margin: 0 auto;">
 
                         <div class="breadcumb-title">
 
@@ -178,7 +215,7 @@
 
                             <ul>
 
-                                <li><a href="index.html">{{ auth()->guard('blogger')->user()->email }}</a></li>
+                                <li><a href="#">{{ auth()->guard('blogger')->user()->email }}</a></li>
 
                             </ul>
 
@@ -304,7 +341,7 @@
 
                     <div class="blog-heading">
 
-                        <h1>Images</h1>
+                        <h1>Images <small><a href="#">Gérer les images</a></small></h1>
 
                     </div>
 
@@ -312,7 +349,7 @@
 
             </div>
 
-            <div class="row">
+            {{--<div class="row">
 
                 <div class="gallery">
 
@@ -326,6 +363,21 @@
 
                 </div>
 
+            </div>--}}
+
+            <div class="row">
+                <div id="quad">
+
+                    @foreach($blogger_images->take(4) as $image)
+
+                        <figure>
+                            <img src="{{ asset($image->path) }}" alt="rose-red-wine">
+                            <figcaption>{{ $image->title }}</figcaption>
+                        </figure>
+
+                    @endforeach
+
+                </div>
             </div>
 
         </div>
@@ -395,7 +447,7 @@
                     <div class="col-md-4">
 
                         <a href="{{ route('products.show', $favorite->product->id) }}">
-                            <img class="img-responsive normal" src="{{ asset('storage/' . $favorite->product->image) }}" style="height: 212px;" height="270px" alt=""/>
+                            <img class="img-responsive normal" src="{{ asset($favorite->product->image) }}" style="height: 212px;" height="270px" alt=""/>
                         </a>
 
                         <a href="{{ route('products.show', $favorite->product->id) }}">
@@ -852,6 +904,15 @@
                 copy.remove();
             }, 500)
         })
+
+    </script>
+
+    <script>
+
+        var quadimages = document.querySelectorAll("#quad figure");
+        for(i=0; i<quadimages.length; i++) {
+            quadimages[i].addEventListener('click', function(){ this.classList.toggle("expanded"); quad.classList.toggle("full") });
+        }
 
     </script>
 

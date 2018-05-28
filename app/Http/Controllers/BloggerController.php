@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blogger;
 use Illuminate\Http\Request;
 
 class BloggerController extends Controller
@@ -13,8 +14,7 @@ class BloggerController extends Controller
      */
     public function __construct()
     {
-        // Spécifier le "gaurd" pour la restriction
-        $this->middleware('auth:blogger');
+        $this->middleware('auth:blogger')->except(['show', 'listing']);
     }
 
     /**
@@ -47,5 +47,25 @@ class BloggerController extends Controller
         $favorite_products = auth()->guard('blogger')->user()->product_favorites()->latest()->get();
 
         return view('front_views.bloggers.product_favorites', compact('favorite_products'));
+    }
+
+    public function show($id)
+    {
+        $blogger = Blogger::findOrFail($id);
+
+        $articles = $blogger->articles()->latest()->get();
+
+        $blogger_images = $blogger->media_images()->latest()->get();
+        $blogger_videos = $blogger->media_videos()->latest()->get();
+
+        return view('front_views.bloggers.show', compact('articles', 'blogger_images', 'blogger_videos'));
+
+    }
+
+    public function listing()
+    {
+        $bloggers = Blogger::paginate(15);
+
+        return view('front_views.bloggers.index', compact('bloggers'));
     }
 }
