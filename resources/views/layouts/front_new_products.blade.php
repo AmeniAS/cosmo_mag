@@ -84,11 +84,11 @@
                             <figure>
 
                                 <a href="{{ route('products.show', $new_product->id) }}">
-                                    <img class="img-responsive normal" src="{{ asset('storage/' . $new_product->image) }}" style="height: 212px;" height="270px" alt=""/>
+                                    <img class="img-responsive normal" src="{{ asset($new_product->image) }}" style="height: 212px;" height="270px" alt=""/>
                                 </a>
 
                                 <a href="{{ route('products.show', $new_product->id) }}">
-                                    <img class="img-responsive hover" src="{{ asset('storage/' . $new_product->image) }}" style="height: 212px;" height="270px" alt=""/>
+                                    <img class="img-responsive hover" src="{{ asset($new_product->image) }}" style="height: 212px;" height="270px" alt=""/>
                                 </a>
 
                                 <span class="product-position color1">New</span>
