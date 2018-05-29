@@ -6,9 +6,11 @@ use App\Cart;
 use App\FavoriteProduct;
 use App\Http\Repositories\StaticHelpers;
 use App\Product;
+use App\Review;
 use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
@@ -21,7 +23,7 @@ class ProductsController extends Controller
 
     public function __construct(GMaps $maps)
     {
-        $this->middleware('auth:web,blogger', ['only' => ['toggleFavorite', 'addToCart']]);
+        $this->middleware('auth:web,blogger', ['only' => ['toggleFavorite', 'addToCart', 'remove_from_cart', 'review']]);
         $this->maps = $maps;
     }
 
@@ -174,7 +176,40 @@ class ProductsController extends Controller
             $cart->save();
         }
 
+        Session::flash('alert-success', 'Produit ajouté au panier');
+
         $cart->addToCart($product_id, $request->quantity);
+
+        return redirect()->back();
+    }
+
+    public function remove_from_cart(Request $request, $product_id)
+    {
+        $product = Product::findOrFail($product_id);
+        $user = $request->user();
+
+        $cart = Cart::where('user_id', '=', $user->id)->first();
+
+        $cart->removeFromCart($product->id);
+
+        Session::flash('alert-danger', 'Produit supprimé du panier');
+
+        return redirect()->back();
+    }
+
+    public function review(Request $request, $product_id)
+    {
+        $product = Product::findOrFail($product_id);
+
+        $user = $request->user();
+
+        Review::create([
+            'user_id' => $user->id,
+            'product_id' => $product->id,
+            'message' => $request->message
+        ]);
+
+        Session::flash('alert-success', 'Votre avis a été ajouté au produit');
 
         return redirect()->back();
     }

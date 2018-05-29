@@ -32,4 +32,9 @@ class Cart extends Model
             $this->products()->attach([$product_id => ['quantity' => $quantity]]);
         }*/
     }
+
+    public function removeFromCart($product_id)
+    {
+        $this->products()->detach([$product_id]);
+    }
 }

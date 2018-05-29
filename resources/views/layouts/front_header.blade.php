@@ -45,6 +45,10 @@
                                 @endif
                             @endif
 
+                            @if(Auth::guard('partenaire')->check())
+                                    <li><a href="{{ route('all.logout') }}"><i class="fa fa-lock"></i>Déconnexion </a></li>
+                            @endif
+
                             {{--<li><a href="#"><i class="fa fa-heart-o"></i>Wishlist</a></li>--}}
 
                             @if(Auth::guard('web')->check())

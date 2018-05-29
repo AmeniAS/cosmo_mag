@@ -185,6 +185,7 @@ return [
         App\Providers\NewProductsServiceProvider::class,
         App\Providers\CartHeaderServiceProvider::class,
         App\Providers\LatestArticlesProvider::class,
+        App\Providers\ShippingServiceProvider::class
 
     ],
 

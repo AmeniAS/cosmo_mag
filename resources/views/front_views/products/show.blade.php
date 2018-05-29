@@ -285,7 +285,7 @@
 
                         <li class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
 
-                        {{--<li><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Reviews (04)</a></li>--}}
+                        <li><a href="#review" aria-controls="review" role="tab" data-toggle="tab">Avis ({{ $product->reviews->count() }})</a></li>
 
                     </ul>
 
@@ -327,7 +327,49 @@
 
                             <div class="review-con">
 
-                                <div class="single-review mr-b30">
+                                @foreach($product->reviews as $review)
+                                    <div class="single-review mr-b30">
+
+                                        <div class="user-photo">
+
+                                            <img src="{{ asset($review->user->image) }}" alt=""/>
+
+                                        </div>
+
+                                        <div class="review-content">
+
+                                            <div class="heading-review">
+
+                                                <h4>{{ $review->user->name }}</h4>
+
+                                                {{--<ul class="list-inline">
+
+                                                    <li><i class="fa fa-star"></i></li>
+
+                                                    <li><i class="fa fa-star"></i></li>
+
+                                                    <li><i class="fa fa-star"></i></li>
+
+                                                    <li><i class="fa fa-star"></i></li>
+
+                                                    <li><i class="fa fa-star-half-o"></i></li>
+
+                                                </ul>--}}
+
+                                                <span class="date">{{ $review->created_at->format('d M Y') }}</span>
+
+                                            </div>
+
+                                            <p>
+                                                {{ $review->message }}
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+                                @endforeach
+
+                                {{--<div class="single-review mr-b30">
 
                                     <div class="user-photo">
 
@@ -439,7 +481,7 @@
 
                                     </div>
 
-                                </div>
+                                </div>--}}
 
                             </div>
 
@@ -462,6 +504,10 @@
         {!! $data['map']['html'] !!}
 
     </section>
+
+    @if(auth()->guard('web')->check())
+        @include('front_views.partials.product_review')
+    @endif
 
 @endsection
 

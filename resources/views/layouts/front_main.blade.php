@@ -105,6 +105,8 @@
 
 @include('layouts.front_header')
 
+@include('layouts.flash_message')
+
 @yield('content')
 
 {{--@include('layouts.front_slider')

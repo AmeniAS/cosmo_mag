@@ -22,6 +22,8 @@ Route::prefix('products')->group(function (){
     Route::get('/{id}/show', 'ProductsController@show')->name('products.show');
     Route::get('/{product_id}/to_favorites', 'ProductsController@toggleFavorite')->name('products.toggleFavorite');
     Route::post('/{product_id}/to_cart', 'ProductsController@addToCart')->name('products.add_to_cart');
+    Route::get('/{product_id}/remove_from_cart', 'ProductsController@remove_from_cart')->name('products.remove_from_cart');
+    Route::post('/{product_id}/review', 'ProductsController@review')->name('products.review');
 
 });
 
@@ -217,6 +219,32 @@ Route::prefix('/categories')->group(function (){
 
 });
 
+Route::prefix('partners_admin')->middleware('auth:partenaire')->group(function (){
+
+    Route::prefix('/brands')->group(function (){
+
+        Route::get('/', 'Partners\BrandsController@index')->name('partners_admin.brands.index');
+        Route::get('/create', 'Partners\BrandsController@create')->name('partners_admin.brands.create');
+        Route::post('/store', 'Partners\BrandsController@store')->name('partners_admin.brands.store');
+        Route::post('/{id}/update', 'Partners\BrandsController@update')->name('partners_admin.brands.update');
+        Route::get('/{id}/show', 'Partners\BrandsController@show')->name('partners_admin.brands.show');
+        Route::get('/{id}/delete', 'Partners\BrandsController@destroy')->name('partners_admin.brands.delete');
+
+    });
+
+    Route::prefix('/products')->group(function (){
+
+        Route::get('/', 'Partners\ProductController@index')->name('partners_admin.products.index');
+        Route::get('/create', 'Partners\ProductController@create')->name('partners_admin.products.create');
+        Route::post('/store', 'Partners\ProductController@store')->name('partners_admin.products.store');
+        Route::get('/{id}/show', 'Partners\ProductController@show')->name('partners_admin.products.show');
+        Route::post('/{id}/update', 'Partners\ProductController@update')->name('partners_admin.products.update');
+        Route::get('/{id}/delete', 'Partners\ProductController@destroy')->name('partners_admin.products.delete');
+
+    });
+
+});
+
 Route::prefix('/brands')->group(function (){
 
     Route::get('/', 'BrandsController@index')->name('brands.index');
@@ -244,6 +272,7 @@ Route::post('search', 'HomeController@search')->name('search');
 Route::get('logout', function (){
     Auth::guard('admin')->logout();
     Auth::guard('blogger')->logout();
+    Auth::guard('partenaire')->logout();
     Auth::logout();
     return redirect(url('/'));
 })->name('all.logout');

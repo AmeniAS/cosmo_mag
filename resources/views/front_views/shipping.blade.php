@@ -112,15 +112,15 @@
 
                                                 <div class="order-pro order{{ $loop->iteration }}">
 
-                                                    <input value="{{ $product->pivot->quantity }}" />
+                                                    <input value="{{ $product->pivot->quantity }}" disabled/>
 
-                                                    <div class="btn-plus plus{{ $loop->iteration }}"><span class="glyphicon glyphicon-plus"></span>
+                                                    {{--<div class="btn-plus plus{{ $loop->iteration }}"><span class="glyphicon glyphicon-plus"></span>
 
                                                     </div>
 
                                                     <div class="btn-minus minus{{ $loop->iteration }}"><span class="glyphicon glyphicon-minus"></span>
 
-                                                    </div>
+                                                    </div>--}}
 
                                                 </div>
 
@@ -128,7 +128,9 @@
 
                                             <td><span class="prize">{{ $product->price }}</span></td>
 
-                                            <td><i class="fa fa-times"></i></td>
+                                            <td>
+                                                <a href="{{ route('products.remove_from_cart', $product->id) }}"><i class="fa fa-times"></i></a>
+                                            </td>
 
                                         </tr>
 
@@ -140,7 +142,7 @@
 
                                     <span>Total Price :</span>
 
-                                    <strong>$ 202.00</strong>
+                                    <strong>{{ $total_price }}</strong>
 
                                 </div>
 
@@ -318,15 +320,21 @@
 
                                     </tr>
 
-                                    <tr>
+                                    {{--{{ dd($cart_products) }}--}}
 
-                                        <td>1. Nikki Mike Pro</td>
+                                    @foreach($cart_products as $product)
 
-                                        <td>$ 99.00</td>
+                                        <tr>
 
-                                    </tr>
+                                            <td>{{ $product->name }}</td>
 
-                                    <tr>
+                                            <td>{{ $product->price * $product->pivot->quantity }}</td>
+
+                                        </tr>
+
+                                    @endforeach
+
+                                    {{--<tr>
 
                                         <td>2. Nikki Mike Pro </td>
 
@@ -340,13 +348,13 @@
 
                                         <td>$ 158.00</td>
 
-                                    </tr>
+                                    </tr>--}}
 
                                     <tr class="row-bold">
 
                                         <td>Total</td>
 
-                                        <td>$ 158.00</td>
+                                        <td>{{ $total_price }}</td>
 
                                     </tr>
 

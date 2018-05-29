@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return in_array($brand_id, $this->brand_favorites->pluck('brand_id')->toArray()) ? true : false;
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

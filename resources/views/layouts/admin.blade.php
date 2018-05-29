@@ -53,7 +53,11 @@
 
         -->
 
-        @include('layouts.admin_sidebar')
+        @if(Auth::guard('partenaire')->check())
+            @include('layouts.partners_sidebar')
+        @else
+            @include('layouts.admin_sidebar')
+        @endif
 
     </div>
 
