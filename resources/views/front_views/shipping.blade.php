@@ -16,7 +16,7 @@
 
                         <div class="breadcumb-title">
 
-                            <h1>Méthode de paiement</h1>
+                            <h1>Panier</h1>
 
                         </div>
 
@@ -32,7 +32,7 @@
 
                                 <li>-</li>--}}
 
-                                <li><a href="#">Shipping Method</a></li>
+                                <li><a href="#">Passer Commande </a></li>
 
                             </ul>
 
@@ -64,11 +64,11 @@
 
                         <ul class="tab-nav" role="tablist">
 
-                            <li class="active col-sm-4"><a href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab">01. Checkout</a></li>
+                            <li class="active col-sm-4"><a href="#checkout" aria-controls="checkout" role="tab" data-toggle="tab">Panier </a></li>
 
-                            <li class="col-sm-4"><a href="#shipping" aria-controls="shipping" role="tab" data-toggle="tab">02. Shipping Method</a></li>
+                            <li class="col-sm-4"><a href="#shipping" aria-controls="shipping" role="tab" data-toggle="tab">Commander </a></li>
 
-                            <li class="col-sm-4"><a href="#payment" aria-controls="payment" role="tab" data-toggle="tab">03.Payment</a></li>
+                            <li class="col-sm-4"><a href="#payment" aria-controls="payment" role="tab" data-toggle="tab">Paiement </a></li>
 
                         </ul>
 
@@ -146,7 +146,7 @@
 
                                 <div class="next-step text-center">
 
-                                    <button>Next Step</button>
+                                    <button>Continuer</button>
 
                                 </div>
 
@@ -162,7 +162,7 @@
 
                             <div class="form-area row">
 
-                                <h3>Billing Information</h3>
+                                <h3>Commande </h3>
 
                                 <form>
 
@@ -170,7 +170,7 @@
 
                                         <div class="col-sm-6">
 
-                                            <label>First Name *</label>
+                                            <label>Prénom </label>
 
                                             <input type="text">
 
@@ -178,7 +178,7 @@
 
                                         <div class="col-sm-6">
 
-                                            <label>Last Name *</label>
+                                            <label>Nom</label>
 
                                             <input type="text">
 
@@ -186,7 +186,7 @@
 
                                     </fieldset>
 
-                                    <fieldset>
+                                    {{--<fieldset>
 
                                         <div class="col-sm-12">
 
@@ -196,13 +196,13 @@
 
                                         </div>
 
-                                    </fieldset>
+                                    </fieldset>--}}
 
                                     <fieldset>
 
                                         <div class="col-sm-6">
 
-                                            <label>E-mail Address * *</label>
+                                            <label>E-mail </label>
 
                                             <input type="email">
 
@@ -210,7 +210,7 @@
 
                                         <div class="col-sm-6">
 
-                                            <label>Phone *</label>
+                                            <label>Telephone </label>
 
                                             <input type="number">
 
@@ -222,15 +222,15 @@
 
                                         <div class="col-sm-12">
 
-                                            <label>Country</label>
+                                            <label>Pays</label>
 
                                             <select>
 
-                                                <option>Select Your Country</option>
+                                                <option>sélectionnez votre pays</option>
 
-                                                <option>Bangladesh</option>
+                                                <option>Tunis</option>
 
-                                                <option>China</option>
+                                                <option>France</option>
 
                                                 <option>USA</option>
 
@@ -244,7 +244,7 @@
 
                                         <div class="col-sm-12">
 
-                                            <label>Address</label>
+                                            <label>Addresse</label>
 
                                             <input type="text">
 
@@ -258,7 +258,7 @@
 
                                         <div class="col-sm-12">
 
-                                            <label>Town / City</label>
+                                            <label>Ville</label>
 
                                             <input type="text">
 
@@ -268,7 +268,7 @@
 
                                     <fieldset>
 
-                                        <div class="col-sm-6">
+                                        {{--<div class="col-sm-6">
 
                                             <label>District *</label>
 
@@ -284,11 +284,11 @@
 
                                             </select>
 
-                                        </div>
+                                        </div>--}}
 
                                         <div class="col-sm-6">
 
-                                            <label>Postcode / ZIP</label>
+                                            <label>Code Postal</label>
 
                                             <input type="text">
 
@@ -358,7 +358,7 @@
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 next-step text-center">
 
-                            <button>Next Step</button>
+                            <button>Continuer </button>
 
                         </div>
 
@@ -374,13 +374,13 @@
                                             <div class="panel-heading" role="tab" id="headingOne">
                                                 <h4 class="panel-title">
                                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                        <span class="pd-l10">Direct Bank Tranfeer</span>
+                                                        <span class="pd-l10">Paiment par point d'affiliation</span>
                                                     </a>
                                                 </h4>
                                             </div>
                                             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                                 <div class="panel-body">
-                                                    Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.
+
                                                 </div>
                                             </div>
                                         </div>
@@ -388,13 +388,13 @@
                                             <div class="panel-heading" role="tab" id="headingTwo">
                                                 <h4 class="panel-title">
                                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                        <span class="pd-l10"> Check Payments</span>
+                                                        <span class="pd-l10"> paiement par carte e-dinar </span>
                                                     </a>
                                                 </h4>
                                             </div>
                                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                                 <div class="panel-body">
-                                                    Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.
+
                                                 </div>
                                             </div>
                                         </div>
@@ -402,13 +402,13 @@
                                             <div class="panel-heading" role="tab" id="headingThree">
                                                 <h4 class="panel-title">
                                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                        <span class="pd-l10">Cash On Delivery</span>
+                                                        <span class="pd-l10">paiement à la livraison</span>
                                                     </a>
                                                 </h4>
                                             </div>
                                             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                                 <div class="panel-body">
-                                                    Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.
+
                                                 </div>
                                             </div>
                                         </div>
@@ -418,7 +418,7 @@
 
                             <div class="next-step text-center">
 
-                                <button>Next Step</button>
+                                <button>Continuer </button>
 
                             </div>
 
