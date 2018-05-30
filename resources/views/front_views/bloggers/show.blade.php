@@ -53,11 +53,11 @@
 
                     <div class="breadcumb-content">
 
-                        <img class="img-responsive img-circle" src="{{ asset( auth()->guard('blogger')->user()->image) }}" width="200" style="margin: 0 auto;">
+                        <img class="img-responsive img-circle" src="{{ asset( $blogger->image) }}" width="200" style="margin: 0 auto;">
 
                         <div class="breadcumb-title">
 
-                            <h1>{{ auth()->guard('blogger')->user()->name }}</h1>
+                            <h1>{{ $blogger->name }}</h1>
 
                         </div>
 
@@ -65,7 +65,7 @@
 
                             <ul>
 
-                                <li><a href="#">{{ auth()->guard('blogger')->user()->email }}</a></li>
+                                <li><a href="#">{{ $blogger->email }}</a></li>
 
                             </ul>
 

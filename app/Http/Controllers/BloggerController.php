@@ -58,7 +58,7 @@ class BloggerController extends Controller
         $blogger_images = $blogger->media_images()->latest()->get();
         $blogger_videos = $blogger->media_videos()->latest()->get();
 
-        return view('front_views.bloggers.show', compact('articles', 'blogger_images', 'blogger_videos'));
+        return view('front_views.bloggers.show', compact('blogger','articles', 'blogger_images', 'blogger_videos'));
 
     }
 
