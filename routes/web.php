@@ -257,8 +257,6 @@ Route::prefix('/brands')->group(function (){
 /*Route::get('test', function (){
     //return phpinfo();
     $p =App\Partner::first();
-    /*Mail::to('khemissi.islem@gmail.com')
-        ->send(new PartnerCreated($p));*/
     Mail::to('khemissi.islem@gmail.com')
         ->send(new App\Mail\PartnerCreated($p));
     return 'ok';
