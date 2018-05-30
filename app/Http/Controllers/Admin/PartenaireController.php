@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Brand;
+use App\Mail\PartnerCreated;
 use App\Partner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class PartenaireController extends Controller
@@ -52,11 +54,23 @@ class PartenaireController extends Controller
         // récupérer une instance de l'user connecté
         //$user = $request->user();
 
-        $partner = Partner::create([
+        $partner = new Partner();
+        $partner->website = $request->website;
+        $partner->email = $request->email;
+        $partner->password = str_random(6);
+
+        Mail::to($partner->email)
+            ->send(new PartnerCreated($partner));
+
+        $partner->password = bcrypt($partner->password);
+
+        $partner->save();
+
+        /*$partner = Partner::create([
             'email' => $request->email,
             'password' => bcrypt(123456),
             'website' => $request->website
-        ]);
+        ]);*/
 
         $partner->brands()->sync([$request->brand_id]);
         Session::flash('alert-success', 'Partenaire ajouté avec succès');

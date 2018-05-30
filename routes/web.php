@@ -255,7 +255,13 @@ Route::prefix('/brands')->group(function (){
 
 
 /*Route::get('test', function (){
-    return view('front_views.bloggers.profile');
+    //return phpinfo();
+    $p =App\Partner::first();
+    /*Mail::to('khemissi.islem@gmail.com')
+        ->send(new PartnerCreated($p));*/
+    Mail::to('khemissi.islem@gmail.com')
+        ->send(new App\Mail\PartnerCreated($p));
+    return 'ok';
 });*/
 
 Route::get('beaute', function (){
