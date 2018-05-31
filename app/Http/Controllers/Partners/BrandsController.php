@@ -17,7 +17,7 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        $brands = Brand::all();
+        $brands = auth()->guard('partenaire')->user()->brands;
 
         return view('partners_admin.brands.index', compact('brands'));
     }

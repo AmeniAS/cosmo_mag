@@ -394,7 +394,7 @@
 
                     <div class="blog-heading">
 
-                        <h1>Video</h1>
+                        <h1>Video <small><a href="#">Gérer les videos</a></small></h1>
 
                     </div>
 
@@ -476,7 +476,7 @@
 
                     <div class="blog-heading">
 
-                        <h1>Articles</h1>
+                        <h1>Articles <small><a href="#">Gérer les articles</a></small></h1>
 
                     </div>
 

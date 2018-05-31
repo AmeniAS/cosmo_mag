@@ -18,7 +18,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $brands = auth()->guard('partenaire')->user()->brands;
+
+        foreach ($brands as $brand)
+        {
+            foreach ($brand->products as $product)
+            {
+                $products[] = $product;
+            }
+        }
+
+        //$products = Product::all();
 
         return view('partners_admin.products.index', compact('products'));
     }
@@ -30,7 +40,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $brands = Brand::all();
+        $brands = auth()->guard('partenaire')->user()->brands;
 
         return view('partners_admin.products.create', compact('brands'));
     }
@@ -87,7 +97,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product= Product::findOrFail($id);
-        $brands = Brand::all();
+        $brands = auth()->guard('partenaire')->user()->brands;
 
         return view('partners_admin.products.show', compact('product', 'brands'));
     }
