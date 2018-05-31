@@ -513,7 +513,7 @@
 
                                     <p>{{ \Illuminate\Support\Str::words($article->description, 25) }}</p>
 
-                                    <a href="{{ route('articles.show', $article->id) }}" class="btn3">Read More <i class="fa fa-angle-right"></i></a>
+                                    <a href="{{ route('articles.show', $article->id) }}" class="btn3">lire la suite <i class="fa fa-angle-right"></i></a>
 
                                 </article>
 

@@ -59,7 +59,7 @@
                                                 <div class="product-banner-con">
                                                     <h1>{{ $products[2]->name }}</h1>
                                                     <p>{{ $products[2]->brand->name }}</p>
-                                                    <a class="btn1" href="#">Read MOre</a>
+                                                    <a class="btn1" href="#">Lire la suite</a>
                                                 </div>
 
                                             </div>

@@ -9,22 +9,23 @@
             <a href="#" class="btn btn-danger btn-lg col-md-3" role="button">
                 <span class="glyphicon glyphicon-bookmark"></span> <br/>
                 {{ count($mostVisitedPages) }}<br/>
-                Most Visited Pages <br />
+                Pages les plus visitées <br />
             </a>
             <a href="#" class="btn btn-warning btn-lg col-md-3" role="button">
                 <span class="glyphicon glyphicon-globe"></span> <br/>
                 {{ count($topBrowsers) }}<br/>
-                Top Browsers
+                Meilleurs navigateurs
+
             </a>
             <a href="#" class="btn btn-success btn-lg col-md-3" role="button">
                 <span class="glyphicon glyphicon-signal"></span> <br/>
                 {{ count($topReferrers) }}<br/>
-                Top Referrers
+                Top référents
             </a>
             <a href="#" class="btn btn-primary btn-lg col-md-3" role="button">
                 <span class="glyphicon glyphicon-comment"></span> <br/>
                 {{ count($totalVisitorsAndPageViews) }}<br/>
-                totalVisitorsAndPageViews</a>
+                Nombre total de visiteurs </a>
         </div>
         {{--<div class="col-xs-6 col-md-6">
             <a href="#" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Users</a>

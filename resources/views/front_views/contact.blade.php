@@ -16,7 +16,7 @@
 
                         <div class="breadcumb-title">
 
-                            <h1>Contact Us</h1>
+                            <h1>Contact</h1>
 
                         </div>
 
@@ -101,7 +101,7 @@
 
                                 <div class="info-con">
 
-                                    <p> 29 Street,  Melbourne City, Australia #34 Road, House #10.</p>
+                                    <p>2058 Riadh Landalous Ariana - Tunis</p>
 
                                 </div>
 
@@ -117,7 +117,7 @@
 
                                 <div class="info-con">
 
-                                    <p>infoallo.com</p>
+                                    <p>CosmoMag@gmail.com</p>
 
                                 </div>
 
@@ -133,7 +133,7 @@
 
                                 <div class="info-con">
 
-                                    <p>+ 9850678910</p>
+                                    <p>22689758</p>
 
                                 </div>
 
@@ -149,7 +149,7 @@
 
                                 <div class="info-con">
 
-                                    <p>+ 9850678910</p>
+                                    <p>71258963</p>
 
                                 </div>
 
@@ -165,7 +165,7 @@
 
                     <div class="contact-form">
 
-                        <h3>Send Us Message</h3>
+                        <h3>Envoyez-nous un message</h3>
 
                         <div class="form-area row">
 
@@ -177,7 +177,7 @@
 
                                     <div class="col-sm-6">
 
-                                        <input type="text" name="name" required placeholder="Name*"/>
+                                        <input type="text" name="name" required placeholder="Nom*"/>
 
                                     </div>
 
@@ -201,7 +201,7 @@
 
                                 <div class="col-sm-12">
 
-                                    <button type="submit">Send Message</button>
+                                    <button type="submit">Envoyer</button>
 
                                 </div>
 
