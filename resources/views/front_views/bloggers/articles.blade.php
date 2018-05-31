@@ -25,7 +25,7 @@
 
             <table class="table table-striped">
 
-                @foreach($images as $image)
+                @foreach($articles as $article)
 
                     <tr>
 
@@ -37,7 +37,7 @@
 
                                     <figure>
 
-                                        <img src="{{ asset($image->path) }}" width="350px" alt="" />
+                                        <img src="{{ asset($article->image) }}" width="350px" alt="" />
 
                                     </figure>
 
@@ -52,10 +52,10 @@
 
                                 <div class="col-md-12">
 
-                                    <h3>{{ $image->title }}</h3>
+                                    <h3>{{ $article->title }}</h3>
 
                                     <p>
-                                        {{ $image->description }}
+                                        {{ $article->article_content }}
                                     </p>
 
                                 </div>
@@ -70,7 +70,7 @@
                                 <div class="col-md-12">
 
                                     <p>
-                                        <a href="{{ route('bloggers.delete_image', $image->id) }}" class="btn btn-black">Supprimer cette image</a>
+                                        <a href="{{ route('bloggers.delete_article', $article->id) }}" class="btn btn-black">Supprimer cette article</a>
                                     </p>
 
                                 </div>
@@ -90,7 +90,7 @@
                 <div>
 
                     <div style="width: 300px; margin: 0 auto;">
-                        {{ $images->links('layouts.pagination_tpl') }}
+                        {{ $articles->links('layouts.pagination_tpl') }}
                     </div>
 
                 </div>

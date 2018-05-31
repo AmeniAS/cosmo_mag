@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blogger;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class BloggerController extends Controller
 {
@@ -39,8 +40,62 @@ class BloggerController extends Controller
 
     public function images()
     {
-        return view('front_views.bloggers.images');
+        $images = auth()->guard('blogger')->user()->media_images()->paginate(10);
+        return view('front_views.bloggers.images', compact('images'));
     }
+
+    public function delete_image($id)
+    {
+        $image = auth()->guard('blogger')->user()->media_images()->findOrFail($id);
+
+        $image->delete();
+
+        Session::flash('alert-danger', 'Image supprimée!');
+
+        return redirect()->back();
+    }
+
+    public function articles()
+    {
+        $articles = auth()->guard('blogger')->user()->articles()->paginate(10);
+        return view('front_views.bloggers.articles', compact('articles'));
+    }
+
+    public function delete_article($id)
+    {
+        $article = auth()->guard('blogger')->user()->articles()->findOrFail($id);
+
+        $article->delete();
+
+        Session::flash('alert-danger', 'Article supprimée!');
+
+        return redirect()->back();
+    }
+
+    /*
+     *
+     */
+
+    public function videos()
+    {
+        $videos = auth()->guard('blogger')->user()->media_videos()->paginate(10);
+        return view('front_views.bloggers.videos', compact('videos'));
+    }
+
+    public function delete_video($id)
+    {
+        $video = auth()->guard('blogger')->user()->media_videos()->findOrFail($id);
+
+        $video->delete();
+
+        Session::flash('alert-danger', 'Video supprimée!');
+
+        return redirect()->back();
+    }
+
+    /*
+     *
+     */
 
     public function favoriteProducts()
     {

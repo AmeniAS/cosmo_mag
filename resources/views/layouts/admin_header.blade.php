@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('admin.dashboard') }}">Dashboard</a>
+            <a class="navbar-brand" href="{{ auth()->guard('admin')->check() ? route('admin.dashboard') : route('partners_admin.brands.index') }}">Dashboard</a>
         </div>
         <div class="collapse navbar-collapse">
             {{--<ul class="nav navbar-nav navbar-left">

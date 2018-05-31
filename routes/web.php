@@ -48,9 +48,20 @@ Route::prefix('bloggers')->group(function (){
 
     //Route::get('/', 'BloggerController@index')->name('bloggers.home');
     Route::get('/', 'BloggerController@profile')->name('bloggers.profile');
+    Route::get('/favorite_products', 'BloggerController@favoriteProducts')->name('bloggers.favorite_products');
+
+    Route::get('/images', 'BloggerController@images')->name('bloggers.images');
+    Route::get('/images/delete_image/{id}', 'BloggerController@delete_image')->name('bloggers.delete_image');
+
+    Route::get('/articles', 'BloggerController@articles')->name('bloggers.articles');
+    Route::get('/articles/delete_article/{id}', 'BloggerController@delete_article')->name('bloggers.delete_article');
+
+    Route::get('/videos', 'BloggerController@videos')->name('bloggers.videos');
+    Route::get('/videos/delete_video/{id}', 'BloggerController@delete_video')->name('bloggers.delete_video');
+
+
     Route::get('/list', 'BloggerController@listing')->name('bloggers.listing');
     Route::get('/{id}/show', 'BloggerController@show')->name('bloggers.show');
-    Route::get('/favorite_products', 'BloggerController@favoriteProducts')->name('bloggers.favorite_products');
 
     Route::get('/login', 'AuthBlogger\LoginController@showLoginForm')->name('bloggers.login');
     Route::post('/login', 'AuthBlogger\LoginController@login')->name('bloggers.login.submit');

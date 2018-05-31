@@ -25,39 +25,34 @@
 
             <table class="table table-striped">
 
-                @foreach($images as $image)
+                @foreach($videos as $video)
 
                     <tr>
+
+                        <td>
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    <h3>{{ $video->title }}</h3>
+
+                                </div>
+
+                            </div>
+
+                        </td>
 
                         <td>
 
                             <div class="col-sm-12 col-xs-12 accurate" style="max-width: 350px">
 
-                                <div class="single-services services1 af">
+                                <div class="col-md-4">
+                                    {{--<h3>{{ $video->title }}</h3>--}}
+                                    <video width="320" height="240" controls>
+                                        <source src="{{ asset($video->url) }}" type="video/mp4">
 
-                                    <figure>
-
-                                        <img src="{{ asset($image->path) }}" width="350px" alt="" />
-
-                                    </figure>
-
-                                </div>
-
-                            </div>
-
-                        </td>
-
-                        <td>
-                            <div class="row">
-
-                                <div class="col-md-12">
-
-                                    <h3>{{ $image->title }}</h3>
-
-                                    <p>
-                                        {{ $image->description }}
-                                    </p>
-
+                                        Your browser does not support the video tag.
+                                    </video>
                                 </div>
 
                             </div>
@@ -70,7 +65,7 @@
                                 <div class="col-md-12">
 
                                     <p>
-                                        <a href="{{ route('bloggers.delete_image', $image->id) }}" class="btn btn-black">Supprimer cette image</a>
+                                        <a href="{{ route('bloggers.delete_video', $video->id) }}" class="btn btn-black">Supprimer cette video</a>
                                     </p>
 
                                 </div>
@@ -90,7 +85,7 @@
                 <div>
 
                     <div style="width: 300px; margin: 0 auto;">
-                        {{ $images->links('layouts.pagination_tpl') }}
+                        {{ $videos->links('layouts.pagination_tpl') }}
                     </div>
 
                 </div>
