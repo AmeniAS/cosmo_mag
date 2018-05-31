@@ -426,7 +426,7 @@
 
                             <div class="next-step text-center">
 
-                                <button>Continuer </button>
+                                <button> Valider </button>
 
                             </div>
 
