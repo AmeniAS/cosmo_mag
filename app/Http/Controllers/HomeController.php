@@ -47,7 +47,7 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    public function sendCampaign(Request $request)
+    /*public function sendCampaign(Request $request)
     {
         $this->newsletter->createCampaign(
             'MkConsult',
@@ -57,7 +57,7 @@ class HomeController extends Controller
         );
 
         return redirect()->back();
-    }
+    }*/
 
     public function homePage()
     {

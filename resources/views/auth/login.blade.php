@@ -42,13 +42,13 @@
                     Login Membre
                 </span>
 
-                <div class="wrap-input100 validate-form validate-input {{ $errors->has('email') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('email') ? $errors->first('email') : 'Valid email is required: ex@abc.xyz' }}">
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('email') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('email') ? $errors->first('email') : ' L E-mail entré ne correspond pas a aucun compte .veuillez créer un compte ' }}">
                     <span class="label-input100">E-mail</span>
                     <input class="input100" type="text" name="email" value="{{ old('email') }}" placeholder="E-mail...">
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100 validate-form validate-input {{ $errors->has('password') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('password') ? $errors->first('password') : 'Password is required' }}">
+                <div class="wrap-input100 validate-form validate-input {{ $errors->has('password') ? 'alert-validate' : '' }}" data-validate="{{ $errors->has('password') ? $errors->first('password') : 'le mot passe entré est incorrecte. ' }}">
                     <span class="label-input100">Mot de passe</span>
                     <input class="input100" type="password" name="password" placeholder="Mot de passe...">
                     <span class="focus-input100"></span>

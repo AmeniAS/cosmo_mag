@@ -2,34 +2,34 @@
 
 return [
     'words' => [
-        'cancel'  => 'Cancel',
-        'delete'  => 'Delete',
-        'edit'    => 'Edit',
-        'yes'     => 'Yes',
-        'no'      => 'No',
+        'cancel'  => 'Annuler ',
+        'delete'  => 'Supprimer ',
+        'edit'    => 'Modifier',
+        'yes'     => 'Oui',
+        'no'      => 'Non',
         'minutes' => '1 minute| :count minutes',
     ],
 
     'discussion' => [
-        'new'          => 'New '.trans('chatter::intro.titles.discussion'),
-        'all'          => 'All '.trans('chatter::intro.titles.discussion'),
-        'create'       => 'Create '.trans('chatter::intro.titles.discussion'),
-        'posted_by'    => 'Posted by',
-        'head_details' => 'Posted in Category',
+        'new'          => 'Nouveau '.trans('chatter::intro.titles.discussion'),
+        'all'          => 'Tous'.trans('chatter::intro.titles.discussion'),
+        'create'       => 'Créer '.trans('chatter::intro.titles.discussion'),
+        'posted_by'    => 'Publié par ',
+        'head_details' => 'publié en categorie',
 
     ],
     'response' => [
-        'confirm'     => 'Are you sure you want to delete this response?',
-        'yes_confirm' => 'Yes Delete It',
-        'no_confirm'  => 'No Thanks',
-        'submit'      => 'Submit response',
-        'update'      => 'Update Response',
+        'confirm'     => 'êtes-vous sûr de vouloir supprimer cette reponse ',
+        'yes_confirm' => 'Oui ',
+        'no_confirm'  => 'Non',
+        'submit'      => 'Soumettre Reponse',
+        'update'      => 'MOdifier Reponse',
     ],
 
     'editor' => [
-        'title'               => 'Title of '.trans('chatter::intro.titles.discussion'),
-        'select'              => 'Select a Category',
-        'tinymce_placeholder' => 'Type Your '.trans('chatter::intro.titles.discussion').' Here...',
+        'title'               => 'Titre de  '.trans('chatter::intro.titles.discussion'),
+        'select'              => 'Choisir catégorie ',
+        'tinymce_placeholder' => 'Tapez Votre '.trans('chatter::intro.titles.discussion').' Ici...',
         'select_color_text'   => 'Select a Color for this '.trans('chatter::intro.titles.discussion').' (optional)',
     ],
 
@@ -37,8 +37,7 @@ return [
         'notify' => 'Notify me when someone replies',
     ],
 
-    'auth' => 'Please <a href="/:home/login">login</a>
-                or <a href="/:home/register">register</a>
-                to leave a response.',
+    'auth' => 'veuillez se <a href="/:home/login">connecter </a>
+                ou <a href="/:home/register">S inscrire</a>',
 
 ];

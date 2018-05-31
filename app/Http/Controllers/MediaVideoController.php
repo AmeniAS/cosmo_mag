@@ -33,7 +33,7 @@ class MediaVideoController extends Controller
 
         $this->validate($request, [
             'title' => 'required',
-            'url' => 'required|mimes:flv,mp4,mov,ogg,3gp,avi | max:20000',
+            'url' => 'required|mimes:flv,mp4,mov,ogg,3gp,avi | max:2000000',
         ]);
 
         $url = 'storage/' . $request->file('url')->store('uploads/media_videos', 'public');

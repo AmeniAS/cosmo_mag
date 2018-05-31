@@ -110,7 +110,7 @@ class BrandsController extends Controller
         $brand = Brand::findOrFail($id);
 
         if ($request->file('logo')) {
-            $logo_url = $request->file('logo')->store('uploads/brands', 'public');
+            $logo_url = 'storage/' . $request->file('logo')->store('uploads/brands', 'public');
             $brand->logo = $logo_url;
         }
 

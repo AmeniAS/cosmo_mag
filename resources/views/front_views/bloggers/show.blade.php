@@ -116,7 +116,7 @@
 
                         <div class="content-support">
 
-                            <h4>Videos</h4>
+                            <h4>Vidéos</h4>
 
                         </div>
 
@@ -195,7 +195,7 @@
 
                     <div class="blog-heading">
 
-                        <h1>Video</h1>
+                        <h1>Vidéos</h1>
 
                     </div>
 
