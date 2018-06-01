@@ -23,7 +23,7 @@
 
                                     <div class="bg-pos">
 
-                                        <a href="#"><h3>{{ $article->title }}</h3></a>
+                                        <a href="{{ route('articles.show', $article->id) }}"><h3>{{ $article->title }}</h3></a>
 
                                         <ul class="list-inline">
 

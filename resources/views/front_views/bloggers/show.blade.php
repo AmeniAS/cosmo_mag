@@ -208,6 +208,7 @@
                 @foreach($blogger_videos as $video)
 
                     <div class="col-md-4">
+                        <h3>{{ $video->title }}</h3>
                         <video width="320" height="240" controls>
                             <source src="{{ asset($video->url) }}" type="video/mp4">
 
